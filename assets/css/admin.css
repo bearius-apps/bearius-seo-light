@@ -1,0 +1,409 @@
+/**
+ * Admin styles for the SEO meta box and settings screen.
+ *
+ * @package BeariusSEOLight
+ */
+
+#bearius-seo-box {
+	border: 1px solid #d5d7da;
+	border-radius: 10px;
+	overflow: hidden;
+	box-shadow: 0 1px 3px rgba( 0, 0, 0, 0.05 );
+}
+
+#bearius-seo-box .inside {
+	margin: 0;
+	padding: 0;
+}
+
+#bearius-seo-box .postbox-header {
+	border-bottom: 1px solid #e0e0e2;
+	background: #fff;
+}
+
+#bearius-seo-box .postbox-header .hndle,
+#bearius-seo-box .hndle {
+	display: flex;
+	align-items: center;
+	gap: 9px;
+	padding: 14px 18px;
+	font-size: 14px;
+	font-weight: 600;
+	color: #1d2327;
+}
+
+#bearius-seo-box .hndle .bearius-seo-mark {
+	flex: none;
+	width: 22px;
+	height: 22px;
+	color: #0f5f6b;
+}
+
+.bearius-seo-panel {
+	font-size: 13px;
+	line-height: 1.5;
+	color: #1d2327;
+}
+
+/* Previews
+   ------------------------------------------------------------------ */
+
+.bearius-seo-previews {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 20px;
+	padding: 20px;
+	background: linear-gradient( 180deg, #f6f7f7 0%, #f0f0f1 100% );
+	border-bottom: 1px solid #dcdcde;
+}
+
+.bearius-seo-preview {
+	flex: 1 1 340px;
+	min-width: 0;
+}
+
+.bearius-seo-preview__label {
+	display: flex;
+	align-items: center;
+	gap: 6px;
+	margin: 0 0 10px;
+	font-size: 11px;
+	font-weight: 600;
+	text-transform: uppercase;
+	letter-spacing: 0.07em;
+	color: #646970;
+}
+
+.bearius-seo-preview__label::before {
+	content: "";
+	width: 6px;
+	height: 6px;
+	border-radius: 50%;
+	background: #0f5f6b;
+	flex: none;
+}
+
+.bearius-seo-preview__card {
+	background: #fff;
+	border: 1px solid #e0e0e2;
+	border-radius: 8px;
+	padding: 16px 18px;
+	overflow: hidden;
+	box-shadow: 0 1px 2px rgba( 0, 0, 0, 0.04 ), 0 4px 12px rgba( 0, 0, 0, 0.04 );
+	transition: box-shadow 0.15s ease;
+}
+
+.bearius-seo-preview__card:hover {
+	box-shadow: 0 1px 2px rgba( 0, 0, 0, 0.06 ), 0 8px 20px rgba( 0, 0, 0, 0.07 );
+}
+
+.bearius-seo-serp__url {
+	display: block;
+	margin: 0 0 5px;
+	font-size: 12px;
+	color: #4d5156;
+	word-break: break-all;
+}
+
+.bearius-seo-serp__title {
+	display: block;
+	margin: 0 0 5px;
+	font-size: 19px;
+	line-height: 1.3;
+	color: #1a0dab;
+	font-weight: 400;
+}
+
+.bearius-seo-serp__desc {
+	display: block;
+	font-size: 13px;
+	line-height: 1.6;
+	color: #4d5156;
+}
+
+.bearius-seo-social__card {
+	padding: 0;
+}
+
+.bearius-seo-social__image {
+	display: block;
+	width: 100%;
+	aspect-ratio: 1200 / 630;
+	background-color: #f0f0f1;
+	background-position: center center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	border-bottom: 1px solid #e0e0e2;
+}
+
+.bearius-seo-social__image.is-empty {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 12px;
+	color: #a7aaad;
+	background-image: none;
+}
+
+.bearius-seo-social__body {
+	display: block;
+	padding: 12px 16px 14px;
+	background: #f9f9f9;
+}
+
+.bearius-seo-social__domain {
+	display: block;
+	margin: 0 0 4px;
+	font-size: 11px;
+	text-transform: uppercase;
+	letter-spacing: 0.04em;
+	color: #8c8f94;
+}
+
+.bearius-seo-social__title {
+	display: block;
+	margin: 0 0 4px;
+	font-size: 15px;
+	font-weight: 600;
+	line-height: 1.35;
+	color: #1d2327;
+}
+
+.bearius-seo-social__desc {
+	display: block;
+	font-size: 12px;
+	line-height: 1.5;
+	color: #646970;
+}
+
+/* Fields
+   ------------------------------------------------------------------ */
+
+.bearius-seo-fields {
+	display: flex;
+	flex-direction: column;
+	gap: 14px;
+	padding: 20px;
+	background: #fbfbfc;
+}
+
+.bearius-seo-field {
+	padding: 16px 18px;
+	background: #fff;
+	border: 1px solid #e6e7e8;
+	border-radius: 8px;
+	transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.bearius-seo-field:hover {
+	border-color: #d5d7da;
+	box-shadow: 0 1px 3px rgba( 0, 0, 0, 0.04 );
+}
+
+.bearius-seo-field:focus-within {
+	border-color: #a7c8e3;
+	box-shadow: 0 0 0 3px rgba( 34, 113, 177, 0.08 );
+}
+
+.bearius-seo-field__head {
+	display: flex;
+	align-items: baseline;
+	justify-content: space-between;
+	gap: 12px;
+	margin: 0 0 8px;
+}
+
+.bearius-seo-field__label {
+	font-size: 13px;
+	font-weight: 600;
+	color: #1d2327;
+}
+
+.bearius-seo-counter {
+	flex: none;
+	font-size: 12px;
+	font-variant-numeric: tabular-nums;
+	color: #8c8f94;
+}
+
+.bearius-seo-counter.is-warning {
+	color: #bd8600;
+}
+
+.bearius-seo-counter.is-over {
+	color: #d63638;
+	font-weight: 600;
+}
+
+.bearius-seo-panel input[type="text"],
+.bearius-seo-panel input[type="url"],
+.bearius-seo-panel textarea {
+	width: 100%;
+	max-width: none;
+	border: 1px solid #dcdcde;
+	border-radius: 5px;
+	padding: 8px 11px;
+	font-size: 13px;
+	line-height: 1.5;
+	box-shadow: none;
+	transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.bearius-seo-panel input[type="text"]:focus,
+.bearius-seo-panel input[type="url"]:focus,
+.bearius-seo-panel textarea:focus {
+	border-color: #2271b1;
+	box-shadow: 0 0 0 2px rgba( 34, 113, 177, 0.18 );
+	outline: 2px solid transparent;
+}
+
+.bearius-seo-panel textarea {
+	resize: vertical;
+	min-height: 72px;
+}
+
+/* Length meter
+   ------------------------------------------------------------------ */
+
+.bearius-seo-meter {
+	display: block;
+	height: 3px;
+	margin: 7px 0 0;
+	border-radius: 3px;
+	background: #f0f0f1;
+	overflow: hidden;
+}
+
+.bearius-seo-meter__bar {
+	display: block;
+	height: 100%;
+	width: 0;
+	border-radius: 3px;
+	background: #dcdcde;
+	transition: width 0.18s ease, background-color 0.18s ease;
+}
+
+.bearius-seo-meter__bar.is-good {
+	background: #00a32a;
+}
+
+.bearius-seo-meter__bar.is-warning {
+	background: #dba617;
+}
+
+.bearius-seo-meter__bar.is-over {
+	background: #d63638;
+}
+
+.bearius-seo-help {
+	display: block;
+	margin: 8px 0 0;
+	font-size: 12px;
+	line-height: 1.5;
+	color: #787c82;
+}
+
+/* Image field
+   ------------------------------------------------------------------ */
+
+.bearius-seo-image-row {
+	display: flex;
+	align-items: flex-start;
+	gap: 16px;
+}
+
+.bearius-seo-thumb {
+	flex: none;
+	display: block;
+	width: 132px;
+	height: 69px;
+	border: 1px solid #dcdcde;
+	border-radius: 6px;
+	background-color: #f0f0f1;
+	background-position: center center;
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+.bearius-seo-image-controls {
+	display: block;
+	flex: 1 1 auto;
+	min-width: 0;
+}
+
+.bearius-seo-image-buttons {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	margin-top: 9px;
+}
+
+/* Toggle
+   ------------------------------------------------------------------ */
+
+.bearius-seo-toggle {
+	display: flex;
+	align-items: flex-start;
+	gap: 9px;
+	padding: 12px 14px;
+	border: 1px solid #e0e0e2;
+	border-radius: 6px;
+	background: #fbfbfc;
+	cursor: pointer;
+	transition: border-color 0.15s ease, background-color 0.15s ease;
+}
+
+.bearius-seo-toggle:hover {
+	border-color: #c3c4c7;
+	background: #f6f7f7;
+}
+
+.bearius-seo-toggle input {
+	margin: 1px 0 0;
+}
+
+.bearius-seo-toggle span {
+	color: #1d2327;
+}
+
+/* Settings screen reuse
+   ------------------------------------------------------------------ */
+
+.settings_page_bearius-seo-light .bearius-seo-image-row {
+	display: flex;
+	align-items: flex-start;
+	gap: 16px;
+}
+
+.settings_page_bearius-seo-light .bearius-seo-image-buttons {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	margin-top: 9px;
+}
+
+@media screen and (max-width: 782px) {
+	.bearius-seo-previews {
+		gap: 22px;
+		padding: 16px;
+	}
+
+	.bearius-seo-fields {
+		padding: 16px;
+		gap: 12px;
+	}
+
+	.bearius-seo-field {
+		padding: 14px;
+	}
+
+	.bearius-seo-image-row {
+		flex-direction: column;
+	}
+
+	.bearius-seo-thumb {
+		width: 100%;
+		height: auto;
+		aspect-ratio: 1200 / 630;
+	}
+}
