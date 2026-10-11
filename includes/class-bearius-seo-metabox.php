@@ -6,6 +6,7 @@
  * fields plugin and the data stays readable if the plugin is removed.
  *
  * @package BeariusSEOLight
+ * @author  Bearius
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -23,11 +24,12 @@ class Bearius_SEO_Metabox {
 	 * @var array
 	 */
 	private $fields = array(
-		'_bearius_seo_title'   => 'text',
-		'_bearius_seo_desc'    => 'textarea',
-		'_bearius_seo_social'  => 'text',
-		'_bearius_seo_image'   => 'url',
-		'_bearius_seo_noindex' => 'checkbox',
+		'_bearius_seo_title'        => 'text',
+		'_bearius_seo_desc'         => 'textarea',
+		'_bearius_seo_social'       => 'text',
+		'_bearius_seo_image'        => 'url',
+		'_bearius_seo_noindex'      => 'checkbox',
+		'_bearius_seo_news_exclude' => 'checkbox',
 	);
 
 	/**
@@ -144,14 +146,97 @@ class Bearius_SEO_Metabox {
 			'bearius-seo-admin',
 			'beariusSeoPreview',
 			array(
-				'fallbackTitle' => $post_id ? get_the_title( $post_id ) : '',
+				'fallbackTitle' => ( $post_id && 'auto-draft' !== get_post_status( $post_id ) ) ? get_the_title( $post_id ) : '',
 				'fallbackDesc'  => $post_id ? bearius_seo_post_description( $post_id ) : '',
 				'fallbackImage' => $post_id ? $this->preview_fallback_image( $post_id ) : '',
 				'untitled'      => __( '(no title yet)', 'bearius-seo-light' ),
 				'noDescription' => __( 'No description available. Search engines will pick their own text.', 'bearius-seo-light' ),
 				'noImage'       => __( 'No image', 'bearius-seo-light' ),
+				'checks'        => array(
+					/* translators: %d: number of characters. */
+					'titleOk'    => __( 'SEO title fits in search results (%d characters)', 'bearius-seo-light' ),
+					/* translators: %d: number of characters. */
+					'titleLong'  => __( 'SEO title may be cut off (%d characters, aim for up to 60)', 'bearius-seo-light' ),
+					/* translators: %d: number of characters. */
+					'titleShort' => __( 'SEO title is short (%d characters)', 'bearius-seo-light' ),
+					/* translators: %d: number of characters. */
+					'descOk'     => __( 'Description has a good length (%d characters)', 'bearius-seo-light' ),
+					/* translators: %d: number of characters. */
+					'descLong'   => __( 'Description may be cut off (%d characters, aim for up to 160)', 'bearius-seo-light' ),
+					/* translators: %d: number of characters. */
+					'descShort'  => __( 'Description is short (%d characters)', 'bearius-seo-light' ),
+					'descNone'   => __( 'No description: search engines will pick their own text', 'bearius-seo-light' ),
+					'indexOk'    => __( 'Visible to search engines', 'bearius-seo-light' ),
+					'indexNo'    => __( 'Hidden from search engines (noindex)', 'bearius-seo-light' ),
+					/* translators: 1: checks passed, 2: all checks. */
+					'score'      => __( '%1$d of %2$d fine', 'bearius-seo-light' ),
+				),
 			)
 		);
+	}
+
+	/**
+	 * Builds the checks that depend on the saved post.
+	 *
+	 * Titles, the description and noindex are checked live in the browser.
+	 *
+	 * @param WP_Post $post Post.
+	 * @return array[] State (ok, warn or info) and text.
+	 */
+	private function saved_checks( $post ) {
+		$checks   = array();
+		$thumb_id = (int) get_post_thumbnail_id( $post );
+
+		if ( $thumb_id ) {
+			$meta  = wp_get_attachment_metadata( $thumb_id );
+			$width = is_array( $meta ) && ! empty( $meta['width'] ) ? (int) $meta['width'] : 0;
+
+			if ( $width >= 1200 ) {
+				/* translators: %d: width in pixels. */
+				$checks['image'] = array( 'ok', sprintf( __( 'Featured image is large enough for Google Discover (%d px)', 'bearius-seo-light' ), $width ) );
+			} else {
+				/* translators: %d: width in pixels. */
+				$checks['image'] = array( 'warn', sprintf( __( 'Featured image is narrower than 1200 px (%d px), too small for large previews in Discover', 'bearius-seo-light' ), $width ) );
+			}
+
+			$alt             = trim( (string) get_post_meta( $thumb_id, '_wp_attachment_image_alt', true ) );
+			$checks['alt'] = '' !== $alt
+				? array( 'ok', __( 'Featured image has alternative text', 'bearius-seo-light' ) )
+				: array( 'warn', __( 'Featured image has no alternative text', 'bearius-seo-light' ) );
+		} else {
+			$checks['image'] = '' !== trim( (string) bearius_seo_get_setting( 'default_image' ) )
+				? array( 'info', __( 'No featured image: the default social image is used', 'bearius-seo-light' ) )
+				: array( 'warn', __( 'No featured image: shares will have no picture', 'bearius-seo-light' ) );
+		}
+
+		// Counted by spaces, which also works for words with diacritics.
+		$words = count( preg_split( '/\s+/u', trim( wp_strip_all_tags( strip_shortcodes( $post->post_content ) ) ), -1, PREG_SPLIT_NO_EMPTY ) );
+
+		// A new, empty draft has nothing to measure yet.
+		if ( $words > 0 ) {
+			/* translators: %d: number of words. */
+			$checks['words'] = $words >= 300 ? array( 'ok', sprintf( __( '%d words of content', 'bearius-seo-light' ), $words ) ) : array( 'warn', sprintf( __( 'Only %d words of content', 'bearius-seo-light' ), $words ) );
+
+			$host  = preg_quote( (string) wp_parse_url( home_url(), PHP_URL_HOST ), '#' );
+			$links = preg_match_all( '#<a\s[^>]*href=["\'](?:https?://' . $host . '|/(?!/))[^"\']*["\']#i', $post->post_content );
+
+			/* translators: %d: number of links. */
+			$checks['links'] = $links ? array( 'ok', sprintf( _n( '%d link to another page of the site', '%d links to other pages of the site', $links, 'bearius-seo-light' ), $links ) ) : array( 'warn', __( 'No links to other pages of the site', 'bearius-seo-light' ) );
+		}
+
+		if ( bearius_seo_module_active( 'news' ) && in_array( $post->post_type, (array) bearius_seo_get_setting( 'news_post_types', array() ), true ) ) {
+			$checks['news'] = get_post_meta( $post->ID, '_bearius_seo_news_exclude', true )
+				? array( 'info', __( 'Left out of Google News by choice', 'bearius-seo-light' ) )
+				: array( 'ok', __( 'Listed in the Google News sitemap for two days after publishing', 'bearius-seo-light' ) );
+		}
+
+		if ( bearius_seo_module_active( 'schema' ) && bearius_seo_get_setting( 'schema_article' ) ) {
+			$type = 'post' === $post->post_type ? ( bearius_seo_get_setting( 'news_mode' ) ? 'NewsArticle' : 'Article' ) : 'WebPage';
+			/* translators: %s: Schema.org type. */
+			$checks['schema'] = array( 'info', sprintf( __( 'Structured data: %s', 'bearius-seo-light' ), $type ) );
+		}
+
+		return $checks;
 	}
 
 	/**
@@ -189,6 +274,8 @@ class Bearius_SEO_Metabox {
 		$social  = get_post_meta( $post->ID, '_bearius_seo_social', true );
 		$image   = get_post_meta( $post->ID, '_bearius_seo_image', true );
 		$noindex = get_post_meta( $post->ID, '_bearius_seo_noindex', true );
+		$no_news = get_post_meta( $post->ID, '_bearius_seo_news_exclude', true );
+		$in_news = bearius_seo_module_active( 'news' ) && in_array( $post->post_type, (array) bearius_seo_get_setting( 'news_post_types', array() ), true );
 
 		$permalink    = get_permalink( $post );
 		$domain       = wp_parse_url( home_url(), PHP_URL_HOST );
@@ -199,17 +286,33 @@ class Bearius_SEO_Metabox {
 		<div class="bearius-seo-panel" id="bearius-seo-panel">
 
 			<div class="bearius-seo-previews">
-				<div class="bearius-seo-preview">
+				<div class="bearius-seo-preview bearius-seo-preview--checks" data-bs-checks>
+					<div class="bearius-seo-checks__head">
+						<span class="bearius-seo-preview__label"><?php esc_html_e( 'Checks', 'bearius-seo-light' ); ?></span>
+						<span class="bearius-seo-checks__score" data-bs-checks-score></span>
+					</div>
+					<div class="bearius-seo-checks">
+						<ul class="bearius-seo-checks__list">
+							<li data-check="title"><span class="bearius-seo-checks__dot" aria-hidden="true"></span><span data-check-text></span></li>
+							<li data-check="desc"><span class="bearius-seo-checks__dot" aria-hidden="true"></span><span data-check-text></span></li>
+							<li data-check="index"><span class="bearius-seo-checks__dot" aria-hidden="true"></span><span data-check-text></span></li>
+							<?php foreach ( $this->saved_checks( $post ) as $key => $check ) : ?>
+								<li data-check="<?php echo esc_attr( $key ); ?>" class="is-<?php echo esc_attr( $check[0] ); ?>"><span class="bearius-seo-checks__dot" aria-hidden="true"></span><span><?php echo esc_html( $check[1] ); ?></span></li>
+							<?php endforeach; ?>
+						</ul>
+						<p class="bearius-seo-checks__note"><?php esc_html_e( 'Image, length and links are checked for the saved version.', 'bearius-seo-light' ); ?></p>
+					</div>
+				</div>
+
+				<div class="bearius-seo-preview bearius-seo-preview--looks">
 					<span class="bearius-seo-preview__label"><?php esc_html_e( 'Search result', 'bearius-seo-light' ); ?></span>
 					<div class="bearius-seo-preview__card">
 						<span class="bearius-seo-serp__url"><?php echo esc_html( urldecode( (string) $permalink ) ); ?></span>
 						<span class="bearius-seo-serp__title"></span>
 						<span class="bearius-seo-serp__desc"></span>
 					</div>
-				</div>
 
-				<div class="bearius-seo-preview">
-					<span class="bearius-seo-preview__label"><?php esc_html_e( 'When shared', 'bearius-seo-light' ); ?></span>
+					<span class="bearius-seo-preview__label bearius-seo-preview__label--next"><?php esc_html_e( 'When shared', 'bearius-seo-light' ); ?></span>
 					<div class="bearius-seo-preview__card bearius-seo-social__card">
 						<span class="bearius-seo-social__image<?php echo esc_attr( $thumb ? '' : ' is-empty' ); ?>"
 							<?php if ( $thumb ) : ?>
@@ -223,8 +326,18 @@ class Bearius_SEO_Metabox {
 					</div>
 				</div>
 			</div>
+				</div>
+			</div>
 
 			<div class="bearius-seo-fields">
+				<?php
+				/**
+				 * Prints add-on tools at the top of the SEO fields.
+				 *
+				 * @param WP_Post $post Post being edited.
+				 */
+				do_action( 'bearius_seo_metabox_tools', $post );
+				?>
 
 				<div class="bearius-seo-field">
 					<div class="bearius-seo-field__head">
@@ -286,6 +399,15 @@ class Bearius_SEO_Metabox {
 						<span><?php esc_html_e( 'Ask search engines not to index this content', 'bearius-seo-light' ); ?></span>
 					</label>
 				</div>
+
+				<?php if ( $in_news ) : ?>
+				<div class="bearius-seo-field">
+					<label class="bearius-seo-toggle">
+						<input type="checkbox" name="bearius_seo_news_exclude" value="1" <?php checked( $no_news, 1 ); ?> />
+						<span><?php esc_html_e( 'Leave this entry out of the Google News sitemap', 'bearius-seo-light' ); ?></span>
+					</label>
+				</div>
+				<?php endif; ?>
 
 			</div>
 		</div>
@@ -352,6 +474,12 @@ class Bearius_SEO_Metabox {
 			delete_post_meta( $post_id, '_bearius_seo_noindex' );
 		} else {
 			update_post_meta( $post_id, '_bearius_seo_noindex', 1 );
+		}
+
+		if ( isset( $_POST['bearius_seo_news_exclude'] ) ) {
+			update_post_meta( $post_id, '_bearius_seo_news_exclude', 1 );
+		} elseif ( isset( $_POST['bearius_seo_title'] ) && bearius_seo_module_active( 'news' ) ) {
+			delete_post_meta( $post_id, '_bearius_seo_news_exclude' );
 		}
 	}
 }

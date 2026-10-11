@@ -1,12 +1,13 @@
 <?php
 /**
- * Detects other SEO plugins and steps aside when one is active.
+ * Compatibility with other SEO plugins.
  *
- * Two plugins printing meta tags produce duplicates, which is worse than
- * having no plugin at all. When a conflict is found the whole front end
- * output is skipped and the site owner gets a notice explaining why.
+ * When a full SEO suite is active, only the modules that would print the
+ * same tags or serve the same files are switched off. Everything that does
+ * not overlap, such as the Google News sitemap or the audit, keeps working.
  *
  * @package BeariusSEOLight
+ * @author  Bearius
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -14,16 +15,50 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * Compatibility guard.
+ * Detects overlapping plugins and tells which modules have to step aside.
  */
 class Bearius_SEO_Compat {
 
 	/**
-	 * Name of the conflicting plugin, empty when there is none.
+	 * Singleton instance.
 	 *
-	 * @var string
+	 * @var Bearius_SEO_Compat|null
 	 */
-	private $conflict = '';
+	private static $instance = null;
+
+	/**
+	 * Detected SEO suite name.
+	 *
+	 * @var string|null
+	 */
+	private $suite = null;
+
+	/**
+	 * Name of the plugin that already provides a news sitemap.
+	 *
+	 * @var string|null
+	 */
+	private $news = null;
+
+	/**
+	 * Name of a dedicated sitemap plugin.
+	 *
+	 * @var string|null
+	 */
+	private $sitemap = null;
+
+	/**
+	 * Returns the shared instance.
+	 *
+	 * @return Bearius_SEO_Compat
+	 */
+	public static function instance() {
+		if ( null === self::$instance ) {
+			self::$instance = new self();
+		}
+
+		return self::$instance;
+	}
 
 	/**
 	 * Hooks the admin notice.
@@ -31,37 +66,21 @@ class Bearius_SEO_Compat {
 	 * @return void
 	 */
 	public function register() {
-		$this->detect();
-
-		if ( '' !== $this->conflict ) {
-			add_action( 'admin_notices', array( $this, 'render_notice' ) );
-		}
+		add_action( 'admin_notices', array( $this, 'render_notice' ) );
 	}
 
 	/**
-	 * Whether another SEO plugin is running.
-	 *
-	 * @return bool
-	 */
-	public function has_conflict() {
-		return '' !== $this->conflict;
-	}
-
-	/**
-	 * Returns the name of the conflicting plugin.
+	 * Returns the name of the active SEO suite, or an empty string.
 	 *
 	 * @return string
 	 */
-	public function get_conflict() {
-		return $this->conflict;
-	}
+	public function suite() {
+		if ( null !== $this->suite ) {
+			return $this->suite;
+		}
 
-	/**
-	 * Looks for constants and classes exposed by the common SEO plugins.
-	 *
-	 * @return void
-	 */
-	private function detect() {
+		$this->suite = '';
+
 		$constants = array(
 			'WPSEO_VERSION'             => 'Yoast SEO',
 			'RANK_MATH_VERSION'         => 'Rank Math SEO',
@@ -75,47 +94,129 @@ class Bearius_SEO_Compat {
 
 		foreach ( $constants as $constant => $label ) {
 			if ( defined( $constant ) ) {
-				$this->conflict = $label;
-				return;
+				$this->suite = $label;
+				return $this->suite;
 			}
 		}
 
 		if ( class_exists( 'WPSEO_Frontend' ) ) {
-			$this->conflict = 'Yoast SEO';
-			return;
+			$this->suite = 'Yoast SEO';
+		} elseif ( function_exists( 'rank_math' ) ) {
+			$this->suite = 'Rank Math SEO';
+		} elseif ( function_exists( 'the_seo_framework' ) ) {
+			$this->suite = 'The SEO Framework';
 		}
 
-		if ( function_exists( 'rank_math' ) ) {
-			$this->conflict = 'Rank Math SEO';
-			return;
-		}
-
-		if ( function_exists( 'the_seo_framework' ) ) {
-			$this->conflict = 'The SEO Framework';
-		}
+		return $this->suite;
 	}
 
 	/**
-	 * Prints the admin notice.
+	 * Returns the name of a plugin that already serves a Google News sitemap.
+	 *
+	 * @return string
+	 */
+	public function news_provider() {
+		if ( null !== $this->news ) {
+			return $this->news;
+		}
+
+		$this->news = '';
+
+		if ( defined( 'WPSEO_NEWS_VERSION' ) || class_exists( 'WPSEO_News' ) ) {
+			$this->news = 'Yoast News SEO';
+		} elseif ( defined( 'RANK_MATH_PRO_VERSION' ) && in_array( 'news-sitemap', (array) get_option( 'rank_math_modules', array() ), true ) ) {
+			$this->news = 'Rank Math PRO';
+		} elseif ( defined( 'SEOPRESS_PRO_VERSION' ) ) {
+			$this->news = 'SEOPress PRO';
+		} elseif ( defined( 'AIOSEO_NEWS_SITEMAP_VERSION' ) ) {
+			$this->news = 'All in One SEO News Sitemap';
+		} elseif ( defined( 'XMLSF_VERSION' ) ) {
+			$this->news = 'XML Sitemap & Google News';
+		}
+
+		return $this->news;
+	}
+
+	/**
+	 * Returns the name of a dedicated XML sitemap plugin.
+	 *
+	 * @return string
+	 */
+	public function sitemap_provider() {
+		if ( null !== $this->sitemap ) {
+			return $this->sitemap;
+		}
+
+		$this->sitemap = '';
+
+		if ( defined( 'XMLSF_VERSION' ) ) {
+			$this->sitemap = 'XML Sitemap & Google News';
+		} elseif ( class_exists( 'GoogleSitemapGeneratorLoader' ) || defined( 'SM_SUPPORTFEED_URL' ) ) {
+			$this->sitemap = 'XML Sitemap Generator for Google';
+		}
+
+		return $this->sitemap;
+	}
+
+	/**
+	 * Returns the plugin that blocks a module, or an empty string.
+	 *
+	 * @param string $module Module name.
+	 * @return string
+	 */
+	public function blocked_by( $module ) {
+		switch ( $module ) {
+			case 'meta':
+			case 'schema':
+			case 'terms':
+			case 'robots':
+			case 'verification':
+				return $this->suite();
+
+			case 'sitemap':
+				return '' !== $this->suite() ? $this->suite() : $this->sitemap_provider();
+
+			case 'news':
+				return $this->news_provider();
+		}
+
+		return '';
+	}
+
+	/**
+	 * Tells whether any SEO suite is active.
+	 *
+	 * @return bool
+	 */
+	public function has_conflict() {
+		return '' !== $this->suite();
+	}
+
+	/**
+	 * Prints a short notice on the plugin screens when modules were switched off.
 	 *
 	 * @return void
 	 */
 	public function render_notice() {
-		if ( ! current_user_can( 'manage_options' ) ) {
+		if ( ! current_user_can( 'manage_options' ) || ! $this->has_conflict() ) {
 			return;
 		}
 
-		$screen = get_current_screen();
-		if ( $screen && 'plugins' !== $screen->id && 'settings_page_bearius-seo-light' !== $screen->id ) {
+		$screen = function_exists( 'get_current_screen' ) ? get_current_screen() : null;
+		if ( ! $screen || ! in_array( $screen->id, array( 'plugins', bearius_seo_screen_id() ), true ) ) {
 			return;
 		}
 
-		echo '<div class="notice notice-warning"><p>';
 		printf(
-			/* translators: %s: name of the detected SEO plugin. */
-			esc_html__( 'Bearius SEO Light is standing by because %s is active. Running both would output duplicate meta tags, so no tags are being added. Deactivate the other plugin to switch over.', 'bearius-seo-light' ),
-			'<strong>' . esc_html( $this->conflict ) . '</strong>'
+			'<div class="notice notice-info"><p>%s</p></div>',
+			wp_kses(
+				sprintf(
+					/* translators: %s: name of the other SEO plugin. */
+					__( '<strong>Bearius SEO Light</strong> found %s, so its meta tags, structured data, XML sitemap, robots.txt and verification modules are paused to avoid duplicates. The Google News sitemap, IndexNow, the audit and the importer keep working.', 'bearius-seo-light' ),
+					esc_html( $this->suite() )
+				),
+				array( 'strong' => array() )
+			)
 		);
-		echo '</p></div>';
 	}
 }

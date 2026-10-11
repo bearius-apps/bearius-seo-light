@@ -1,0 +1,2031 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Bearius SEO Light\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Domain: bearius-seo-light\n"
+
+msgid "You are not allowed to do this."
+msgstr ""
+
+msgid "Add the publisher logo"
+msgstr ""
+
+msgid "Shown as the publisher in structured data and by Google next to news articles."
+msgstr ""
+
+msgid "Open"
+msgstr ""
+
+msgid "Choose a default social image"
+msgstr ""
+
+msgid "Used when a post has no featured image, so shared links always have a picture."
+msgstr ""
+
+msgid "Set the site icon"
+msgstr ""
+
+msgid "Google shows it next to your pages in search results. WordPress adds it to the site, the dashboard and the login page."
+msgstr ""
+
+msgid "Decide how AI companies may use your site"
+msgstr ""
+
+msgid "Nothing is blocked until you choose. The AI visibility screen explains each option in plain words."
+msgstr ""
+
+msgid "Tell Bing and other engines about new posts right away"
+msgstr ""
+
+msgid "IndexNow sends the address of each published or updated post to api.indexnow.org, which passes it to Bing, Yandex, Seznam, Naver and Yep. Only the address is sent. Google does not use it."
+msgstr ""
+
+msgid "Switch on"
+msgstr ""
+
+msgid "Not now"
+msgstr ""
+
+msgid "Run the first full check"
+msgstr ""
+
+msgid "Scans your sitemaps, robots.txt and pages, and lists what to fix."
+msgstr ""
+
+msgid "Run checks"
+msgstr ""
+
+msgid "Getting started"
+msgstr ""
+
+msgid "%1$d of %2$d done"
+msgstr ""
+
+msgid "Hide this list"
+msgstr ""
+
+msgid "Checks finished. The results below are current."
+msgstr ""
+
+msgid "Nothing blocks indexing, but a few things need attention"
+msgstr ""
+
+msgid "In good shape, with a few suggestions"
+msgstr ""
+
+msgid "No problems found"
+msgstr ""
+
+msgid "Bearius score"
+msgstr ""
+
+msgid "Full check ran %s ago. Settings are checked live."
+msgstr ""
+
+msgid "Settings are checked live. Run the full check to scan sitemaps, robots.txt and your pages."
+msgstr ""
+
+msgid "The score is our own measure of the problems found, not a Google or PageSpeed score."
+msgstr ""
+
+msgid "Checking..."
+msgstr ""
+
+msgid "Report"
+msgstr ""
+
+msgid "See all %d findings in the audit"
+msgstr ""
+
+msgid "The audit module is off, so the daily check and the page scans do not run. Switch it on in the Overview."
+msgstr ""
+
+msgid "Setup and crawling"
+msgstr ""
+
+msgid "Settings, sitemaps and robots.txt: what decides whether search engines can reach your content."
+msgstr ""
+
+msgid "Pages"
+msgstr ""
+
+msgid "The home page and the latest post, fetched as a logged out visitor on desktop and on mobile. This is where duplicates from the theme or snippets show up."
+msgstr ""
+
+msgid "Performance"
+msgstr ""
+
+msgid "Read from the HTML of the mobile version. These are hints, not lab measurements: the page is not rendered in a browser."
+msgstr ""
+
+msgid "Page"
+msgstr ""
+
+msgid "Device"
+msgstr ""
+
+msgid "Status"
+msgstr ""
+
+msgid "Canonical"
+msgstr ""
+
+msgid "Descriptions"
+msgstr ""
+
+msgid "Structured data"
+msgstr ""
+
+msgid "Desktop"
+msgstr ""
+
+msgid "Mobile"
+msgstr ""
+
+msgid "HTML time"
+msgstr ""
+
+msgid "Cache"
+msgstr ""
+
+msgid "HTML size"
+msgstr ""
+
+msgid "Blocking scripts"
+msgstr ""
+
+msgid "Images without size"
+msgstr ""
+
+msgid "Other domains"
+msgstr ""
+
+msgid "Elements"
+msgstr ""
+
+msgid "Content"
+msgstr ""
+
+msgid "Live queries on your published entries. Pick a finding to see the entries; the most important ones come first."
+msgstr ""
+
+msgid "Importance"
+msgstr ""
+
+msgid "All"
+msgstr ""
+
+msgid "Content type"
+msgstr ""
+
+msgid "Published"
+msgstr ""
+
+msgid "Any time"
+msgstr ""
+
+msgid "Last 30 days"
+msgstr ""
+
+msgid "Last 90 days"
+msgstr ""
+
+msgid "Last year"
+msgstr ""
+
+msgid "Only indexed entries"
+msgstr ""
+
+msgid "Apply"
+msgstr ""
+
+msgid "No content findings for these filters."
+msgstr ""
+
+msgid "Nothing to fix here."
+msgstr ""
+
+msgid "Title"
+msgstr ""
+
+msgid "Type"
+msgstr ""
+
+msgid "Language"
+msgstr ""
+
+msgid "(no title)"
+msgstr ""
+
+msgid "Edit"
+msgstr ""
+
+msgid "View"
+msgstr ""
+
+msgid "Previous"
+msgstr ""
+
+msgid "Next"
+msgstr ""
+
+msgid "Model training"
+msgstr ""
+
+msgid "AI search and citations"
+msgstr ""
+
+msgid "Pages opened on request"
+msgstr ""
+
+msgid "Who may crawl"
+msgstr ""
+
+msgid "Choose how AI companies may use your site. Read the explanation first: this is your decision, and the plugin changes nothing until you make it."
+msgstr ""
+
+msgid "AI companies send crawlers to your site for three different jobs:"
+msgstr ""
+
+msgid "Model training."
+msgstr ""
+
+msgid "Your texts are copied and used to teach new AI models. Later the model may use what it learned in its answers, but it does not show where it came from and does not send visitors to you."
+msgstr ""
+
+msgid "AI search and citations."
+msgstr ""
+
+msgid "When someone asks ChatGPT, Claude or Perplexity a question, these crawlers look for current pages, and the answer can quote your article and link to it as the source. This works much like a search engine and can bring you visitors."
+msgstr ""
+
+msgid "Pages opened on request."
+msgstr ""
+
+msgid "A person pastes your link into a chat and asks the assistant to read it. The page is fetched once, for that person only."
+msgstr ""
+
+msgid "Blocking training does not remove you from Google or Bing and does not stop AI assistants from quoting you. Blocking AI search means assistants cannot quote or link your pages. Google-Extended only decides whether Google may use your pages for Gemini; Google Search, including its AI Overviews, is not affected."
+msgstr ""
+
+msgid "The rules go into robots.txt. It is a request, not a lock: the companies listed here say they follow it, but crawlers that ignore the rules cannot be stopped this way."
+msgstr ""
+
+msgid "Policy"
+msgstr ""
+
+msgid "default"
+msgstr ""
+
+msgid "Crawler"
+msgstr ""
+
+msgid "Company"
+msgstr ""
+
+msgid "Purpose"
+msgstr ""
+
+msgid "Allowed"
+msgstr ""
+
+msgid "On the server"
+msgstr ""
+
+msgid "Not checked yet"
+msgstr ""
+
+msgid "Blocked"
+msgstr ""
+
+msgid "Still allowed"
+msgstr ""
+
+msgid "Blocked elsewhere"
+msgstr ""
+
+msgid "\"On the server\" shows the robots.txt crawlers received during the check %s ago. Run the checks again after saving."
+msgstr ""
+
+msgid "\"On the server\" fills in after the first full check on the Audit screen."
+msgstr ""
+
+msgid "Firewalls and CDNs such as Cloudflare can block AI crawlers before robots.txt is even read. The plugin cannot see those settings, so check them in your CDN panel too."
+msgstr ""
+
+msgid "Findings"
+msgstr ""
+
+msgid "From the last full check of the home page and the latest post."
+msgstr ""
+
+msgid "All languages"
+msgstr ""
+
+msgid "Sitemap preview"
+msgstr ""
+
+msgid "Every file of your sitemap, built from the same data search engines receive. Open a file to see its addresses as clickable links."
+msgstr ""
+
+msgid "The sitemap is empty. Check the content types and archives selected above."
+msgstr ""
+
+msgid "files"
+msgstr ""
+
+msgid "addresses"
+msgstr ""
+
+msgid "languages"
+msgstr ""
+
+msgid "Addresses"
+msgstr ""
+
+msgid "Last change"
+msgstr ""
+
+msgid "Home pages"
+msgstr ""
+
+msgid "%1$s, part %2$d"
+msgstr ""
+
+msgid "Show addresses"
+msgstr ""
+
+msgid "This file does not exist."
+msgstr ""
+
+msgid "Google News preview"
+msgstr ""
+
+msgid "Articles from the last two days in each language file, newest first. The list refreshes within five minutes of publishing."
+msgstr ""
+
+msgid "And %d more in the file."
+msgstr ""
+
+msgid "No articles from the last two days."
+msgstr ""
+
+msgid "What AI crawlers read"
+msgstr ""
+
+msgid "Most AI crawlers download the HTML and do not run JavaScript. This is the text they get, with menus and footers counted separately."
+msgstr ""
+
+msgid "Home page"
+msgstr ""
+
+msgid "Latest post"
+msgstr ""
+
+msgid "Address below"
+msgstr ""
+
+msgid "Address on this site"
+msgstr ""
+
+msgid "Show"
+msgstr ""
+
+msgid "Pick a page to fetch it now."
+msgstr ""
+
+msgid "Only addresses on this site can be checked."
+msgstr ""
+
+msgid "The page could not be read (HTTP %d). Some hosts block requests from the server to itself."
+msgstr ""
+
+msgid "characters of content"
+msgstr ""
+
+msgid "of all text is content"
+msgstr ""
+
+msgid "headings"
+msgstr ""
+
+msgid "schema types"
+msgstr ""
+
+msgid "Structure"
+msgstr ""
+
+msgid "No headings found."
+msgstr ""
+
+msgid "Publication date:"
+msgstr ""
+
+msgid "not found"
+msgstr ""
+
+msgid "Schema:"
+msgstr ""
+
+msgid "none"
+msgstr ""
+
+msgid "Text without JavaScript"
+msgstr ""
+
+msgid "Import from another plugin"
+msgstr ""
+
+msgid "Copies SEO titles, descriptions, noindex flags and social titles and images. Template variables are turned into plain text, and titles that only repeat the default are skipped. Nothing is deleted from the other plugin."
+msgstr ""
+
+msgid "No data from Yoast SEO, Rank Math or All in One SEO was found on this site."
+msgstr ""
+
+msgid "Source"
+msgstr ""
+
+msgid "Replace values already set in Bearius SEO"
+msgstr ""
+
+msgid "Without this option only empty fields are filled, so running the import twice is safe."
+msgstr ""
+
+msgid "Start import"
+msgstr ""
+
+msgid "After the import, deactivate the other SEO plugin. The paused modules start working on their own."
+msgstr ""
+
+msgid "AI visibility"
+msgstr ""
+
+msgid "Back to the audit"
+msgstr ""
+
+msgid "Print or save as PDF"
+msgstr ""
+
+msgid "Prepared by %s"
+msgstr ""
+
+msgid "SEO audit report"
+msgstr ""
+
+msgid "Prepared on %s"
+msgstr ""
+
+msgid "Pages scanned on %s."
+msgstr ""
+
+msgid "Finding"
+msgstr ""
+
+msgid "Entries"
+msgstr ""
+
+msgid "The score subtracts twenty points per critical problem, six per warning and two per suggestion. It is not a Google or PageSpeed score."
+msgstr ""
+
+msgid "The Bearius score adds twenty points of penalty per critical problem, six per warning and two per suggestion. It is our own measure, not a Google or PageSpeed score."
+msgstr ""
+
+msgid "%s address"
+msgid_plural "%s addresses"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "%s article"
+msgid_plural "%s articles"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "%s entry with data"
+msgid_plural "%s entries with data"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "Breadcrumbs"
+msgstr ""
+
+msgid "<strong>Bearius SEO Light</strong> found %s, so its meta tags, structured data, XML sitemap, robots.txt and verification modules are paused to avoid duplicates. The Google News sitemap, IndexNow, the audit and the importer keep working."
+msgstr ""
+
+msgid "Duplicate titles"
+msgstr ""
+
+msgid "Several entries share the same title, so search engines cannot tell them apart."
+msgstr ""
+
+msgid "Duplicate descriptions"
+msgstr ""
+
+msgid "The same custom meta description is used on more than one entry."
+msgstr ""
+
+msgid "No image for sharing"
+msgstr ""
+
+msgid "No featured or social image; the default image is used when shared."
+msgstr ""
+
+msgid "No featured or social image and no default image, so shares appear without a picture."
+msgstr ""
+
+msgid "Images too small for Discover"
+msgstr ""
+
+msgid "The featured image is narrower than 1200 pixels, the size Google Discover asks for to show large previews. Checked in the latest %d entries."
+msgstr ""
+
+msgid "Long titles"
+msgstr ""
+
+msgid "The title is longer than search results usually show and will be cut off."
+msgstr ""
+
+msgid "Very short content"
+msgstr ""
+
+msgid "Fewer than about a hundred words. Short pages rarely rank unless they answer something precisely."
+msgstr ""
+
+msgid "Images without alternative text"
+msgstr ""
+
+msgid "Images in the content have no alt text. Checked in the latest %d entries."
+msgstr ""
+
+msgid "Automatic description"
+msgstr ""
+
+msgid "No custom description or excerpt; the opening of the content is used. Fine for most entries, worth writing for important ones."
+msgstr ""
+
+msgid "Hidden from search engines"
+msgstr ""
+
+msgid "Entries marked noindex. Listed so you can confirm each one is intentional."
+msgstr ""
+
+msgid "Bearius SEO"
+msgstr ""
+
+msgid "No problems"
+msgstr ""
+
+msgid "Checked %s ago"
+msgstr ""
+
+msgid "The full check has not run yet"
+msgstr ""
+
+msgid "Open the audit"
+msgstr ""
+
+msgid "Turn on the canonical link"
+msgstr ""
+
+msgid "Switches on the meta tags module and its canonical link."
+msgstr ""
+
+msgid "Turn on the meta description"
+msgstr ""
+
+msgid "Switches on the meta tags module and its meta description."
+msgstr ""
+
+msgid "Stop printing our canonical link"
+msgstr ""
+
+msgid "Keeps the canonical tag of your theme or other plugin and switches off ours."
+msgstr ""
+
+msgid "Stop printing our meta description"
+msgstr ""
+
+msgid "Keeps the description of your theme or other plugin and switches off ours."
+msgstr ""
+
+msgid "Stop printing our Open Graph tags"
+msgstr ""
+
+msgid "Keeps the Open Graph tags of your theme or other plugin and switches off ours."
+msgstr ""
+
+msgid "Switch off our duplicated structured data"
+msgstr ""
+
+msgid "Switches off only the structured data nodes that appear twice. If the theme repeats them by itself, this will not help."
+msgstr ""
+
+msgid "Load the featured image right away"
+msgstr ""
+
+msgid "Removes lazy loading from the featured image of posts and pages and marks it as high priority. Other images are not changed."
+msgstr ""
+
+msgid "Allow search engines"
+msgstr ""
+
+msgid "Switches off \"Discourage search engines from indexing this site\" in Settings, Reading."
+msgstr ""
+
+msgid "Search engines will start indexing the whole site. Continue?"
+msgstr ""
+
+msgid "Turn on the Google News sitemap"
+msgstr ""
+
+msgid "Switches on the Google News sitemap module for posts."
+msgstr ""
+
+msgid "Use posts for Google News"
+msgstr ""
+
+msgid "Selects posts as the content type of the Google News sitemap."
+msgstr ""
+
+msgid "Clear the page cache"
+msgstr ""
+
+msgid "Clears the whole page cache, so visitors get pages built with the current settings."
+msgstr ""
+
+msgid "The whole page cache will be cleared. On a busy site the server works harder for a few minutes. Continue?"
+msgstr ""
+
+msgid "Unknown fix."
+msgstr ""
+
+msgid "The fix could not be applied. Nothing was changed."
+msgstr ""
+
+msgid "Done: %s."
+msgstr ""
+
+msgid "Run the checks to confirm."
+msgstr ""
+
+msgid "If your site uses a page cache, clear it, then run the checks to confirm."
+msgstr ""
+
+msgid "Bearius SEO: the fix could not be applied. Nothing was changed."
+msgstr ""
+
+msgid "Bearius SEO: done, %s."
+msgstr ""
+
+msgid "Search engines are asked not to index this site"
+msgstr ""
+
+msgid "The \"Discourage search engines from indexing this site\" option is on. Nothing from this site will appear in search results, and the sitemaps are switched off."
+msgstr ""
+
+msgid "Plain permalinks are in use"
+msgstr ""
+
+msgid "Addresses like ?p=123 say nothing about the content, and some servers will not route the sitemap addresses to WordPress."
+msgstr ""
+
+msgid "The site address does not use HTTPS"
+msgstr ""
+
+msgid "Browsers mark plain HTTP pages as not secure and search engines prefer secure addresses."
+msgstr ""
+
+msgid "The site has no title"
+msgstr ""
+
+msgid "The title appears in browser tabs, search results and when pages are shared."
+msgstr ""
+
+msgid "%s is active"
+msgstr ""
+
+msgid "Meta tags, structured data, the XML sitemap, robots.txt and verification are paused here to avoid duplicates."
+msgstr ""
+
+msgid "No publisher logo is set"
+msgstr ""
+
+msgid "The logo is part of the publisher data in structured data and is shown by Google for news articles."
+msgstr ""
+
+msgid "No default social image is set"
+msgstr ""
+
+msgid "Pages without a featured image are shared without a picture."
+msgstr ""
+
+msgid "The site has no site icon"
+msgstr ""
+
+msgid "Google shows the site icon next to your pages in search results; without it a generic globe appears. Once set, WordPress adds it to the site, the dashboard and the login page."
+msgstr ""
+
+msgid "News mode is on, but the Google News sitemap is off"
+msgstr ""
+
+msgid "A news sitemap helps Google find new articles within minutes."
+msgstr ""
+
+msgid "The Google News sitemap has no content types selected"
+msgstr ""
+
+msgid "Choose at least one content type, otherwise the news sitemap stays empty."
+msgstr ""
+
+msgid "robots.txt rules have no effect in a subdirectory"
+msgstr ""
+
+msgid "Crawlers only read robots.txt at the root of the domain, so the rules set here are not seen."
+msgstr ""
+
+msgid "A robots.txt file on the server overrides the rules set here"
+msgstr ""
+
+msgid "Delete the robots.txt file from the site root, or copy the rules you need into it by hand."
+msgstr ""
+
+msgid "A sitemap.xml file on the server hides the generated sitemap"
+msgstr ""
+
+msgid "The file is usually left over from an old plugin. Delete it so the server passes the address to WordPress."
+msgstr ""
+
+msgid "The last IndexNow submission failed"
+msgstr ""
+
+msgid "The last e-mail notification could not be sent"
+msgstr ""
+
+msgid "WordPress reported an error while sending. Many hosts limit outgoing mail; an SMTP plugin usually fixes it."
+msgstr ""
+
+msgid "The XML sitemap cannot be opened"
+msgstr ""
+
+msgid "sitemap.xml answered with HTTP %d instead of a sitemap. Check for a leftover file on the server or a caching rule."
+msgstr ""
+
+msgid "The Google News sitemap cannot be opened"
+msgstr ""
+
+msgid "news-sitemap.xml answered with HTTP %d."
+msgstr ""
+
+msgid "The IndexNow key file cannot be opened"
+msgstr ""
+
+msgid "Search engines check this file before accepting submissions. Your server probably serves .txt files directly without asking WordPress; create a text file with the key in the site root, or allow WordPress to answer it."
+msgstr ""
+
+msgid "robots.txt blocks search engines from the whole site"
+msgstr ""
+
+msgid "A Disallow: / rule applies to Googlebot or Bingbot. Unless the site is meant to be private, remove it."
+msgstr ""
+
+msgid "The served robots.txt does not list the sitemap"
+msgstr ""
+
+msgid "The file crawlers receive differs from the one built here. A physical robots.txt file, the CDN or another plugin replaces it."
+msgstr ""
+
+msgid "AI search crawlers are blocked"
+msgstr ""
+
+msgid "Blocked outside the AI visibility settings: %s. Something else, such as a robots.txt file on the server or another plugin, stops them. These crawlers decide whether your pages can be quoted in AI answers."
+msgstr ""
+
+msgid "The home page"
+msgstr ""
+
+msgid "The latest post"
+msgstr ""
+
+msgid "[%s] Critical SEO problem found"
+msgstr ""
+
+msgid "Bearius SEO Light found a problem that can keep your site out of search results:"
+msgstr ""
+
+msgid "Open the audit:"
+msgstr ""
+
+msgid "[%s] Test notification"
+msgstr ""
+
+msgid "This is a test message from Bearius SEO Light. If you can read it, critical problems will reach you by e-mail."
+msgstr ""
+
+msgid "Bearius SEO:"
+msgstr ""
+
+msgid "Hide this notice"
+msgstr ""
+
+msgid "Bearius SEO audit"
+msgstr ""
+
+msgid "No SEO problems found"
+msgstr ""
+
+msgid "SEO audit: %1$d critical, %2$d warnings"
+msgstr ""
+
+msgid "SEO"
+msgstr ""
+
+msgid "Results of the Bearius SEO Light audit."
+msgstr ""
+
+msgid "Unknown source."
+msgstr ""
+
+msgid "Accepted"
+msgstr ""
+
+msgid "Rejected: invalid request"
+msgstr ""
+
+msgid "Rejected: the key file could not be verified"
+msgstr ""
+
+msgid "Rejected: addresses do not match the site"
+msgstr ""
+
+msgid "Too many requests, will retry with the next change"
+msgstr ""
+
+msgid "Connection failed"
+msgstr ""
+
+msgid "HTTP status %d"
+msgstr ""
+
+msgid "%1$s (original: %2$s)"
+msgstr ""
+
+msgid "Select an image"
+msgstr ""
+
+msgid "Use this image"
+msgstr ""
+
+msgid "(no title yet)"
+msgstr ""
+
+msgid "No description available. Search engines will pick their own text."
+msgstr ""
+
+msgid "No image"
+msgstr ""
+
+msgid "SEO title fits in search results (%d characters)"
+msgstr ""
+
+msgid "SEO title may be cut off (%d characters, aim for up to 60)"
+msgstr ""
+
+msgid "SEO title is short (%d characters)"
+msgstr ""
+
+msgid "Description has a good length (%d characters)"
+msgstr ""
+
+msgid "Description may be cut off (%d characters, aim for up to 160)"
+msgstr ""
+
+msgid "Description is short (%d characters)"
+msgstr ""
+
+msgid "No description: search engines will pick their own text"
+msgstr ""
+
+msgid "Visible to search engines"
+msgstr ""
+
+msgid "Hidden from search engines (noindex)"
+msgstr ""
+
+msgid "%1$d of %2$d fine"
+msgstr ""
+
+msgid "Featured image is large enough for Google Discover (%d px)"
+msgstr ""
+
+msgid "Featured image is narrower than 1200 px (%d px), too small for large previews in Discover"
+msgstr ""
+
+msgid "Featured image has alternative text"
+msgstr ""
+
+msgid "Featured image has no alternative text"
+msgstr ""
+
+msgid "No featured image: the default social image is used"
+msgstr ""
+
+msgid "No featured image: shares will have no picture"
+msgstr ""
+
+msgid "%d words of content"
+msgstr ""
+
+msgid "Only %d words of content"
+msgstr ""
+
+msgid "No links to other pages of the site"
+msgstr ""
+
+msgid "Left out of Google News by choice"
+msgstr ""
+
+msgid "Listed in the Google News sitemap for two days after publishing"
+msgstr ""
+
+msgid "Structured data: %s"
+msgstr ""
+
+msgid "Checks"
+msgstr ""
+
+msgid "Image, length and links are checked for the saved version."
+msgstr ""
+
+msgid "Search result"
+msgstr ""
+
+msgid "When shared"
+msgstr ""
+
+msgid "SEO title"
+msgstr ""
+
+msgid "Overrides the browser title and the headline in structured data. Leave empty and the post title is used, exactly as shown in the preview above."
+msgstr ""
+
+msgid "Meta description"
+msgstr ""
+
+msgid "Leave empty and the excerpt is used, then the opening of the content. The grey text shows what will be sent."
+msgstr ""
+
+msgid "Social title"
+msgstr ""
+
+msgid "Used when the post is shared. Leave empty to reuse the SEO title."
+msgstr ""
+
+msgid "Social image"
+msgstr ""
+
+msgid "Select image"
+msgstr ""
+
+msgid "Clear"
+msgstr ""
+
+msgid "Leave empty to use the featured image. Recommended size 1200x630 pixels."
+msgstr ""
+
+msgid "Ask search engines not to index this content"
+msgstr ""
+
+msgid "Leave this entry out of the Google News sitemap"
+msgstr ""
+
+msgid "%d link to another page of the site"
+msgid_plural "%d links to other pages of the site"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "An empty #%s container, typical for pages rendered by JavaScript."
+msgstr ""
+
+msgid "A notice asking visitors to enable JavaScript."
+msgstr ""
+
+msgid "Very little text in the HTML while many scripts are loaded. The content may only appear after JavaScript runs."
+msgstr ""
+
+msgid "%s shows a maintenance page"
+msgstr ""
+
+msgid "Visitors and search engines get a maintenance page with status 503, which is the right signal for a short break. If it lasts more than a few days, search engines may start dropping pages. The other checks for this page are skipped until it is back."
+msgstr ""
+
+msgid "%1$s shows a maintenance page with status %2$d"
+msgstr ""
+
+msgid "Visitors and search engines get a maintenance page instead of your content, and the status code says everything is fine. Search engines may index the maintenance page in place of your articles. Set your maintenance plugin to send status 503 with a Retry-After header, or switch maintenance off. The other checks for this page are skipped until it is back."
+msgstr ""
+
+msgid "%s could not be fetched for the audit"
+msgstr ""
+
+msgid "The server refused a request to its own address. Some hosts and firewalls block these loopback requests. Visitors are not affected, but the page checks cannot run."
+msgstr ""
+
+msgid "%1$s answers with HTTP %2$d"
+msgstr ""
+
+msgid "Search engines only index pages that answer with status 200."
+msgstr ""
+
+msgid "%s tells search engines not to index it"
+msgstr ""
+
+msgid "A noindex directive was found in a meta tag or the X-Robots-Tag header. If this is not intentional, look for another plugin, the theme or the server configuration adding it."
+msgstr ""
+
+msgid "%s does not contain the tags of this plugin"
+msgstr ""
+
+msgid "The page visitors receive was not built with Bearius SEO Light active. It usually comes from a page cache created before the plugin was set up, from a coming soon plugin, or the theme does not call wp_head(). Clear the page cache and run the checks again."
+msgstr ""
+
+msgid "%1$s has %2$d canonical tags"
+msgstr ""
+
+msgid "With more than one canonical tag search engines may ignore all of them. Another plugin, the theme or a code snippet prints its own tag."
+msgstr ""
+
+msgid "%s has no canonical tag"
+msgstr ""
+
+msgid "A canonical tag tells search engines which address is the main one when the same content is reachable under several URLs."
+msgstr ""
+
+msgid "%s points its canonical tag to another address"
+msgstr ""
+
+msgid "Canonical: %s. This is fine if intentional; otherwise the page will not rank on its own."
+msgstr ""
+
+msgid "%1$s has %2$d meta descriptions"
+msgstr ""
+
+msgid "Something else prints a description too. Search engines pick one at random or write their own."
+msgstr ""
+
+msgid "%s has no meta description"
+msgstr ""
+
+msgid "Without it search engines build the snippet from page text, which is often less inviting."
+msgstr ""
+
+msgid "%s has duplicated Open Graph tags"
+msgstr ""
+
+msgid "Social networks may show the wrong title or image when shared."
+msgstr ""
+
+msgid "%1$s has %2$d title tags"
+msgstr ""
+
+msgid "A page needs exactly one title tag. Check the theme for a hard coded title."
+msgstr ""
+
+msgid "%1$s repeats structured data: %2$s"
+msgstr ""
+
+msgid "Two sources describe the same thing. Switch off the duplicate in the theme or in the Meta and schema settings."
+msgstr ""
+
+msgid "%s contains invalid structured data"
+msgstr ""
+
+msgid "At least one JSON-LD block cannot be parsed and is ignored by search engines."
+msgstr ""
+
+msgid "%s has no main heading"
+msgstr ""
+
+msgid "An H1 heading tells readers and crawlers what the page is about."
+msgstr ""
+
+msgid "%1$s has %2$d main headings"
+msgstr ""
+
+msgid "Several H1 headings are allowed, but one clear heading makes the topic easier to read."
+msgstr ""
+
+msgid "%s has no viewport tag on mobile"
+msgstr ""
+
+msgid "Without it phones render the desktop layout zoomed out. Google indexes the mobile version first."
+msgstr ""
+
+msgid "%s has a different canonical tag on mobile"
+msgstr ""
+
+msgid "The mobile and desktop versions should point to the same main address."
+msgstr ""
+
+msgid "%s has different structured data on mobile"
+msgstr ""
+
+msgid "Google indexes the mobile version, so anything missing there is missing for Google."
+msgstr ""
+
+msgid "%s shows noticeably different content on mobile"
+msgstr ""
+
+msgid "Main text: %1$s characters on desktop, %2$s on mobile."
+msgstr ""
+
+msgid "%s has no hreflang links"
+msgstr ""
+
+msgid "The site runs in several languages, but this page does not point to its other versions. Search engines may then show the wrong language. Hreflang links come from the multilingual plugin; check its settings."
+msgstr ""
+
+msgid "%s does not list itself among its language versions"
+msgstr ""
+
+msgid "Each page has to include a hreflang link to itself, otherwise search engines may ignore the whole set."
+msgstr ""
+
+msgid "%s has no x-default language version"
+msgstr ""
+
+msgid "x-default tells search engines which version to show visitors whose language is not on the list."
+msgstr ""
+
+msgid "%s does not allow large image previews"
+msgstr ""
+
+msgid "Google Discover shows large images only when the page allows them with max-image-preview:large. WordPress adds it by default, so a theme or another plugin probably removes it."
+msgstr ""
+
+msgid "%1$s took %2$s s to load its HTML"
+msgstr ""
+
+msgid "Measured from the server itself, so real visitors wait longer. A page cache usually brings this well under half a second."
+msgstr ""
+
+msgid "Acceptable, but a page cache would make it faster."
+msgstr ""
+
+msgid "%1$s weighs %2$d KB of HTML"
+msgstr ""
+
+msgid "Large HTML usually comes from inlined styles, scripts or very long lists of links."
+msgstr ""
+
+msgid "%1$s loads %2$d render blocking scripts in the head"
+msgstr ""
+
+msgid "Scripts without async or defer stop the browser from drawing the page until they download."
+msgstr ""
+
+msgid "%1$s loads %2$d stylesheets before showing anything"
+msgstr ""
+
+msgid "Each stylesheet in the head delays the first paint. Combining or trimming them helps."
+msgstr ""
+
+msgid "%s lazy loads its first image"
+msgstr ""
+
+msgid "The first image is often the largest element on screen. Lazy loading it delays the moment the page looks ready."
+msgstr ""
+
+msgid "%1$s has %2$d images without width and height"
+msgstr ""
+
+msgid "Without dimensions the layout jumps while images load, which hurts the layout stability score."
+msgstr ""
+
+msgid "%1$s loads files from %2$d other domains"
+msgstr ""
+
+msgid "Every new domain costs a connection. Remove unused embeds and trackers."
+msgstr ""
+
+msgid "%s uses other domains without preconnect hints"
+msgstr ""
+
+msgid "A preconnect hint lets the browser open important connections earlier."
+msgstr ""
+
+msgid "%1$s has %2$s HTML elements"
+msgstr ""
+
+msgid "A very large document is slower to render and to update. Page builders and long menus are the usual cause."
+msgstr ""
+
+msgid "%s may hide content from AI crawlers"
+msgstr ""
+
+msgid "Most AI crawlers do not run JavaScript. Content loaded by scripts is invisible to them."
+msgstr ""
+
+msgid "%s has no main or article element"
+msgstr ""
+
+msgid "A main or article element marks where the content starts, which helps crawlers separate it from menus and widgets."
+msgstr ""
+
+msgid "Only %2$d%% of the text on %1$s is the article itself"
+msgstr ""
+
+msgid "Menus, sidebars and footers make up most of the text. Crawlers usually cope, but a cleaner page is easier to summarise correctly."
+msgstr ""
+
+msgid "Allow all"
+msgstr ""
+
+msgid "Nothing changes. Every AI crawler may visit, as before you installed the plugin."
+msgstr ""
+
+msgid "Block training, allow AI search"
+msgstr ""
+
+msgid "Your texts are not collected to train new AI models, but assistants such as ChatGPT, Claude or Perplexity can still find, quote and link your pages."
+msgstr ""
+
+msgid "Block all AI crawlers"
+msgstr ""
+
+msgid "No AI crawler may visit. Your pages will not be quoted or linked in AI answers. Google and Bing search are not affected."
+msgstr ""
+
+msgid "Custom"
+msgstr ""
+
+msgid "Your own choice for each crawler in the table below."
+msgstr ""
+
+msgid "Settings"
+msgstr ""
+
+msgid "Audit"
+msgstr ""
+
+msgid "Bearius SEO Light"
+msgstr ""
+
+msgid "Overview"
+msgstr ""
+
+msgid "Importing, keep this page open..."
+msgstr ""
+
+msgid "Importing categories and tags..."
+msgstr ""
+
+msgid "Import finished."
+msgstr ""
+
+msgid "The import stopped because of an error. Try again; finished entries are skipped."
+msgstr ""
+
+msgid "entries read"
+msgstr ""
+
+msgid "SEO titles"
+msgstr ""
+
+msgid "descriptions"
+msgstr ""
+
+msgid "noindex flags"
+msgstr ""
+
+msgid "social titles"
+msgstr ""
+
+msgid "social images"
+msgstr ""
+
+msgid "Leave without saving? Your changes will be lost."
+msgstr ""
+
+msgid "Copied"
+msgstr ""
+
+msgid "A rule that would block the whole site for all crawlers or for Google was removed. If you really need it, put it in a physical robots.txt file."
+msgstr ""
+
+msgid "Status of your site and the modules in use."
+msgstr ""
+
+msgid "Who publishes the site, used in search results and when content is shared."
+msgstr ""
+
+msgid "Choose exactly which tags and structured data the plugin prints."
+msgstr ""
+
+msgid "XML sitemap and Google News sitemap, in every language of the site."
+msgstr ""
+
+msgid "Rules for crawlers, built on top of the WordPress defaults."
+msgstr ""
+
+msgid "RSS feeds, tags, comments and archives: what visitors and search engines get."
+msgstr ""
+
+msgid "Notify search engines about changes and verify site ownership."
+msgstr ""
+
+msgid "Facts about your site that affect search, without guesswork."
+msgstr ""
+
+msgid "What AI crawlers may fetch and what they actually read."
+msgstr ""
+
+msgid "Bring over titles and descriptions from another SEO plugin."
+msgstr ""
+
+msgid "How you hear about problems."
+msgstr ""
+
+msgid "Meta tags"
+msgstr ""
+
+msgid "Description, canonical, Open Graph and X Card tags, plus the SEO box in the editor."
+msgstr ""
+
+msgid "One connected Schema.org graph: publisher, site, articles, breadcrumbs and archives."
+msgstr ""
+
+msgid "Category and tag SEO"
+msgstr ""
+
+msgid "SEO title, description and noindex on category, tag and other archive screens."
+msgstr ""
+
+msgid "XML sitemap"
+msgstr ""
+
+msgid "Replaces the WordPress sitemap with one that lists every language and leaves out noindex content."
+msgstr ""
+
+msgid "Google News sitemap"
+msgstr ""
+
+msgid "Articles from the last two days, one file per language."
+msgstr ""
+
+msgid "Robots.txt"
+msgstr ""
+
+msgid "Adds sitemap lines, an AI crawler policy and your own rules to the WordPress robots.txt."
+msgstr ""
+
+msgid "Site verification"
+msgstr ""
+
+msgid "Verification tags for Google Search Console, Bing and other webmaster tools."
+msgstr ""
+
+msgid "A block, a shortcode and a template function that show the same trail as the structured data."
+msgstr ""
+
+msgid "Daily technical checks, page scans and the content audit."
+msgstr ""
+
+msgid "Modules"
+msgstr ""
+
+msgid "Switch off what your theme or another plugin already does. A module that is off loads no code."
+msgstr ""
+
+msgid "IndexNow"
+msgstr ""
+
+msgid "Tells Bing and other engines about changes right away. Needs your consent first."
+msgstr ""
+
+msgid "On, manage"
+msgstr ""
+
+msgid "Set up"
+msgstr ""
+
+msgid "Bearius link"
+msgstr ""
+
+msgid "Optional. Off unless you switch it on."
+msgstr ""
+
+msgid "Show a \"Powered by Bearius\" link in the footer"
+msgstr ""
+
+msgid "A small link that helps others find the plugin. It is marked nofollow, so it passes no ranking signals. If several Bearius plugins have this switched on, the link still appears only once."
+msgstr ""
+
+msgid "Language of these screens"
+msgstr ""
+
+msgid "Follows the language of your user profile by default, not the language of the site, so you can work in your language on a site in any language. Only you see this choice."
+msgstr ""
+
+msgid "Automatic, from your profile (%s)"
+msgstr ""
+
+msgid "Save"
+msgstr ""
+
+msgid "RSS feeds"
+msgstr ""
+
+msgid "Feeds are read by feed readers such as Feedly, by aggregators and news apps, by tools that post to social media and by RSS newsletters. Search engines can use them to find new posts."
+msgstr ""
+
+msgid "Available feeds"
+msgstr ""
+
+msgid "Switched off feeds redirect to the page they belong to. Comment feeds are rarely used and safe to switch off. Category, tag and author feeds add many extra addresses for crawlers with little use. Switching off all feeds stops feed readers, aggregators and automatic posting to social media and newsletters, so check your tools first."
+msgstr ""
+
+msgid "All feeds"
+msgstr ""
+
+msgid "Without comment feeds"
+msgstr ""
+
+msgid "Main feed only"
+msgstr ""
+
+msgid "No feeds"
+msgstr ""
+
+msgid "Add the featured image"
+msgstr ""
+
+msgid "Adds the image as media:content and at the top of each item. Feedly, Flipboard, MSN and RSS newsletters use it to show a picture next to the title."
+msgstr ""
+
+msgid "Add a source line"
+msgstr ""
+
+msgid "Adds \"Title appeared first on Site\" with links to every item. When someone republishes your feed automatically, the links back to the original stay in place."
+msgstr ""
+
+msgid "Delay new posts in the feed"
+msgstr ""
+
+msgid "New posts appear in the feed only after this time, so search engines can see the original on your site before copies made from the feed appear elsewhere. 0 publishes right away."
+msgstr ""
+
+msgid "minutes"
+msgstr ""
+
+msgid "Leave out noindex entries"
+msgstr ""
+
+msgid "Entries hidden from search engines are not sent to feeds either."
+msgstr ""
+
+msgid "Leave out categories"
+msgstr ""
+
+msgid "Posts in these categories do not appear in the main feed. Translations of the chosen categories are left out too."
+msgstr ""
+
+msgid "Full text or excerpt"
+msgstr ""
+
+msgid "A WordPress setting. Full text is convenient for readers but easy to copy; an excerpt brings readers to your site. Changed in Settings, Reading."
+msgstr ""
+
+msgid "Excerpt"
+msgstr ""
+
+msgid "Full text"
+msgstr ""
+
+msgid "Change"
+msgstr ""
+
+msgid "Tags"
+msgstr ""
+
+msgid "Tag archives often repeat what categories already show and add thin pages for search engines. Nothing is deleted: switch back and everything returns."
+msgstr ""
+
+msgid "Hidden from visitors: tag archives answer 410 Gone, so search engines drop them quickly, tag lists disappear from the theme, and tags leave the sitemap and feeds. Editors can still use tags, for example for internal sorting. Switched off: in addition the tag box and the Tags menu disappear for posts."
+msgstr ""
+
+msgid "In use"
+msgstr ""
+
+msgid "Hidden from visitors"
+msgstr ""
+
+msgid "Switched off"
+msgstr ""
+
+msgid "Comments"
+msgstr ""
+
+msgid "Comments bring spam links, pingbacks, extra feeds and duplicate addresses when they are split into pages. Nothing is deleted."
+msgstr ""
+
+msgid "Pingbacks and trackbacks are automatic notices between sites and today are almost only spam; switching them off is safe for everyone. Closing comments keeps the existing ones visible. Switching off hides comments, forms, the Comments menu and comment feeds everywhere."
+msgstr ""
+
+msgid "On"
+msgstr ""
+
+msgid "Without pingbacks"
+msgstr ""
+
+msgid "Closed for new"
+msgstr ""
+
+msgid "Archives"
+msgstr ""
+
+msgid "Lists of posts by author or by date rarely help readers or search engines."
+msgstr ""
+
+msgid "Indexed"
+msgstr ""
+
+msgid "Not indexed"
+msgstr ""
+
+msgid "Author archives"
+msgstr ""
+
+msgid "On a site with one author the author archive repeats the home page. Switched off, it redirects to the home page, which also stops login names from being found through ?author=1."
+msgstr ""
+
+msgid "Date archives"
+msgstr ""
+
+msgid "Lists by year, month and day. Not indexed keeps them for visitors; switched off redirects them to the home page."
+msgstr ""
+
+msgid "Publisher"
+msgstr ""
+
+msgid "Shown as the publisher of every article in structured data."
+msgstr ""
+
+msgid "Publisher name"
+msgstr ""
+
+msgid "Leave empty to use the site title."
+msgstr ""
+
+msgid "Logo"
+msgstr ""
+
+msgid "Square or wide, at least 112 pixels. Leave empty to use the theme logo or the site icon."
+msgstr ""
+
+msgid "Home page description"
+msgstr ""
+
+msgid "Used as the meta description of the home page. Leave empty to use the tagline."
+msgstr ""
+
+msgid "Sharing"
+msgstr ""
+
+msgid "How links to the site look on social networks and in messengers."
+msgstr ""
+
+msgid "Default social image"
+msgstr ""
+
+msgid "Used when an entry has no featured image. Recommended size 1200x630 pixels."
+msgstr ""
+
+msgid "X account"
+msgstr ""
+
+msgid "Without the @ sign."
+msgstr ""
+
+msgid "Publishing"
+msgstr ""
+
+msgid "Settings for sites that publish news."
+msgstr ""
+
+msgid "News publisher mode"
+msgstr ""
+
+msgid "Posts are marked as NewsArticle instead of Article. Use it only if you report on current events."
+msgstr ""
+
+msgid "Modified date threshold"
+msgstr ""
+
+msgid "Edits made within this time after publishing keep the original date, so fixing a typo does not look like an update."
+msgstr ""
+
+msgid "The meta tags module is off, so the options below have no effect. Switch it on in the Overview."
+msgstr ""
+
+msgid "Turn off any tag your theme already prints, so nothing appears twice."
+msgstr ""
+
+msgid "Custom titles"
+msgstr ""
+
+msgid "Use the SEO title from the editor in the browser title."
+msgstr ""
+
+msgid "Canonical link"
+msgstr ""
+
+msgid "Replaces the canonical tag WordPress prints, and adds it to archives and paginated pages."
+msgstr ""
+
+msgid "Open Graph"
+msgstr ""
+
+msgid "Title, description and image for Facebook, LinkedIn and messengers."
+msgstr ""
+
+msgid "Other language versions"
+msgstr ""
+
+msgid "Adds og:locale:alternate for each translation. Hreflang links come from your multilingual plugin."
+msgstr ""
+
+msgid "X Card"
+msgstr ""
+
+msgid "Printed as one connected graph. Turn off a node your theme already outputs."
+msgstr ""
+
+msgid "Organization"
+msgstr ""
+
+msgid "The publisher with name and logo."
+msgstr ""
+
+msgid "WebSite"
+msgstr ""
+
+msgid "Site name and search action, on the home page."
+msgstr ""
+
+msgid "Article"
+msgstr ""
+
+msgid "Article or NewsArticle for posts, WebPage for other content."
+msgstr ""
+
+msgid "BreadcrumbList"
+msgstr ""
+
+msgid "CollectionPage"
+msgstr ""
+
+msgid "List of entries on category and tag archives."
+msgstr ""
+
+msgid "Loading"
+msgstr ""
+
+msgid "Small changes that help pages look ready sooner."
+msgstr ""
+
+msgid "Removes lazy loading from the featured image of posts and pages and marks it as high priority. Turn it on if the audit reports a lazy loaded first image and your theme shows the featured image at the top."
+msgstr ""
+
+msgid "Replaces the sitemap built into WordPress. The old address and the one used by Yoast and Rank Math redirect here."
+msgstr ""
+
+msgid "The XML sitemap module is off, so WordPress serves its own sitemap. Noindex content is still left out of it."
+msgstr ""
+
+msgid "Paused while %s is active."
+msgstr ""
+
+msgid "The site asks search engines not to index it, so no sitemap is served."
+msgstr ""
+
+msgid "Your sitemap: %s"
+msgstr ""
+
+msgid "Languages are read from %s, with separate files per language."
+msgstr ""
+
+msgid "Content types"
+msgstr ""
+
+msgid "Empty archives and archives marked noindex are left out automatically."
+msgstr ""
+
+msgid "Home page entry"
+msgstr ""
+
+msgid "A small file with the home page of every language."
+msgstr ""
+
+msgid "Addresses per file"
+msgstr ""
+
+msgid "Smaller files are generated faster on large sites."
+msgstr ""
+
+msgid "Lists articles from the last two days, at most 1000. On multilingual sites each language gets its own file under one index."
+msgstr ""
+
+msgid "The Google News sitemap is off. Switch it on in the Overview if you publish news."
+msgstr ""
+
+msgid "Your news sitemap: %s. Submit it in Google Search Console."
+msgstr ""
+
+msgid "Posts in these categories never go to Google News, for example sponsored content or announcements."
+msgstr ""
+
+msgid "Only categories of the default language are listed; their translations are left out automatically."
+msgstr ""
+
+msgid "Publication name"
+msgstr ""
+
+msgid "Must match the name in Google Publisher Center. Leave empty to use the publisher name."
+msgstr ""
+
+msgid "All content"
+msgstr ""
+
+msgid "The robots.txt module is off. WordPress serves its default rules; the sitemap lines are still added."
+msgstr ""
+
+msgid "WordPress runs in a subdirectory. Crawlers only read robots.txt at the root of the domain, so these rules are not seen."
+msgstr ""
+
+msgid "A robots.txt file exists on the server, and crawlers receive it instead of the rules below. Delete the file to use these settings."
+msgstr ""
+
+msgid "The site asks search engines not to index it, so robots.txt blocks everything regardless of the rules below."
+msgstr ""
+
+msgid "AI crawlers"
+msgstr ""
+
+msgid "Set in the AI visibility screen, where each choice is explained."
+msgstr ""
+
+msgid "Current policy"
+msgstr ""
+
+msgid "Your rules"
+msgstr ""
+
+msgid "Added below the automatic rules. A rule that would block the whole site for everyone or for Google is removed on save."
+msgstr ""
+
+msgid "Extra rules"
+msgstr ""
+
+msgid "One directive per line, for example \"Disallow: /cart/\"."
+msgstr ""
+
+msgid "Preview"
+msgstr ""
+
+msgid "Saved settings, exactly as WordPress serves them."
+msgstr ""
+
+msgid "Open robots.txt"
+msgstr ""
+
+msgid "Instant notifications for search engines. When you publish or update an entry, its address goes straight to engines that support IndexNow: Bing (which also feeds Copilot and DuckDuckGo), Yandex, Seznam, Naver and Yep. One submission reaches all of them. Only the address is sent, nothing else. Noindex entries and drafts are skipped. Google does not use IndexNow; it finds changes through your sitemaps."
+msgstr ""
+
+msgid "Send changes with IndexNow"
+msgstr ""
+
+msgid "Switching this on is your consent for the site to contact api.indexnow.org."
+msgstr ""
+
+msgid "Key file"
+msgstr ""
+
+msgid "Proves to search engines that the submissions come from this site."
+msgstr ""
+
+msgid "Generate a new key on save"
+msgstr ""
+
+msgid "Recent submissions"
+msgstr ""
+
+msgid "When"
+msgstr ""
+
+msgid "Result"
+msgstr ""
+
+msgid "%s ago"
+msgstr ""
+
+msgid "Paste the code or the whole meta tag from each tool. The tag is printed on the home page only."
+msgstr ""
+
+msgid "The verification module is off. Switch it on in the Overview."
+msgstr ""
+
+msgid "Google Search Console"
+msgstr ""
+
+msgid "Needed only for a URL prefix property. Domain properties are verified through DNS."
+msgstr ""
+
+msgid "Bing Webmaster Tools"
+msgstr ""
+
+msgid "Bing can also import a site verified in Search Console."
+msgstr ""
+
+msgid "Other tools"
+msgstr ""
+
+msgid "Seznam"
+msgstr ""
+
+msgid "The main search engine in the Czech Republic."
+msgstr ""
+
+msgid "Yandex"
+msgstr ""
+
+msgid "For Russian speaking markets."
+msgstr ""
+
+msgid "Naver"
+msgstr ""
+
+msgid "The main search engine in South Korea."
+msgstr ""
+
+msgid "Baidu"
+msgstr ""
+
+msgid "The main search engine in China."
+msgstr ""
+
+msgid "Pinterest"
+msgstr ""
+
+msgid "Claims the domain for Rich Pins and statistics. Useful for recipes, DIY and shops."
+msgstr ""
+
+msgid "WordPress accepted the test message. Check the inbox and the spam folder; acceptance does not guarantee delivery."
+msgstr ""
+
+msgid "WordPress could not send the test message. Your host probably blocks outgoing mail; an SMTP plugin usually solves it."
+msgstr ""
+
+msgid "In the dashboard"
+msgstr ""
+
+msgid "Problems are checked once a day, and right away when a setting that affects indexing changes."
+msgstr ""
+
+msgid "Dashboard widget"
+msgstr ""
+
+msgid "Score, status and the three most important problems on the Dashboard."
+msgstr ""
+
+msgid "Notices for critical problems"
+msgstr ""
+
+msgid "A notice on every admin screen until the problem is fixed or you hide it. Only critical problems, only for administrators."
+msgstr ""
+
+msgid "By e-mail"
+msgstr ""
+
+msgid "One message when a new critical problem appears, never a digest of small things."
+msgstr ""
+
+msgid "E-mail uses the mail function of your server. Many hosts limit or block it, and messages may land in spam. Send a test e-mail before relying on it; an SMTP plugin makes delivery reliable. The plugin cannot guarantee delivery, so critical problems are always shown in the dashboard too."
+msgstr ""
+
+msgid "E-mail critical problems"
+msgstr ""
+
+msgid "Recipient"
+msgstr ""
+
+msgid "Leave empty to use the administration e-mail address."
+msgstr ""
+
+msgid "Send a test e-mail"
+msgstr ""
+
+msgid "%1$s appeared first on %2$s."
+msgstr ""
+
+msgid "Powered by %s"
+msgstr ""
+
+msgid "The list of sitemap files of this site. Search engines open each file to find your content."
+msgstr ""
+
+msgid "Addresses search engines are invited to crawl, with the date of the last change."
+msgstr ""
+
+msgid "One file per language. Each file lists the articles published in the last two days."
+msgstr ""
+
+msgid "Articles published in the last two days, newest first, in the format Google News expects."
+msgstr ""
+
+msgid "Generated by Bearius SEO Light. A list with clickable links is available in the plugin settings."
+msgstr ""
+
+msgid "Overrides the archive title in the browser and when shared. Leave empty to use the name."
+msgstr ""
+
+msgid "Leave empty to use the description above."
+msgstr ""
+
+msgid "Ask search engines not to index this archive"
+msgstr ""
+
+msgid "Indexing"
+msgstr ""
+
+msgid "The archive also disappears from the XML sitemap."
+msgstr ""
+
+msgid "Meta and schema"
+msgstr ""
+
+msgid "Sitemaps"
+msgstr ""
+
+msgid "Feeds and comments"
+msgstr ""
+
+msgid "Import"
+msgstr ""
+
+msgid "Notifications"
+msgstr ""
+
+msgid "Bearius score %d out of 100"
+msgstr ""
+
+msgid "Settings sections"
+msgstr ""
+
+msgid "Unsaved changes"
+msgstr ""
+
+msgid "All changes saved"
+msgstr ""
+
+msgid "Save changes"
+msgstr ""
+
+msgid "Fix"
+msgstr ""
+
+msgid "%1$s, %2$d language"
+msgid_plural "%1$s, %2$d languages"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "Home"
+msgstr ""
+
+msgid "Search results for \"%s\""
+msgstr ""
+
+msgid "Only addresses on this site can be fetched."
+msgstr ""
+
+msgid "Critical"
+msgstr ""
+
+msgid "Warning"
+msgstr ""
+
+msgid "Suggestion"
+msgstr ""
+
+msgid "Information"
+msgstr ""
+
+msgid "Shows the path to the current page. Uses the same trail as the structured data."
+msgstr ""
+
+msgid "Category"
+msgstr ""
+
+msgid "Current page"
+msgstr ""
+

@@ -7,6 +7,7 @@
  * engines expect and keeps the markup free of repeated publisher data.
  *
  * @package BeariusSEOLight
+ * @author  Bearius
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -54,7 +55,7 @@ class Bearius_SEO_Schema {
 			}
 		}
 
-		if ( is_singular() && bearius_seo_get_setting( 'schema_breadcrumbs' ) ) {
+		if ( ( is_singular() || is_category() || is_tag() || is_tax() ) && bearius_seo_get_setting( 'schema_breadcrumbs' ) ) {
 			$crumbs = $this->breadcrumbs();
 			if ( $crumbs ) {
 				$nodes[] = $crumbs;
@@ -239,77 +240,12 @@ class Bearius_SEO_Schema {
 	}
 
 	/**
-	 * Breadcrumb trail for single entries.
+	 * Breadcrumb trail for single entries and term archives.
 	 *
 	 * @return array|null
 	 */
 	private function breadcrumbs() {
-		$post = get_queried_object();
-
-		if ( ! $post instanceof WP_Post ) {
-			return null;
-		}
-
-		$items = array(
-			array(
-				'name' => bearius_seo_home_label(),
-				'url'  => home_url( '/' ),
-			),
-		);
-
-		if ( 'post' === $post->post_type ) {
-			$term = bearius_seo_primary_term( $post->ID );
-
-			if ( $term ) {
-				$ancestors = array_reverse( get_ancestors( $term->term_id, $term->taxonomy ) );
-
-				foreach ( $ancestors as $ancestor_id ) {
-					$ancestor = get_term( $ancestor_id, $term->taxonomy );
-
-					if ( $ancestor && ! is_wp_error( $ancestor ) ) {
-						$link = get_term_link( $ancestor );
-
-						if ( ! is_wp_error( $link ) ) {
-							$items[] = array(
-								'name' => $ancestor->name,
-								'url'  => $link,
-							);
-						}
-					}
-				}
-
-				$link = get_term_link( $term );
-				if ( ! is_wp_error( $link ) ) {
-					$items[] = array(
-						'name' => $term->name,
-						'url'  => $link,
-					);
-				}
-			}
-		} elseif ( $post->post_parent ) {
-			foreach ( array_reverse( get_post_ancestors( $post ) ) as $ancestor_id ) {
-				$items[] = array(
-					'name' => get_the_title( $ancestor_id ),
-					'url'  => get_permalink( $ancestor_id ),
-				);
-			}
-		}
-
-		$items[] = array(
-			'name' => get_the_title( $post ),
-			'url'  => get_permalink( $post ),
-		);
-
-		// A ListItem without a name is invalid, so incomplete entries are dropped
-		// rather than emitted and rejected by search engines.
-		$items = array_values(
-			array_filter(
-				$items,
-				function ( $item ) {
-					return '' !== trim( (string) $item['name'] ) && '' !== trim( (string) $item['url'] );
-				}
-			)
-		);
+		$items = bearius_seo_breadcrumb_items();
 
 		if ( count( $items ) < 2 ) {
 			return null;
@@ -326,9 +262,11 @@ class Bearius_SEO_Schema {
 			);
 		}
 
+		$last = end( $items );
+
 		return array(
 			'@type'           => 'BreadcrumbList',
-			'@id'             => get_permalink( $post ) . '#breadcrumb',
+			'@id'             => $last['url'] . '#breadcrumb',
 			'itemListElement' => $elements,
 		);
 	}
@@ -420,9 +358,9 @@ class Bearius_SEO_Schema {
 			),
 		);
 
-		$description = wp_strip_all_tags( term_description( $term ) );
+		$description = bearius_seo_term_description( $term );
 		if ( $description ) {
-			$node['description'] = bearius_seo_trim_on_word( $description, 160 );
+			$node['description'] = $description;
 		}
 
 		if ( bearius_seo_get_setting( 'schema_org' ) ) {

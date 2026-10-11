@@ -2,6 +2,7 @@
  * Admin styles for the SEO meta box and settings screen.
  *
  * @package BeariusSEOLight
+ * @author  Bearius
  */
 
 #bearius-seo-box {
@@ -406,4 +407,115 @@
 		height: auto;
 		aspect-ratio: 1200 / 630;
 	}
+}
+
+
+/* Checks panel ----------------------------------------------------------- */
+
+.bearius-seo-checks {
+	flex: 1;
+	margin-top: 0;
+	padding: 14px 16px;
+	border: 1px solid #e3e6eb;
+	border-radius: 10px;
+	background: #fff;
+	box-sizing: border-box;
+}
+
+.bearius-seo-checks__head {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 10px;
+	min-height: 22px;
+	margin-bottom: 10px;
+}
+
+.bearius-seo-checks__head .bearius-seo-preview__label {
+	margin: 0;
+}
+
+.bearius-seo-checks__score {
+	padding: 2px 9px;
+	border-radius: 999px;
+	background: #fdf3e1;
+	color: #9a5b00;
+	font-size: 11.5px;
+	font-weight: 700;
+	white-space: nowrap;
+}
+
+.bearius-seo-checks__score.is-ok {
+	background: #e5f4ee;
+	color: #0f7a55;
+}
+
+.bearius-seo-checks__list {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.bearius-seo-checks__list li {
+	display: flex;
+	align-items: flex-start;
+	gap: 9px;
+	margin: 0;
+	padding: 5px 0;
+	color: #2b3441;
+	font-size: 12.5px;
+	line-height: 1.45;
+}
+
+.bearius-seo-checks__dot {
+	flex-shrink: 0;
+	width: 8px;
+	height: 8px;
+	margin-top: 5px;
+	border-radius: 50%;
+	background: #cdd3db;
+}
+
+.bearius-seo-checks__list li.is-ok .bearius-seo-checks__dot {
+	background: #0f9b6c;
+	box-shadow: 0 0 0 3px #e5f4ee;
+}
+
+.bearius-seo-checks__list li.is-warn .bearius-seo-checks__dot {
+	background: #e3a008;
+	box-shadow: 0 0 0 3px #fdf3e1;
+}
+
+.bearius-seo-checks__list li.is-info .bearius-seo-checks__dot {
+	background: #2a45c4;
+	box-shadow: 0 0 0 3px #edf0fc;
+}
+
+.bearius-seo-checks__note {
+	margin: 8px 0 0;
+	color: #8a93a2;
+	font-size: 11.5px;
+}
+
+/* Checks on the left, how the post looks on the right. */
+.bearius-seo-preview--checks {
+	display: flex;
+	flex: 1 1 300px;
+	flex-direction: column;
+}
+
+.bearius-seo-preview--looks {
+	flex: 1.15 1 340px;
+}
+
+.bearius-seo-preview--looks .bearius-seo-social__image {
+	max-height: 230px;
+}
+
+.bearius-seo-preview__label--next {
+	margin-top: 20px;
+}
+
+.bearius-seo-preview--looks .bearius-seo-preview__label:first-child {
+	min-height: 22px;
 }

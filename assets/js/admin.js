@@ -5,6 +5,7 @@
  * editor and the classic editor.
  *
  * @package BeariusSEOLight
+ * @author  Bearius
  */
 
 ( function () {
@@ -192,6 +193,77 @@
 	 *
 	 * @return {void}
 	 */
+	/**
+	 * Updates the live checks and the summary of the checks panel.
+	 *
+	 * @param {string} title Effective SEO title.
+	 * @param {string} desc  Effective description.
+	 */
+	function updateChecks( title, desc ) {
+		var box = panel.querySelector( '[data-bs-checks]' );
+		var texts = data.checks || {};
+
+		if ( ! box ) {
+			return;
+		}
+
+		var set = function ( key, state, text ) {
+			var row = box.querySelector( '[data-check="' + key + '"]' );
+
+			if ( row ) {
+				row.className = 'is-' + state;
+				row.querySelector( '[data-check-text]' ).textContent = text;
+			}
+		};
+
+		var format = function ( template, value ) {
+			return String( template || '' ).replace( '%d', value );
+		};
+
+		var titleLength = title.length;
+		if ( titleLength > 60 ) {
+			set( 'title', 'warn', format( texts.titleLong, titleLength ) );
+		} else if ( titleLength < 25 ) {
+			set( 'title', 'warn', format( texts.titleShort, titleLength ) );
+		} else {
+			set( 'title', 'ok', format( texts.titleOk, titleLength ) );
+		}
+
+		var descLength = desc.length;
+		if ( ! descLength ) {
+			set( 'desc', 'warn', texts.descNone || '' );
+		} else if ( descLength > 160 ) {
+			set( 'desc', 'warn', format( texts.descLong, descLength ) );
+		} else if ( descLength < 110 ) {
+			set( 'desc', 'warn', format( texts.descShort, descLength ) );
+		} else {
+			set( 'desc', 'ok', format( texts.descOk, descLength ) );
+		}
+
+		var noindex = panel.querySelector( 'input[name="bearius_seo_noindex"]' );
+		set( 'index', noindex && noindex.checked ? 'warn' : 'ok', noindex && noindex.checked ? texts.indexNo : texts.indexOk );
+
+		var rows = box.querySelectorAll( '[data-check]' );
+		var counted = 0;
+		var fine = 0;
+
+		rows.forEach( function ( row ) {
+			if ( row.classList.contains( 'is-info' ) ) {
+				return;
+			}
+			counted++;
+			if ( row.classList.contains( 'is-ok' ) ) {
+				fine++;
+			}
+		} );
+
+		var score = box.querySelector( '[data-bs-checks-score]' );
+		if ( score ) {
+			score.textContent = String( texts.score || '%1$d / %2$d' ).replace( '%1$d', fine ).replace( '%2$d', counted );
+			score.className = 'bearius-seo-checks__score' + ( fine === counted ? ' is-ok' : '' );
+		}
+	}
+
 	function refresh() {
 		var postTitle = editorTitle() || data.fallbackTitle || '';
 		var seoTitle = ( fields.title && fields.title.value ) || postTitle;
@@ -243,6 +315,8 @@
 			70
 		);
 
+		updateChecks( ( fields.title && fields.title.value ) || postTitle, desc );
+
 		updateCounter(
 			panel.querySelector( '[data-counter="desc"]' ),
 			panel.querySelector( '[data-meter="desc"]' ),
@@ -257,6 +331,11 @@
 			fields[ key ].addEventListener( 'input', refresh );
 		}
 	} );
+
+	var noindexBox = panel.querySelector( 'input[name="bearius_seo_noindex"]' );
+	if ( noindexBox ) {
+		noindexBox.addEventListener( 'change', refresh );
+	}
 
 	// The post title lives outside this box, so it is polled rather than bound.
 	var lastTitle = editorTitle();
