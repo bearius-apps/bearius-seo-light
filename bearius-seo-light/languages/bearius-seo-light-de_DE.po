@@ -1,0 +1,2071 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Bearius SEO Light\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Last-Translator: Bearius\n"
+"Language-Team: Bearius\n"
+"Language: de_DE\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Domain: bearius-seo-light\n"
+
+msgid "You are not allowed to do this."
+msgstr "Du bist nicht berechtigt, das zu tun."
+
+msgid "Add the publisher logo"
+msgstr "Herausgeber-Logo hinzufügen"
+
+msgid "Shown as the publisher in structured data and by Google next to news articles."
+msgstr "Wird als Herausgeber in strukturierten Daten und von Google neben News-Artikeln angezeigt."
+
+msgid "Open"
+msgstr "Öffnen"
+
+msgid "Choose a default social image"
+msgstr "Standardbild für Freigaben wählen"
+
+msgid "Used when a post has no featured image, so shared links always have a picture."
+msgstr "Wird verwendet, wenn ein Beitrag kein Beitragsbild hat, damit geteilte Links immer ein Bild zeigen."
+
+msgid "Set the site icon"
+msgstr "Website-Icon festlegen"
+
+msgid "Google shows it next to your pages in search results. WordPress adds it to the site, the dashboard and the login page."
+msgstr "Google zeigt es neben deinen Seiten in den Suchergebnissen. WordPress fügt es auf der Website, im Dashboard und auf der Anmeldeseite ein."
+
+msgid "Decide how AI companies may use your site"
+msgstr "Entscheide, wie KI-Firmen deine Website nutzen dürfen"
+
+msgid "Nothing is blocked until you choose. The AI visibility screen explains each option in plain words."
+msgstr "Nichts wird blockiert, bis du entscheidest. Die Seite KI-Sichtbarkeit erklärt jede Option in einfachen Worten."
+
+msgid "Tell Bing and other engines about new posts right away"
+msgstr "Bing und andere Suchmaschinen sofort über neue Beiträge informieren"
+
+msgid "IndexNow sends the address of each published or updated post to api.indexnow.org, which passes it to Bing, Yandex, Seznam, Naver and Yep. Only the address is sent. Google does not use it."
+msgstr "IndexNow sendet die Adresse jedes veröffentlichten oder aktualisierten Beitrags an api.indexnow.org, das sie an Bing, Yandex, Seznam, Naver und Yep weitergibt. Es wird nur die Adresse gesendet. Google nutzt das nicht."
+
+msgid "Switch on"
+msgstr "Einschalten"
+
+msgid "Not now"
+msgstr "Nicht jetzt"
+
+msgid "Run the first full check"
+msgstr "Ersten vollständigen Check starten"
+
+msgid "Scans your sitemaps, robots.txt and pages, and lists what to fix."
+msgstr "Prüft deine Sitemaps, robots.txt und Seiten und listet auf, was zu beheben ist."
+
+msgid "Run checks"
+msgstr "Checks starten"
+
+msgid "Getting started"
+msgstr "Erste Schritte"
+
+msgid "%1$d of %2$d done"
+msgstr "%1$d von %2$d erledigt"
+
+msgid "Hide this list"
+msgstr "Diese Liste ausblenden"
+
+msgid "Checks finished. The results below are current."
+msgstr "Checks abgeschlossen. Die Ergebnisse unten sind aktuell."
+
+msgid "Nothing blocks indexing, but a few things need attention"
+msgstr "Nichts blockiert die Indexierung, aber einiges braucht Aufmerksamkeit"
+
+msgid "In good shape, with a few suggestions"
+msgstr "In gutem Zustand, mit einigen Vorschlägen"
+
+msgid "No problems found"
+msgstr "Keine Probleme gefunden"
+
+msgid "Bearius score"
+msgstr "Bearius-Score"
+
+msgid "Full check ran %s ago. Settings are checked live."
+msgstr "Vollständiger Check vor %s. Einstellungen werden live geprüft."
+
+msgid "Settings are checked live. Run the full check to scan sitemaps, robots.txt and your pages."
+msgstr "Einstellungen werden live geprüft. Starte den vollständigen Check, um Sitemaps, robots.txt und deine Seiten zu prüfen."
+
+msgid "The score is our own measure of the problems found, not a Google or PageSpeed score."
+msgstr "Der Score ist unser eigenes Maß für die gefundenen Probleme, kein Google- oder PageSpeed-Wert."
+
+msgid "Checking..."
+msgstr "Wird geprüft..."
+
+msgid "Report"
+msgstr "Bericht"
+
+msgid "See all %d findings in the audit"
+msgstr "Alle %d Ergebnisse im Audit ansehen"
+
+msgid "The audit module is off, so the daily check and the page scans do not run. Switch it on in the Overview."
+msgstr "Das Audit-Modul ist aus, daher laufen der tägliche Check und die Seitenscans nicht. Schalte es in der Übersicht ein."
+
+msgid "Setup and crawling"
+msgstr "Einrichtung und Crawling"
+
+msgid "Settings, sitemaps and robots.txt: what decides whether search engines can reach your content."
+msgstr "Einstellungen, Sitemaps und robots.txt: was entscheidet, ob Suchmaschinen deine Inhalte erreichen."
+
+msgid "Pages"
+msgstr "Seiten"
+
+msgid "The home page and the latest post, fetched as a logged out visitor on desktop and on mobile. This is where duplicates from the theme or snippets show up."
+msgstr "Die Startseite und der neueste Beitrag, abgerufen als abgemeldeter Besucher auf Desktop und Mobilgerät. Hier zeigen sich Duplikate aus dem Theme oder aus Code-Schnipseln."
+
+msgid "Performance"
+msgstr "Leistung"
+
+msgid "Read from the HTML of the mobile version. These are hints, not lab measurements: the page is not rendered in a browser."
+msgstr "Aus dem HTML der mobilen Version gelesen. Das sind Hinweise, keine Labormessungen: Die Seite wird nicht in einem Browser gerendert."
+
+msgid "Page"
+msgstr "Seite"
+
+msgid "Device"
+msgstr "Gerät"
+
+msgid "Status"
+msgstr "Status"
+
+msgid "Canonical"
+msgstr "Canonical"
+
+msgid "Descriptions"
+msgstr "Beschreibungen"
+
+msgid "Structured data"
+msgstr "Strukturierte Daten"
+
+msgid "Desktop"
+msgstr "Desktop"
+
+msgid "Mobile"
+msgstr "Mobil"
+
+msgid "HTML time"
+msgstr "HTML-Zeit"
+
+msgid "Cache"
+msgstr "Cache"
+
+msgid "HTML size"
+msgstr "HTML-Größe"
+
+msgid "Blocking scripts"
+msgstr "Blockierende Skripte"
+
+msgid "Images without size"
+msgstr "Bilder ohne Größe"
+
+msgid "Other domains"
+msgstr "Andere Domains"
+
+msgid "Elements"
+msgstr "Elemente"
+
+msgid "Content"
+msgstr "Inhalt"
+
+msgid "Live queries on your published entries. Pick a finding to see the entries; the most important ones come first."
+msgstr "Live-Abfragen deiner veröffentlichten Einträge. Wähle ein Ergebnis, um die Einträge zu sehen; die wichtigsten stehen oben."
+
+msgid "Importance"
+msgstr "Wichtigkeit"
+
+msgid "All"
+msgstr "Alle"
+
+msgid "Content type"
+msgstr "Inhaltstyp"
+
+msgid "Published"
+msgstr "Veröffentlicht"
+
+msgid "Any time"
+msgstr "Beliebig"
+
+msgid "Last 30 days"
+msgstr "Letzte 30 Tage"
+
+msgid "Last 90 days"
+msgstr "Letzte 90 Tage"
+
+msgid "Last year"
+msgstr "Letztes Jahr"
+
+msgid "Only indexed entries"
+msgstr "Nur indexierte Einträge"
+
+msgid "Apply"
+msgstr "Anwenden"
+
+msgid "No content findings for these filters."
+msgstr "Keine Inhaltsergebnisse für diese Filter."
+
+msgid "Nothing to fix here."
+msgstr "Hier gibt es nichts zu beheben."
+
+msgid "Title"
+msgstr "Titel"
+
+msgid "Type"
+msgstr "Typ"
+
+msgid "Language"
+msgstr "Sprache"
+
+msgid "(no title)"
+msgstr "(kein Titel)"
+
+msgid "Edit"
+msgstr "Bearbeiten"
+
+msgid "View"
+msgstr "Ansehen"
+
+msgid "Previous"
+msgstr "Zurück"
+
+msgid "Next"
+msgstr "Weiter"
+
+msgid "Model training"
+msgstr "Modelltraining"
+
+msgid "AI search and citations"
+msgstr "KI-Suche und Zitate"
+
+msgid "Pages opened on request"
+msgstr "Auf Anfrage geöffnete Seiten"
+
+msgid "Who may crawl"
+msgstr "Wer crawlen darf"
+
+msgid "Choose how AI companies may use your site. Read the explanation first: this is your decision, and the plugin changes nothing until you make it."
+msgstr "Wähle, wie KI-Firmen deine Website nutzen dürfen. Lies zuerst die Erklärung: Es ist deine Entscheidung, und das Plugin ändert nichts, bevor du sie triffst."
+
+msgid "AI companies send crawlers to your site for three different jobs:"
+msgstr "KI-Firmen schicken Crawler für drei verschiedene Aufgaben auf deine Website:"
+
+msgid "Model training."
+msgstr "Modelltraining."
+
+msgid "Your texts are copied and used to teach new AI models. Later the model may use what it learned in its answers, but it does not show where it came from and does not send visitors to you."
+msgstr "Deine Texte werden kopiert und genutzt, um neue KI-Modelle zu trainieren. Später kann das Modell das Gelernte in Antworten verwenden, zeigt aber nicht, woher es stammt, und schickt dir keine Besucher."
+
+msgid "AI search and citations."
+msgstr "KI-Suche und Zitate."
+
+msgid "When someone asks ChatGPT, Claude or Perplexity a question, these crawlers look for current pages, and the answer can quote your article and link to it as the source. This works much like a search engine and can bring you visitors."
+msgstr "Wenn jemand ChatGPT, Claude oder Perplexity eine Frage stellt, suchen diese Crawler aktuelle Seiten, und die Antwort kann deinen Artikel zitieren und als Quelle verlinken. Das funktioniert ähnlich wie eine Suchmaschine und kann dir Besucher bringen."
+
+msgid "Pages opened on request."
+msgstr "Auf Anfrage geöffnete Seiten."
+
+msgid "A person pastes your link into a chat and asks the assistant to read it. The page is fetched once, for that person only."
+msgstr "Jemand fügt deinen Link in einen Chat ein und bittet den Assistenten, ihn zu lesen. Die Seite wird einmal abgerufen, nur für diese Person."
+
+msgid "Blocking training does not remove you from Google or Bing and does not stop AI assistants from quoting you. Blocking AI search means assistants cannot quote or link your pages. Google-Extended only decides whether Google may use your pages for Gemini; Google Search, including its AI Overviews, is not affected."
+msgstr "Das Blockieren des Trainings entfernt dich nicht aus Google oder Bing und hindert KI-Assistenten nicht daran, dich zu zitieren. Das Blockieren der KI-Suche bedeutet, dass Assistenten deine Seiten weder zitieren noch verlinken können. Google-Extended entscheidet nur, ob Google deine Seiten für Gemini nutzen darf; die Google-Suche einschließlich ihrer KI-Übersichten ist nicht betroffen."
+
+msgid "The rules go into robots.txt. It is a request, not a lock: the companies listed here say they follow it, but crawlers that ignore the rules cannot be stopped this way."
+msgstr "Die Regeln landen in der robots.txt. Sie ist eine Bitte, kein Schloss: Die hier genannten Firmen sagen, dass sie sich daran halten, aber Crawler, die Regeln ignorieren, lassen sich so nicht aufhalten."
+
+msgid "Policy"
+msgstr "Richtlinie"
+
+msgid "default"
+msgstr "Standard"
+
+msgid "Crawler"
+msgstr "Crawler"
+
+msgid "Company"
+msgstr "Firma"
+
+msgid "Purpose"
+msgstr "Zweck"
+
+msgid "Allowed"
+msgstr "Erlaubt"
+
+msgid "On the server"
+msgstr "Auf dem Server"
+
+msgid "Not checked yet"
+msgstr "Noch nicht geprüft"
+
+msgid "Blocked"
+msgstr "Blockiert"
+
+msgid "Still allowed"
+msgstr "Noch erlaubt"
+
+msgid "Blocked elsewhere"
+msgstr "Anderswo blockiert"
+
+msgid "\"On the server\" shows the robots.txt crawlers received during the check %s ago. Run the checks again after saving."
+msgstr "„Auf dem Server“ zeigt die robots.txt, die Crawler beim Check vor %s erhalten haben. Starte die Checks nach dem Speichern erneut."
+
+msgid "\"On the server\" fills in after the first full check on the Audit screen."
+msgstr "„Auf dem Server“ wird nach dem ersten vollständigen Check auf der Audit-Seite ausgefüllt."
+
+msgid "Firewalls and CDNs such as Cloudflare can block AI crawlers before robots.txt is even read. The plugin cannot see those settings, so check them in your CDN panel too."
+msgstr "Firewalls und CDNs wie Cloudflare können KI-Crawler blockieren, bevor die robots.txt überhaupt gelesen wird. Das Plugin sieht diese Einstellungen nicht, prüfe sie also auch in deinem CDN-Panel."
+
+msgid "Findings"
+msgstr "Ergebnisse"
+
+msgid "From the last full check of the home page and the latest post."
+msgstr "Aus dem letzten vollständigen Check der Startseite und des neuesten Beitrags."
+
+msgid "All languages"
+msgstr "Alle Sprachen"
+
+msgid "Sitemap preview"
+msgstr "Sitemap-Vorschau"
+
+msgid "Every file of your sitemap, built from the same data search engines receive. Open a file to see its addresses as clickable links."
+msgstr "Jede Datei deiner Sitemap, aus denselben Daten erstellt, die Suchmaschinen erhalten. Öffne eine Datei, um ihre Adressen als anklickbare Links zu sehen."
+
+msgid "The sitemap is empty. Check the content types and archives selected above."
+msgstr "Die Sitemap ist leer. Prüfe die oben gewählten Inhaltstypen und Archive."
+
+msgid "files"
+msgstr "Dateien"
+
+msgid "addresses"
+msgstr "Adressen"
+
+msgid "languages"
+msgstr "Sprachen"
+
+msgid "Addresses"
+msgstr "Adressen"
+
+msgid "Last change"
+msgstr "Letzte Änderung"
+
+msgid "Home pages"
+msgstr "Startseiten"
+
+msgid "%1$s, part %2$d"
+msgstr "%1$s, Teil %2$d"
+
+msgid "Show addresses"
+msgstr "Adressen anzeigen"
+
+msgid "This file does not exist."
+msgstr "Diese Datei existiert nicht."
+
+msgid "Google News preview"
+msgstr "Google-News-Vorschau"
+
+msgid "Articles from the last two days in each language file, newest first. The list refreshes within five minutes of publishing."
+msgstr "Artikel der letzten zwei Tage in jeder Sprachdatei, die neuesten zuerst. Die Liste aktualisiert sich innerhalb von fünf Minuten nach der Veröffentlichung."
+
+msgid "And %d more in the file."
+msgstr "Und %d weitere in der Datei."
+
+msgid "No articles from the last two days."
+msgstr "Keine Artikel aus den letzten zwei Tagen."
+
+msgid "What AI crawlers read"
+msgstr "Was KI-Crawler lesen"
+
+msgid "Most AI crawlers download the HTML and do not run JavaScript. This is the text they get, with menus and footers counted separately."
+msgstr "Die meisten KI-Crawler laden das HTML herunter und führen kein JavaScript aus. Das ist der Text, den sie bekommen; Menüs und Footer werden getrennt gezählt."
+
+msgid "Home page"
+msgstr "Startseite"
+
+msgid "Latest post"
+msgstr "Neuester Beitrag"
+
+msgid "Address below"
+msgstr "Adresse unten"
+
+msgid "Address on this site"
+msgstr "Adresse auf dieser Website"
+
+msgid "Show"
+msgstr "Anzeigen"
+
+msgid "Pick a page to fetch it now."
+msgstr "Wähle eine Seite, um sie jetzt abzurufen."
+
+msgid "Only addresses on this site can be checked."
+msgstr "Nur Adressen auf dieser Website können geprüft werden."
+
+msgid "The page could not be read (HTTP %d). Some hosts block requests from the server to itself."
+msgstr "Die Seite konnte nicht gelesen werden (HTTP %d). Manche Hoster blockieren Anfragen des Servers an sich selbst."
+
+msgid "characters of content"
+msgstr "Zeichen Inhalt"
+
+msgid "of all text is content"
+msgstr "des gesamten Textes ist Inhalt"
+
+msgid "headings"
+msgstr "Überschriften"
+
+msgid "schema types"
+msgstr "Schema-Typen"
+
+msgid "Structure"
+msgstr "Struktur"
+
+msgid "No headings found."
+msgstr "Keine Überschriften gefunden."
+
+msgid "Publication date:"
+msgstr "Veröffentlichungsdatum:"
+
+msgid "not found"
+msgstr "nicht gefunden"
+
+msgid "Schema:"
+msgstr "Schema:"
+
+msgid "none"
+msgstr "keine"
+
+msgid "Text without JavaScript"
+msgstr "Text ohne JavaScript"
+
+msgid "Import from another plugin or theme"
+msgstr "Aus einem anderen Plugin oder Theme importieren"
+
+msgid "Copies SEO titles, descriptions, noindex flags and social titles and images. Template variables are turned into plain text, and titles that only repeat the default are skipped. Nothing is deleted from the other plugin."
+msgstr "Kopiert SEO-Titel, Beschreibungen, Noindex-Markierungen sowie Social-Titel und -Bilder. Vorlagenvariablen werden zu reinem Text, und Titel, die nur den Standard wiederholen, werden übersprungen. Im anderen Plugin wird nichts gelöscht."
+
+msgid "No data from Yoast SEO, Rank Math or All in One SEO was found on this site."
+msgstr "Auf dieser Website wurden keine Daten von Yoast SEO, Rank Math oder All in One SEO gefunden."
+
+msgid "Source"
+msgstr "Quelle"
+
+msgid "Replace values already set in Bearius SEO"
+msgstr "In Bearius SEO bereits gesetzte Werte ersetzen"
+
+msgid "Without this option only empty fields are filled, so running the import twice is safe."
+msgstr "Ohne diese Option werden nur leere Felder gefüllt, daher ist ein doppelter Import sicher."
+
+msgid "Start import"
+msgstr "Import starten"
+
+msgid "After the import, deactivate the other SEO plugin. The paused modules start working on their own."
+msgstr "Deaktiviere nach dem Import das andere SEO-Plugin. Die pausierten Module starten dann von selbst."
+
+msgid "AI visibility"
+msgstr "KI-Sichtbarkeit"
+
+msgid "Back to the audit"
+msgstr "Zurück zum Audit"
+
+msgid "Print or save as PDF"
+msgstr "Drucken oder als PDF speichern"
+
+msgid "Prepared by %s"
+msgstr "Erstellt von %s"
+
+msgid "SEO audit report"
+msgstr "SEO-Audit-Bericht"
+
+msgid "Prepared on %s"
+msgstr "Erstellt am %s"
+
+msgid "Pages scanned on %s."
+msgstr "Seiten gescannt am %s."
+
+msgid "Finding"
+msgstr "Ergebnis"
+
+msgid "Entries"
+msgstr "Einträge"
+
+msgid "The score subtracts twenty points per critical problem, six per warning and two per suggestion. It is not a Google or PageSpeed score."
+msgstr "Der Score zieht zwanzig Punkte pro kritischem Problem ab, sechs pro Warnung und zwei pro Vorschlag. Er ist kein Google- oder PageSpeed-Wert."
+
+msgid "The Bearius score adds twenty points of penalty per critical problem, six per warning and two per suggestion. It is our own measure, not a Google or PageSpeed score."
+msgstr "Der Bearius-Score zieht zwanzig Punkte pro kritischem Problem ab, sechs pro Warnung und zwei pro Vorschlag. Er ist unser eigenes Maß, kein Google- oder PageSpeed-Wert."
+
+msgid "%s address"
+msgid_plural "%s addresses"
+msgstr[0] "%s Adresse"
+msgstr[1] "%s Adressen"
+
+msgid "%s article"
+msgid_plural "%s articles"
+msgstr[0] "%s Artikel"
+msgstr[1] "%s Artikel"
+
+msgid "%s entry with data"
+msgid_plural "%s entries with data"
+msgstr[0] "%s Eintrag mit Daten"
+msgstr[1] "%s Einträge mit Daten"
+
+msgid "Breadcrumbs"
+msgstr "Breadcrumbs"
+
+msgid "<strong>Bearius SEO Light</strong> found %s, so its meta tags, structured data, XML sitemap, robots.txt and verification modules are paused to avoid duplicates. The Google News sitemap, IndexNow, the audit and the importer keep working."
+msgstr "<strong>Bearius SEO Light</strong> hat %s gefunden, daher sind die Module für Meta-Tags, strukturierte Daten, XML-Sitemap, robots.txt und Verifizierung pausiert, um Duplikate zu vermeiden. Die Google-News-Sitemap, IndexNow, das Audit und der Import arbeiten weiter."
+
+msgid "Duplicate titles"
+msgstr "Doppelte Titel"
+
+msgid "Several entries share the same title, so search engines cannot tell them apart."
+msgstr "Mehrere Einträge haben denselben Titel, sodass Suchmaschinen sie nicht unterscheiden können."
+
+msgid "Duplicate descriptions"
+msgstr "Doppelte Beschreibungen"
+
+msgid "The same custom meta description is used on more than one entry."
+msgstr "Dieselbe eigene Meta-Beschreibung wird für mehr als einen Eintrag verwendet."
+
+msgid "No image for sharing"
+msgstr "Kein Bild zum Teilen"
+
+msgid "No featured or social image; the default image is used when shared."
+msgstr "Kein Beitragsbild oder Social-Bild; beim Teilen wird das Standardbild verwendet."
+
+msgid "No featured or social image and no default image, so shares appear without a picture."
+msgstr "Kein Beitragsbild, kein Social-Bild und kein Standardbild, daher erscheinen Freigaben ohne Bild."
+
+msgid "Images too small for Discover"
+msgstr "Bilder zu klein für Discover"
+
+msgid "The featured image is narrower than 1200 pixels, the size Google Discover asks for to show large previews. Checked in the latest %d entries."
+msgstr "Das Beitragsbild ist schmaler als 1200 Pixel, die Größe, die Google Discover für große Vorschauen verlangt. Geprüft in den letzten %d Einträgen."
+
+msgid "Long titles"
+msgstr "Lange Titel"
+
+msgid "The title is longer than search results usually show and will be cut off."
+msgstr "Der Titel ist länger, als Suchergebnisse üblicherweise anzeigen, und wird abgeschnitten."
+
+msgid "Very short content"
+msgstr "Sehr kurzer Inhalt"
+
+msgid "Fewer than about a hundred words. Short pages rarely rank unless they answer something precisely."
+msgstr "Weniger als etwa hundert Wörter. Kurze Seiten ranken selten, es sei denn, sie beantworten etwas präzise."
+
+msgid "Images without alternative text"
+msgstr "Bilder ohne Alternativtext"
+
+msgid "Images in the content have no alt text. Checked in the latest %d entries."
+msgstr "Bilder im Inhalt haben keinen Alt-Text. Geprüft in den letzten %d Einträgen."
+
+msgid "Automatic description"
+msgstr "Automatische Beschreibung"
+
+msgid "No custom description or excerpt; the opening of the content is used. Fine for most entries, worth writing for important ones."
+msgstr "Keine eigene Beschreibung und kein Textauszug; der Anfang des Inhalts wird verwendet. Für die meisten Einträge in Ordnung, bei wichtigen lohnt sich eine eigene."
+
+msgid "Hidden from search engines"
+msgstr "Vor Suchmaschinen verborgen"
+
+msgid "Entries marked noindex. Listed so you can confirm each one is intentional."
+msgstr "Mit Noindex markierte Einträge. Aufgelistet, damit du bestätigen kannst, dass jeder davon beabsichtigt ist."
+
+msgid "Bearius SEO"
+msgstr "Bearius SEO"
+
+msgid "No problems"
+msgstr "Keine Probleme"
+
+msgid "Checked %s ago"
+msgstr "Geprüft vor %s"
+
+msgid "The full check has not run yet"
+msgstr "Der vollständige Check ist noch nicht gelaufen"
+
+msgid "Open the audit"
+msgstr "Audit öffnen"
+
+msgid "Turn on the canonical link"
+msgstr "Canonical-Link einschalten"
+
+msgid "Switches on the meta tags module and its canonical link."
+msgstr "Schaltet das Meta-Tag-Modul und seinen Canonical-Link ein."
+
+msgid "Turn on the meta description"
+msgstr "Meta-Beschreibung einschalten"
+
+msgid "Switches on the meta tags module and its meta description."
+msgstr "Schaltet das Meta-Tag-Modul und seine Meta-Beschreibung ein."
+
+msgid "Stop printing our canonical link"
+msgstr "Unseren Canonical-Link nicht mehr ausgeben"
+
+msgid "Keeps the canonical tag of your theme or other plugin and switches off ours."
+msgstr "Behält das Canonical-Tag deines Themes oder anderen Plugins und schaltet unseres ab."
+
+msgid "Stop printing our meta description"
+msgstr "Unsere Meta-Beschreibung nicht mehr ausgeben"
+
+msgid "Keeps the description of your theme or other plugin and switches off ours."
+msgstr "Behält die Beschreibung deines Themes oder anderen Plugins und schaltet unsere ab."
+
+msgid "Stop printing our Open Graph tags"
+msgstr "Unsere Open-Graph-Tags nicht mehr ausgeben"
+
+msgid "Keeps the Open Graph tags of your theme or other plugin and switches off ours."
+msgstr "Behält die Open-Graph-Tags deines Themes oder anderen Plugins und schaltet unsere ab."
+
+msgid "Switch off our duplicated structured data"
+msgstr "Unsere doppelten strukturierten Daten abschalten"
+
+msgid "Switches off only the structured data nodes that appear twice. If the theme repeats them by itself, this will not help."
+msgstr "Schaltet nur die Knoten der strukturierten Daten ab, die doppelt vorkommen. Wenn das Theme sie selbst wiederholt, hilft das nicht."
+
+msgid "Load the featured image right away"
+msgstr "Beitragsbild sofort laden"
+
+msgid "Removes lazy loading from the featured image of posts and pages and marks it as high priority. Other images are not changed."
+msgstr "Entfernt das Lazy Loading des Beitragsbilds bei Beiträgen und Seiten und gibt ihm hohe Priorität. Andere Bilder bleiben unverändert."
+
+msgid "Allow search engines"
+msgstr "Suchmaschinen erlauben"
+
+msgid "Switches off \"Discourage search engines from indexing this site\" in Settings, Reading."
+msgstr "Schaltet „Suchmaschinen davon abhalten, diese Website zu indexieren“ unter Einstellungen, Lesen aus."
+
+msgid "Search engines will start indexing the whole site. Continue?"
+msgstr "Suchmaschinen beginnen, die gesamte Website zu indexieren. Fortfahren?"
+
+msgid "Turn on the Google News sitemap"
+msgstr "Google-News-Sitemap einschalten"
+
+msgid "Switches on the Google News sitemap module for posts."
+msgstr "Schaltet das Modul der Google-News-Sitemap für Beiträge ein."
+
+msgid "Use posts for Google News"
+msgstr "Beiträge für Google News verwenden"
+
+msgid "Selects posts as the content type of the Google News sitemap."
+msgstr "Wählt Beiträge als Inhaltstyp der Google-News-Sitemap."
+
+msgid "Clear the page cache"
+msgstr "Seiten-Cache leeren"
+
+msgid "Clears the whole page cache, so visitors get pages built with the current settings."
+msgstr "Leert den gesamten Seiten-Cache, damit Besucher Seiten mit den aktuellen Einstellungen erhalten."
+
+msgid "The whole page cache will be cleared. On a busy site the server works harder for a few minutes. Continue?"
+msgstr "Der gesamte Seiten-Cache wird geleert. Auf einer stark besuchten Website arbeitet der Server einige Minuten mehr. Fortfahren?"
+
+msgid "Unknown fix."
+msgstr "Unbekannte Korrektur."
+
+msgid "The fix could not be applied. Nothing was changed."
+msgstr "Die Korrektur konnte nicht angewendet werden. Es wurde nichts geändert."
+
+msgid "Done: %s."
+msgstr "Erledigt: %s."
+
+msgid "Run the checks to confirm."
+msgstr "Starte die Checks zur Bestätigung."
+
+msgid "If your site uses a page cache, clear it, then run the checks to confirm."
+msgstr "Wenn deine Website einen Seiten-Cache nutzt, leere ihn und starte dann die Checks zur Bestätigung."
+
+msgid "Bearius SEO: the fix could not be applied. Nothing was changed."
+msgstr "Bearius SEO: Die Korrektur konnte nicht angewendet werden. Es wurde nichts geändert."
+
+msgid "Bearius SEO: done, %s."
+msgstr "Bearius SEO: erledigt, %s."
+
+msgid "Search engines are asked not to index this site"
+msgstr "Suchmaschinen werden gebeten, diese Website nicht zu indexieren"
+
+msgid "The \"Discourage search engines from indexing this site\" option is on. Nothing from this site will appear in search results, and the sitemaps are switched off."
+msgstr "Die Option „Suchmaschinen davon abhalten, diese Website zu indexieren“ ist aktiv. Nichts von dieser Website erscheint in Suchergebnissen, und die Sitemaps sind abgeschaltet."
+
+msgid "Plain permalinks are in use"
+msgstr "Einfache Permalinks sind in Verwendung"
+
+msgid "Addresses like ?p=123 say nothing about the content, and some servers will not route the sitemap addresses to WordPress."
+msgstr "Adressen wie ?p=123 sagen nichts über den Inhalt, und manche Server leiten die Sitemap-Adressen nicht an WordPress weiter."
+
+msgid "The site address does not use HTTPS"
+msgstr "Die Website-Adresse nutzt kein HTTPS"
+
+msgid "Browsers mark plain HTTP pages as not secure and search engines prefer secure addresses."
+msgstr "Browser markieren einfache HTTP-Seiten als nicht sicher, und Suchmaschinen bevorzugen sichere Adressen."
+
+msgid "The site has no title"
+msgstr "Die Website hat keinen Titel"
+
+msgid "The title appears in browser tabs, search results and when pages are shared."
+msgstr "Der Titel erscheint in Browser-Tabs, Suchergebnissen und beim Teilen von Seiten."
+
+msgid "%s is active"
+msgstr "%s ist aktiv"
+
+msgid "Meta tags, structured data, the XML sitemap, robots.txt and verification are paused here to avoid duplicates."
+msgstr "Meta-Tags, strukturierte Daten, die XML-Sitemap, robots.txt und Verifizierung sind hier pausiert, um Duplikate zu vermeiden."
+
+msgid "No publisher logo is set"
+msgstr "Kein Herausgeber-Logo festgelegt"
+
+msgid "The logo is part of the publisher data in structured data and is shown by Google for news articles."
+msgstr "Das Logo gehört zu den Herausgeberdaten in den strukturierten Daten und wird von Google bei News-Artikeln angezeigt."
+
+msgid "No default social image is set"
+msgstr "Kein Standardbild für Freigaben festgelegt"
+
+msgid "Pages without a featured image are shared without a picture."
+msgstr "Seiten ohne Beitragsbild werden ohne Bild geteilt."
+
+msgid "The site has no site icon"
+msgstr "Die Website hat kein Website-Icon"
+
+msgid "Google shows the site icon next to your pages in search results; without it a generic globe appears. Once set, WordPress adds it to the site, the dashboard and the login page."
+msgstr "Google zeigt das Website-Icon neben deinen Seiten in den Suchergebnissen; ohne es erscheint ein allgemeiner Globus. Sobald es festgelegt ist, fügt WordPress es auf der Website, im Dashboard und auf der Anmeldeseite ein."
+
+msgid "News mode is on, but the Google News sitemap is off"
+msgstr "Der News-Modus ist an, aber die Google-News-Sitemap ist aus"
+
+msgid "A news sitemap helps Google find new articles within minutes."
+msgstr "Eine News-Sitemap hilft Google, neue Artikel innerhalb von Minuten zu finden."
+
+msgid "The Google News sitemap has no content types selected"
+msgstr "Für die Google-News-Sitemap sind keine Inhaltstypen gewählt"
+
+msgid "Choose at least one content type, otherwise the news sitemap stays empty."
+msgstr "Wähle mindestens einen Inhaltstyp, sonst bleibt die News-Sitemap leer."
+
+msgid "robots.txt rules have no effect in a subdirectory"
+msgstr "robots.txt-Regeln wirken in einem Unterverzeichnis nicht"
+
+msgid "Crawlers only read robots.txt at the root of the domain, so the rules set here are not seen."
+msgstr "Crawler lesen die robots.txt nur im Stammverzeichnis der Domain, daher werden die hier gesetzten Regeln nicht gesehen."
+
+msgid "A robots.txt file on the server overrides the rules set here"
+msgstr "Eine robots.txt-Datei auf dem Server überschreibt die hier gesetzten Regeln"
+
+msgid "Delete the robots.txt file from the site root, or copy the rules you need into it by hand."
+msgstr "Lösche die robots.txt-Datei aus dem Stammverzeichnis der Website oder übertrage die benötigten Regeln von Hand hinein."
+
+msgid "A sitemap.xml file on the server hides the generated sitemap"
+msgstr "Eine sitemap.xml-Datei auf dem Server verdeckt die erzeugte Sitemap"
+
+msgid "The file is usually left over from an old plugin. Delete it so the server passes the address to WordPress."
+msgstr "Die Datei stammt meist von einem alten Plugin. Lösche sie, damit der Server die Adresse an WordPress weiterreicht."
+
+msgid "The last IndexNow submission failed"
+msgstr "Die letzte IndexNow-Übermittlung ist fehlgeschlagen"
+
+msgid "The last e-mail notification could not be sent"
+msgstr "Die letzte E-Mail-Benachrichtigung konnte nicht gesendet werden"
+
+msgid "WordPress reported an error while sending. Many hosts limit outgoing mail; an SMTP plugin usually fixes it."
+msgstr "WordPress hat beim Senden einen Fehler gemeldet. Viele Hoster begrenzen ausgehende E-Mails; ein SMTP-Plugin behebt das meist."
+
+msgid "The XML sitemap cannot be opened"
+msgstr "Die XML-Sitemap kann nicht geöffnet werden"
+
+msgid "sitemap.xml answered with HTTP %d instead of a sitemap. Check for a leftover file on the server or a caching rule."
+msgstr "sitemap.xml antwortete mit HTTP %d statt mit einer Sitemap. Prüfe, ob eine alte Datei auf dem Server liegt oder eine Cache-Regel greift."
+
+msgid "The Google News sitemap cannot be opened"
+msgstr "Die Google-News-Sitemap kann nicht geöffnet werden"
+
+msgid "news-sitemap.xml answered with HTTP %d."
+msgstr "news-sitemap.xml antwortete mit HTTP %d."
+
+msgid "The IndexNow key file cannot be opened"
+msgstr "Die IndexNow-Schlüsseldatei kann nicht geöffnet werden"
+
+msgid "Search engines check this file before accepting submissions. Your server probably serves .txt files directly without asking WordPress; create a text file with the key in the site root, or allow WordPress to answer it."
+msgstr "Suchmaschinen prüfen diese Datei, bevor sie Übermittlungen annehmen. Dein Server liefert .txt-Dateien wahrscheinlich direkt aus, ohne WordPress zu fragen; lege eine Textdatei mit dem Schlüssel im Stammverzeichnis an oder lass WordPress darauf antworten."
+
+msgid "robots.txt blocks search engines from the whole site"
+msgstr "robots.txt sperrt Suchmaschinen für die gesamte Website"
+
+msgid "A Disallow: / rule applies to Googlebot or Bingbot. Unless the site is meant to be private, remove it."
+msgstr "Eine Disallow: /-Regel gilt für Googlebot oder Bingbot. Entferne sie, es sei denn, die Website soll privat sein."
+
+msgid "The served robots.txt does not list the sitemap"
+msgstr "Die ausgelieferte robots.txt nennt die Sitemap nicht"
+
+msgid "The file crawlers receive differs from the one built here. A physical robots.txt file, the CDN or another plugin replaces it."
+msgstr "Die Datei, die Crawler erhalten, weicht von der hier erstellten ab. Eine physische robots.txt-Datei, das CDN oder ein anderes Plugin ersetzt sie."
+
+msgid "AI search crawlers are blocked"
+msgstr "KI-Such-Crawler sind blockiert"
+
+msgid "Blocked outside the AI visibility settings: %s. Something else, such as a robots.txt file on the server or another plugin, stops them. These crawlers decide whether your pages can be quoted in AI answers."
+msgstr "Außerhalb der KI-Sichtbarkeit blockiert: %s. Etwas anderes hält sie auf, etwa eine robots.txt-Datei auf dem Server oder ein anderes Plugin. Diese Crawler entscheiden, ob deine Seiten in KI-Antworten zitiert werden können."
+
+msgid "The home page"
+msgstr "Die Startseite"
+
+msgid "The latest post"
+msgstr "Der neueste Beitrag"
+
+msgid "[%s] Critical SEO problem found"
+msgstr "[%s] Kritisches SEO-Problem gefunden"
+
+msgid "Bearius SEO Light found a problem that can keep your site out of search results:"
+msgstr "Bearius SEO Light hat ein Problem gefunden, das deine Website aus den Suchergebnissen fernhalten kann:"
+
+msgid "Open the audit:"
+msgstr "Audit öffnen:"
+
+msgid "[%s] Test notification"
+msgstr "[%s] Testbenachrichtigung"
+
+msgid "This is a test message from Bearius SEO Light. If you can read it, critical problems will reach you by e-mail."
+msgstr "Dies ist eine Testnachricht von Bearius SEO Light. Wenn du sie lesen kannst, erreichen dich kritische Probleme per E-Mail."
+
+msgid "Bearius SEO:"
+msgstr "Bearius SEO:"
+
+msgid "Hide this notice"
+msgstr "Diesen Hinweis ausblenden"
+
+msgid "Bearius SEO audit"
+msgstr "Bearius-SEO-Audit"
+
+msgid "No SEO problems found"
+msgstr "Keine SEO-Probleme gefunden"
+
+msgid "SEO audit: %1$d critical, %2$d warnings"
+msgstr "SEO-Audit: %1$d kritisch, %2$d Warnungen"
+
+msgid "SEO"
+msgstr "SEO"
+
+msgid "Results of the Bearius SEO Light audit."
+msgstr "Ergebnisse des Audits von Bearius SEO Light."
+
+msgid "Unknown source."
+msgstr "Unbekannte Quelle."
+
+msgid "Accepted"
+msgstr "Angenommen"
+
+msgid "Rejected: invalid request"
+msgstr "Abgelehnt: ungültige Anfrage"
+
+msgid "Rejected: the key file could not be verified"
+msgstr "Abgelehnt: Die Schlüsseldatei konnte nicht geprüft werden"
+
+msgid "Rejected: addresses do not match the site"
+msgstr "Abgelehnt: Adressen passen nicht zur Website"
+
+msgid "Too many requests, will retry with the next change"
+msgstr "Zu viele Anfragen, neuer Versuch bei der nächsten Änderung"
+
+msgid "Connection failed"
+msgstr "Verbindung fehlgeschlagen"
+
+msgid "HTTP status %d"
+msgstr "HTTP-Status %d"
+
+msgid "%1$s (original: %2$s)"
+msgstr "%1$s (Original: %2$s)"
+
+msgid "Select an image"
+msgstr "Bild auswählen"
+
+msgid "Use this image"
+msgstr "Dieses Bild verwenden"
+
+msgid "(no title yet)"
+msgstr "(noch kein Titel)"
+
+msgid "No description available. Search engines will pick their own text."
+msgstr "Keine Beschreibung vorhanden. Suchmaschinen wählen ihren eigenen Text."
+
+msgid "No image"
+msgstr "Kein Bild"
+
+msgid "SEO title fits in search results (%d characters)"
+msgstr "SEO-Titel passt in die Suchergebnisse (%d Zeichen)"
+
+msgid "SEO title may be cut off (%d characters, aim for up to 60)"
+msgstr "SEO-Titel wird eventuell abgeschnitten (%d Zeichen, ziele auf höchstens 60)"
+
+msgid "SEO title is short (%d characters)"
+msgstr "SEO-Titel ist kurz (%d Zeichen)"
+
+msgid "Description has a good length (%d characters)"
+msgstr "Beschreibung hat eine gute Länge (%d Zeichen)"
+
+msgid "Description may be cut off (%d characters, aim for up to 160)"
+msgstr "Beschreibung wird eventuell abgeschnitten (%d Zeichen, ziele auf höchstens 160)"
+
+msgid "Description is short (%d characters)"
+msgstr "Beschreibung ist kurz (%d Zeichen)"
+
+msgid "No description: search engines will pick their own text"
+msgstr "Keine Beschreibung: Suchmaschinen wählen ihren eigenen Text"
+
+msgid "Visible to search engines"
+msgstr "Für Suchmaschinen sichtbar"
+
+msgid "Hidden from search engines (noindex)"
+msgstr "Vor Suchmaschinen verborgen (noindex)"
+
+msgid "%1$d of %2$d fine"
+msgstr "%1$d von %2$d in Ordnung"
+
+msgid "Featured image is large enough for Google Discover (%d px)"
+msgstr "Beitragsbild ist groß genug für Google Discover (%d px)"
+
+msgid "Featured image is narrower than 1200 px (%d px), too small for large previews in Discover"
+msgstr "Beitragsbild ist schmaler als 1200 px (%d px), zu klein für große Vorschauen in Discover"
+
+msgid "Featured image has alternative text"
+msgstr "Beitragsbild hat einen Alternativtext"
+
+msgid "Featured image has no alternative text"
+msgstr "Beitragsbild hat keinen Alternativtext"
+
+msgid "No featured image: the default social image is used"
+msgstr "Kein Beitragsbild: Das Standardbild für Freigaben wird verwendet"
+
+msgid "No featured image: shares will have no picture"
+msgstr "Kein Beitragsbild: Freigaben erscheinen ohne Bild"
+
+msgid "%d words of content"
+msgstr "%d Wörter Inhalt"
+
+msgid "Only %d words of content"
+msgstr "Nur %d Wörter Inhalt"
+
+msgid "No links to other pages of the site"
+msgstr "Keine Links zu anderen Seiten der Website"
+
+msgid "Left out of Google News by choice"
+msgstr "Bewusst aus Google News ausgeschlossen"
+
+msgid "Listed in the Google News sitemap for two days after publishing"
+msgstr "Zwei Tage nach der Veröffentlichung in der Google-News-Sitemap gelistet"
+
+msgid "Structured data: %s"
+msgstr "Strukturierte Daten: %s"
+
+msgid "Checks"
+msgstr "Checks"
+
+msgid "Image, length and links are checked for the saved version."
+msgstr "Bild, Länge und Links werden für die gespeicherte Version geprüft."
+
+msgid "Search result"
+msgstr "Suchergebnis"
+
+msgid "When shared"
+msgstr "Beim Teilen"
+
+msgid "SEO title"
+msgstr "SEO-Titel"
+
+msgid "Overrides the browser title and the headline in structured data. Leave empty and the post title is used, exactly as shown in the preview above."
+msgstr "Ersetzt den Browsertitel und die Überschrift in den strukturierten Daten. Leer lassen, dann wird der Beitragstitel verwendet, genau wie in der Vorschau oben."
+
+msgid "Meta description"
+msgstr "Meta-Beschreibung"
+
+msgid "Leave empty and the excerpt is used, then the opening of the content. The grey text shows what will be sent."
+msgstr "Leer lassen, dann wird der Textauszug verwendet, danach der Anfang des Inhalts. Der graue Text zeigt, was gesendet wird."
+
+msgid "Social title"
+msgstr "Social-Titel"
+
+msgid "Used when the post is shared. Leave empty to reuse the SEO title."
+msgstr "Wird beim Teilen des Beitrags verwendet. Leer lassen, um den SEO-Titel zu nutzen."
+
+msgid "Social image"
+msgstr "Social-Bild"
+
+msgid "Select image"
+msgstr "Bild auswählen"
+
+msgid "Clear"
+msgstr "Leeren"
+
+msgid "Leave empty to use the featured image. Recommended size 1200x630 pixels."
+msgstr "Leer lassen, um das Beitragsbild zu nutzen. Empfohlene Größe 1200x630 Pixel."
+
+msgid "Ask search engines not to index this content"
+msgstr "Suchmaschinen bitten, diesen Inhalt nicht zu indexieren"
+
+msgid "Leave this entry out of the Google News sitemap"
+msgstr "Diesen Eintrag aus der Google-News-Sitemap ausschließen"
+
+msgid "%d link to another page of the site"
+msgid_plural "%d links to other pages of the site"
+msgstr[0] "%d Link zu einer anderen Seite der Website"
+msgstr[1] "%d Links zu anderen Seiten der Website"
+
+msgid "An empty #%s container, typical for pages rendered by JavaScript."
+msgstr "Ein leerer #%s-Container, typisch für Seiten, die per JavaScript gerendert werden."
+
+msgid "A notice asking visitors to enable JavaScript."
+msgstr "Ein Hinweis, der Besucher bittet, JavaScript zu aktivieren."
+
+msgid "Very little text in the HTML while many scripts are loaded. The content may only appear after JavaScript runs."
+msgstr "Sehr wenig Text im HTML bei vielen geladenen Skripten. Der Inhalt erscheint womöglich erst, nachdem JavaScript läuft."
+
+msgid "%s shows a maintenance page"
+msgstr "%s zeigt eine Wartungsseite"
+
+msgid "Visitors and search engines get a maintenance page with status 503, which is the right signal for a short break. If it lasts more than a few days, search engines may start dropping pages. The other checks for this page are skipped until it is back."
+msgstr "Besucher und Suchmaschinen erhalten eine Wartungsseite mit Status 503, das richtige Signal für eine kurze Pause. Dauert es länger als einige Tage, können Suchmaschinen beginnen, Seiten zu entfernen. Die übrigen Checks für diese Seite werden übersprungen, bis sie wieder da ist."
+
+msgid "%1$s shows a maintenance page with status %2$d"
+msgstr "%1$s zeigt eine Wartungsseite mit Status %2$d"
+
+msgid "Visitors and search engines get a maintenance page instead of your content, and the status code says everything is fine. Search engines may index the maintenance page in place of your articles. Set your maintenance plugin to send status 503 with a Retry-After header, or switch maintenance off. The other checks for this page are skipped until it is back."
+msgstr "Besucher und Suchmaschinen erhalten eine Wartungsseite statt deiner Inhalte, und der Statuscode sagt, alles sei in Ordnung. Suchmaschinen könnten die Wartungsseite anstelle deiner Artikel indexieren. Stelle dein Wartungs-Plugin auf Status 503 mit einem Retry-After-Header um oder schalte die Wartung ab. Die übrigen Checks für diese Seite werden übersprungen, bis sie wieder da ist."
+
+msgid "%s could not be fetched for the audit"
+msgstr "%s konnte für das Audit nicht abgerufen werden"
+
+msgid "The server refused a request to its own address. Some hosts and firewalls block these loopback requests. Visitors are not affected, but the page checks cannot run."
+msgstr "Der Server hat eine Anfrage an seine eigene Adresse abgelehnt. Manche Hoster und Firewalls blockieren solche Loopback-Anfragen. Besucher sind nicht betroffen, aber die Seiten-Checks können nicht laufen."
+
+msgid "%1$s answers with HTTP %2$d"
+msgstr "%1$s antwortet mit HTTP %2$d"
+
+msgid "Search engines only index pages that answer with status 200."
+msgstr "Suchmaschinen indexieren nur Seiten, die mit Status 200 antworten."
+
+msgid "%s tells search engines not to index it"
+msgstr "%s bittet Suchmaschinen, sie nicht zu indexieren"
+
+msgid "A noindex directive was found in a meta tag or the X-Robots-Tag header. If this is not intentional, look for another plugin, the theme or the server configuration adding it."
+msgstr "In einem Meta-Tag oder im X-Robots-Tag-Header wurde eine Noindex-Anweisung gefunden. Wenn das nicht beabsichtigt ist, suche nach einem anderen Plugin, dem Theme oder der Serverkonfiguration, die sie hinzufügen."
+
+msgid "%s does not contain the tags of this plugin"
+msgstr "%s enthält die Tags dieses Plugins nicht"
+
+msgid "The page visitors receive was not built with Bearius SEO Light active. It usually comes from a page cache created before the plugin was set up, from a coming soon plugin, or the theme does not call wp_head(). Clear the page cache and run the checks again."
+msgstr "Die Seite, die Besucher erhalten, wurde nicht mit aktivem Bearius SEO Light erstellt. Meist stammt sie aus einem Seiten-Cache, der vor der Einrichtung des Plugins entstand, aus einem Coming-Soon-Plugin, oder das Theme ruft wp_head() nicht auf. Leere den Seiten-Cache und starte die Checks erneut."
+
+msgid "%1$s has %2$d canonical tags"
+msgstr "%1$s hat %2$d Canonical-Tags"
+
+msgid "With more than one canonical tag search engines may ignore all of them. Another plugin, the theme or a code snippet prints its own tag."
+msgstr "Bei mehr als einem Canonical-Tag ignorieren Suchmaschinen womöglich alle. Ein anderes Plugin, das Theme oder ein Code-Schnipsel gibt ein eigenes Tag aus."
+
+msgid "%s has no canonical tag"
+msgstr "%s hat kein Canonical-Tag"
+
+msgid "A canonical tag tells search engines which address is the main one when the same content is reachable under several URLs."
+msgstr "Ein Canonical-Tag sagt Suchmaschinen, welche Adresse die Hauptadresse ist, wenn derselbe Inhalt unter mehreren URLs erreichbar ist."
+
+msgid "%s points its canonical tag to another address"
+msgstr "%s verweist mit dem Canonical-Tag auf eine andere Adresse"
+
+msgid "Canonical: %s. This is fine if intentional; otherwise the page will not rank on its own."
+msgstr "Canonical: %s. Das ist in Ordnung, wenn es beabsichtigt ist; sonst rankt die Seite nicht eigenständig."
+
+msgid "%1$s has %2$d meta descriptions"
+msgstr "%1$s hat %2$d Meta-Beschreibungen"
+
+msgid "Something else prints a description too. Search engines pick one at random or write their own."
+msgstr "Etwas anderes gibt ebenfalls eine Beschreibung aus. Suchmaschinen wählen zufällig eine oder schreiben ihre eigene."
+
+msgid "%s has no meta description"
+msgstr "%s hat keine Meta-Beschreibung"
+
+msgid "Without it search engines build the snippet from page text, which is often less inviting."
+msgstr "Ohne sie bauen Suchmaschinen das Snippet aus dem Seitentext, was oft weniger einladend ist."
+
+msgid "%s has duplicated Open Graph tags"
+msgstr "%s hat doppelte Open-Graph-Tags"
+
+msgid "Social networks may show the wrong title or image when shared."
+msgstr "Soziale Netzwerke zeigen beim Teilen womöglich den falschen Titel oder das falsche Bild."
+
+msgid "%1$s has %2$d title tags"
+msgstr "%1$s hat %2$d title-Tags"
+
+msgid "A page needs exactly one title tag. Check the theme for a hard coded title."
+msgstr "Eine Seite braucht genau ein title-Tag. Prüfe das Theme auf einen fest einprogrammierten Titel."
+
+msgid "%1$s repeats structured data: %2$s"
+msgstr "%1$s wiederholt strukturierte Daten: %2$s"
+
+msgid "Two sources describe the same thing. Switch off the duplicate in the theme or in the Meta and schema settings."
+msgstr "Zwei Quellen beschreiben dasselbe. Schalte das Duplikat im Theme oder in den Einstellungen Meta und Schema ab."
+
+msgid "%s contains invalid structured data"
+msgstr "%s enthält ungültige strukturierte Daten"
+
+msgid "At least one JSON-LD block cannot be parsed and is ignored by search engines."
+msgstr "Mindestens ein JSON-LD-Block kann nicht gelesen werden und wird von Suchmaschinen ignoriert."
+
+msgid "%s has no main heading"
+msgstr "%s hat keine Hauptüberschrift"
+
+msgid "An H1 heading tells readers and crawlers what the page is about."
+msgstr "Eine H1-Überschrift sagt Lesern und Crawlern, worum es auf der Seite geht."
+
+msgid "%1$s has %2$d main headings"
+msgstr "%1$s hat %2$d Hauptüberschriften"
+
+msgid "Several H1 headings are allowed, but one clear heading makes the topic easier to read."
+msgstr "Mehrere H1-Überschriften sind erlaubt, aber eine klare Überschrift macht das Thema verständlicher."
+
+msgid "%s has no viewport tag on mobile"
+msgstr "%s hat auf Mobilgeräten kein Viewport-Tag"
+
+msgid "Without it phones render the desktop layout zoomed out. Google indexes the mobile version first."
+msgstr "Ohne es zeigen Telefone das Desktop-Layout verkleinert an. Google indexiert zuerst die mobile Version."
+
+msgid "%s has a different canonical tag on mobile"
+msgstr "%s hat auf Mobilgeräten ein anderes Canonical-Tag"
+
+msgid "The mobile and desktop versions should point to the same main address."
+msgstr "Mobile und Desktop-Version sollten auf dieselbe Hauptadresse verweisen."
+
+msgid "%s has different structured data on mobile"
+msgstr "%s hat auf Mobilgeräten andere strukturierte Daten"
+
+msgid "Google indexes the mobile version, so anything missing there is missing for Google."
+msgstr "Google indexiert die mobile Version, was dort fehlt, fehlt also für Google."
+
+msgid "%s shows noticeably different content on mobile"
+msgstr "%s zeigt auf Mobilgeräten deutlich anderen Inhalt"
+
+msgid "Main text: %1$s characters on desktop, %2$s on mobile."
+msgstr "Haupttext: %1$s Zeichen auf Desktop, %2$s auf Mobilgeräten."
+
+msgid "%s has no hreflang links"
+msgstr "%s hat keine hreflang-Links"
+
+msgid "The site runs in several languages, but this page does not point to its other versions. Search engines may then show the wrong language. Hreflang links come from the multilingual plugin; check its settings."
+msgstr "Die Website läuft in mehreren Sprachen, aber diese Seite verweist nicht auf ihre anderen Versionen. Suchmaschinen zeigen dann womöglich die falsche Sprache. Hreflang-Links kommen vom Mehrsprachigkeits-Plugin; prüfe dessen Einstellungen."
+
+msgid "%s does not list itself among its language versions"
+msgstr "%s führt sich selbst nicht unter ihren Sprachversionen auf"
+
+msgid "Each page has to include a hreflang link to itself, otherwise search engines may ignore the whole set."
+msgstr "Jede Seite muss einen hreflang-Link auf sich selbst enthalten, sonst ignorieren Suchmaschinen womöglich den ganzen Satz."
+
+msgid "%s has no x-default language version"
+msgstr "%s hat keine x-default-Sprachversion"
+
+msgid "x-default tells search engines which version to show visitors whose language is not on the list."
+msgstr "x-default sagt Suchmaschinen, welche Version Besuchern gezeigt wird, deren Sprache nicht auf der Liste steht."
+
+msgid "%s does not allow large image previews"
+msgstr "%s erlaubt keine großen Bildvorschauen"
+
+msgid "Google Discover shows large images only when the page allows them with max-image-preview:large. WordPress adds it by default, so a theme or another plugin probably removes it."
+msgstr "Google Discover zeigt große Bilder nur, wenn die Seite sie mit max-image-preview:large erlaubt. WordPress fügt das standardmäßig hinzu, also entfernt es wahrscheinlich ein Theme oder ein anderes Plugin."
+
+msgid "%1$s took %2$s s to load its HTML"
+msgstr "%1$s brauchte %2$s s für das HTML"
+
+msgid "Measured from the server itself, so real visitors wait longer. A page cache usually brings this well under half a second."
+msgstr "Vom Server selbst gemessen, echte Besucher warten also länger. Ein Seiten-Cache bringt das meist deutlich unter eine halbe Sekunde."
+
+msgid "Acceptable, but a page cache would make it faster."
+msgstr "Akzeptabel, aber ein Seiten-Cache würde es beschleunigen."
+
+msgid "%1$s weighs %2$d KB of HTML"
+msgstr "%1$s wiegt %2$d KB HTML"
+
+msgid "Large HTML usually comes from inlined styles, scripts or very long lists of links."
+msgstr "Großes HTML entsteht meist durch eingebettete Styles, Skripte oder sehr lange Linklisten."
+
+msgid "%1$s loads %2$d render blocking scripts in the head"
+msgstr "%1$s lädt %2$d render-blockierende Skripte im head"
+
+msgid "Scripts without async or defer stop the browser from drawing the page until they download."
+msgstr "Skripte ohne async oder defer hindern den Browser am Zeichnen der Seite, bis sie geladen sind."
+
+msgid "%1$s loads %2$d stylesheets before showing anything"
+msgstr "%1$s lädt %2$d Stylesheets, bevor etwas angezeigt wird"
+
+msgid "Each stylesheet in the head delays the first paint. Combining or trimming them helps."
+msgstr "Jedes Stylesheet im head verzögert die erste Darstellung. Zusammenfassen oder Kürzen hilft."
+
+msgid "%s lazy loads its first image"
+msgstr "%s lädt das erste Bild per Lazy Loading"
+
+msgid "The first image is often the largest element on screen. Lazy loading it delays the moment the page looks ready."
+msgstr "Das erste Bild ist oft das größte Element auf dem Bildschirm. Lazy Loading verzögert den Moment, in dem die Seite fertig aussieht."
+
+msgid "%1$s has %2$d images without width and height"
+msgstr "%1$s hat %2$d Bilder ohne Breite und Höhe"
+
+msgid "Without dimensions the layout jumps while images load, which hurts the layout stability score."
+msgstr "Ohne Abmessungen springt das Layout, während Bilder laden, was den Wert für Layoutstabilität verschlechtert."
+
+msgid "%1$s loads files from %2$d other domains"
+msgstr "%1$s lädt Dateien von %2$d anderen Domains"
+
+msgid "Every new domain costs a connection. Remove unused embeds and trackers."
+msgstr "Jede neue Domain kostet eine Verbindung. Entferne ungenutzte Einbettungen und Tracker."
+
+msgid "%s uses other domains without preconnect hints"
+msgstr "%s nutzt andere Domains ohne Preconnect-Hinweise"
+
+msgid "A preconnect hint lets the browser open important connections earlier."
+msgstr "Ein Preconnect-Hinweis lässt den Browser wichtige Verbindungen früher öffnen."
+
+msgid "%1$s has %2$s HTML elements"
+msgstr "%1$s hat %2$s HTML-Elemente"
+
+msgid "A very large document is slower to render and to update. Page builders and long menus are the usual cause."
+msgstr "Ein sehr großes Dokument wird langsamer gerendert und aktualisiert. Meist sind Page-Builder und lange Menüs die Ursache."
+
+msgid "%s may hide content from AI crawlers"
+msgstr "%s verbirgt womöglich Inhalte vor KI-Crawlern"
+
+msgid "Most AI crawlers do not run JavaScript. Content loaded by scripts is invisible to them."
+msgstr "Die meisten KI-Crawler führen kein JavaScript aus. Per Skript geladene Inhalte sind für sie unsichtbar."
+
+msgid "%s has no main or article element"
+msgstr "%s hat kein main- oder article-Element"
+
+msgid "A main or article element marks where the content starts, which helps crawlers separate it from menus and widgets."
+msgstr "Ein main- oder article-Element markiert, wo der Inhalt beginnt, und hilft Crawlern, ihn von Menüs und Widgets zu trennen."
+
+msgid "Only %2$d%% of the text on %1$s is the article itself"
+msgstr "Nur %2$d%% des Textes auf %1$s ist der Artikel selbst"
+
+msgid "Menus, sidebars and footers make up most of the text. Crawlers usually cope, but a cleaner page is easier to summarise correctly."
+msgstr "Menüs, Seitenleisten und Footer machen den Großteil des Textes aus. Crawler kommen meist zurecht, aber eine aufgeräumtere Seite lässt sich leichter korrekt zusammenfassen."
+
+msgid "Allow all"
+msgstr "Alle erlauben"
+
+msgid "Nothing changes. Every AI crawler may visit, as before you installed the plugin."
+msgstr "Nichts ändert sich. Jeder KI-Crawler darf die Website besuchen, wie vor der Installation des Plugins."
+
+msgid "Block training, allow AI search"
+msgstr "Training blockieren, KI-Suche erlauben"
+
+msgid "Your texts are not collected to train new AI models, but assistants such as ChatGPT, Claude or Perplexity can still find, quote and link your pages."
+msgstr "Deine Texte werden nicht gesammelt, um neue KI-Modelle zu trainieren, aber Assistenten wie ChatGPT, Claude oder Perplexity können deine Seiten weiterhin finden, zitieren und verlinken."
+
+msgid "Block all AI crawlers"
+msgstr "Alle KI-Crawler blockieren"
+
+msgid "No AI crawler may visit. Your pages will not be quoted or linked in AI answers. Google and Bing search are not affected."
+msgstr "Kein KI-Crawler darf die Website besuchen. Deine Seiten werden in KI-Antworten weder zitiert noch verlinkt. Die Suche bei Google und Bing ist nicht betroffen."
+
+msgid "Custom"
+msgstr "Eigene"
+
+msgid "Your own choice for each crawler in the table below."
+msgstr "Deine eigene Wahl für jeden Crawler in der Tabelle unten."
+
+msgid "Settings"
+msgstr "Einstellungen"
+
+msgid "Audit"
+msgstr "Audit"
+
+msgid "Bearius SEO Light"
+msgstr "Bearius SEO Light"
+
+msgid "Overview"
+msgstr "Übersicht"
+
+msgid "Importing, keep this page open..."
+msgstr "Import läuft, lass diese Seite geöffnet..."
+
+msgid "Importing categories and tags..."
+msgstr "Kategorien und Schlagwörter werden importiert..."
+
+msgid "Import finished."
+msgstr "Import abgeschlossen."
+
+msgid "The import stopped because of an error. Try again; finished entries are skipped."
+msgstr "Der Import wurde wegen eines Fehlers angehalten. Versuche es erneut; fertige Einträge werden übersprungen."
+
+msgid "entries read"
+msgstr "Einträge gelesen"
+
+msgid "SEO titles"
+msgstr "SEO-Titel"
+
+msgid "descriptions"
+msgstr "Beschreibungen"
+
+msgid "noindex flags"
+msgstr "Noindex-Markierungen"
+
+msgid "social titles"
+msgstr "Social-Titel"
+
+msgid "social images"
+msgstr "Social-Bilder"
+
+msgid "Leave without saving? Your changes will be lost."
+msgstr "Ohne Speichern verlassen? Deine Änderungen gehen verloren."
+
+msgid "Copied"
+msgstr "Kopiert"
+
+msgid "A rule that would block the whole site for all crawlers or for Google was removed. If you really need it, put it in a physical robots.txt file."
+msgstr "Eine Regel, die die ganze Website für alle Crawler oder für Google sperren würde, wurde entfernt. Wenn du sie wirklich brauchst, schreibe sie in eine physische robots.txt-Datei."
+
+msgid "Status of your site and the modules in use."
+msgstr "Zustand deiner Website und der genutzten Module."
+
+msgid "Who publishes the site, used in search results and when content is shared."
+msgstr "Wer die Website herausgibt, genutzt in Suchergebnissen und beim Teilen von Inhalten."
+
+msgid "Choose exactly which tags and structured data the plugin prints."
+msgstr "Wähle genau, welche Tags und strukturierten Daten das Plugin ausgibt."
+
+msgid "XML sitemap and Google News sitemap, in every language of the site."
+msgstr "XML-Sitemap und Google-News-Sitemap, in jeder Sprache der Website."
+
+msgid "Rules for crawlers, built on top of the WordPress defaults."
+msgstr "Regeln für Crawler, aufgebaut auf den WordPress-Standards."
+
+msgid "RSS feeds, tags, comments and archives: what visitors and search engines get."
+msgstr "RSS-Feeds, Schlagwörter, Kommentare und Archive: was Besucher und Suchmaschinen bekommen."
+
+msgid "Notify search engines about changes and verify site ownership."
+msgstr "Suchmaschinen über Änderungen informieren und den Besitz der Website bestätigen."
+
+msgid "Facts about your site that affect search, without guesswork."
+msgstr "Fakten über deine Website, die die Suche beeinflussen, ohne Rätselraten."
+
+msgid "What AI crawlers may fetch and what they actually read."
+msgstr "Was KI-Crawler abrufen dürfen und was sie tatsächlich lesen."
+
+msgid "Bring over titles and descriptions from another SEO plugin."
+msgstr "Titel und Beschreibungen aus einem anderen SEO-Plugin übernehmen."
+
+msgid "How you hear about problems."
+msgstr "Wie du von Problemen erfährst."
+
+msgid "Meta tags"
+msgstr "Meta-Tags"
+
+msgid "Description, canonical, Open Graph and X Card tags, plus the SEO box in the editor."
+msgstr "Beschreibungs-, Canonical-, Open-Graph- und X-Card-Tags sowie die SEO-Box im Editor."
+
+msgid "One connected Schema.org graph: publisher, site, articles, breadcrumbs and archives."
+msgstr "Ein verbundener Schema.org-Graph: Herausgeber, Website, Artikel, Breadcrumbs und Archive."
+
+msgid "Category and tag SEO"
+msgstr "SEO für Kategorien und Schlagwörter"
+
+msgid "SEO title, description and noindex on category, tag and other archive screens."
+msgstr "SEO-Titel, Beschreibung und Noindex auf den Seiten für Kategorien, Schlagwörter und andere Archive."
+
+msgid "XML sitemap"
+msgstr "XML-Sitemap"
+
+msgid "Replaces the WordPress sitemap with one that lists every language and leaves out noindex content."
+msgstr "Ersetzt die WordPress-Sitemap durch eine, die jede Sprache auflistet und Noindex-Inhalte auslässt."
+
+msgid "Google News sitemap"
+msgstr "Google-News-Sitemap"
+
+msgid "Articles from the last two days, one file per language."
+msgstr "Artikel der letzten zwei Tage, eine Datei pro Sprache."
+
+msgid "Robots.txt"
+msgstr "Robots.txt"
+
+msgid "Adds sitemap lines, an AI crawler policy and your own rules to the WordPress robots.txt."
+msgstr "Fügt der robots.txt von WordPress Sitemap-Zeilen, eine Richtlinie für KI-Crawler und deine eigenen Regeln hinzu."
+
+msgid "Site verification"
+msgstr "Website-Verifizierung"
+
+msgid "Verification tags for Google Search Console, Bing and other webmaster tools."
+msgstr "Verifizierungs-Tags für die Google Search Console, Bing und andere Webmaster-Tools."
+
+msgid "A block, a shortcode and a template function that show the same trail as the structured data."
+msgstr "Ein Block, ein Shortcode und eine Template-Funktion, die denselben Pfad wie die strukturierten Daten zeigen."
+
+msgid "Daily technical checks, page scans and the content audit."
+msgstr "Tägliche technische Checks, Seitenscans und das Inhaltsaudit."
+
+msgid "Modules"
+msgstr "Module"
+
+msgid "Switch off what your theme or another plugin already does. A module that is off loads no code."
+msgstr "Schalte ab, was dein Theme oder ein anderes Plugin bereits erledigt. Ein abgeschaltetes Modul lädt keinen Code."
+
+msgid "IndexNow"
+msgstr "IndexNow"
+
+msgid "Tells Bing and other engines about changes right away. Needs your consent first."
+msgstr "Informiert Bing und andere Suchmaschinen sofort über Änderungen. Braucht zuerst deine Zustimmung."
+
+msgid "On, manage"
+msgstr "An, verwalten"
+
+msgid "Set up"
+msgstr "Einrichten"
+
+msgid "Bearius link"
+msgstr "Bearius-Link"
+
+msgid "Optional. Off unless you switch it on."
+msgstr "Optional. Aus, bis du ihn einschaltest."
+
+msgid "Show a \"Powered by Bearius\" link in the footer"
+msgstr "Einen Link „Powered by Bearius“ im Footer anzeigen"
+
+msgid "A small link that helps others find the plugin. It is marked nofollow, so it passes no ranking signals. If several Bearius plugins have this switched on, the link still appears only once."
+msgstr "Ein kleiner Link, der anderen hilft, das Plugin zu finden. Er ist als nofollow markiert und gibt daher keine Ranking-Signale weiter. Wenn mehrere Bearius-Plugins ihn eingeschaltet haben, erscheint der Link trotzdem nur einmal."
+
+msgid "Language of these screens"
+msgstr "Sprache dieser Seiten"
+
+msgid "Follows the language of your user profile by default, not the language of the site, so you can work in your language on a site in any language. Only you see this choice."
+msgstr "Folgt standardmäßig der Sprache deines Benutzerprofils, nicht der Sprache der Website, sodass du auf einer Website in jeder Sprache in deiner Sprache arbeiten kannst. Nur du siehst diese Wahl."
+
+msgid "Automatic, from your profile (%s)"
+msgstr "Automatisch, aus deinem Profil (%s)"
+
+msgid "Save"
+msgstr "Speichern"
+
+msgid "RSS feeds"
+msgstr "RSS-Feeds"
+
+msgid "Feeds are read by feed readers such as Feedly, by aggregators and news apps, by tools that post to social media and by RSS newsletters. Search engines can use them to find new posts."
+msgstr "Feeds werden von Feedreadern wie Feedly gelesen, von Aggregatoren und News-Apps, von Tools, die in sozialen Medien posten, und von RSS-Newslettern. Suchmaschinen können damit neue Beiträge finden."
+
+msgid "Available feeds"
+msgstr "Verfügbare Feeds"
+
+msgid "Switched off feeds redirect to the page they belong to. Comment feeds are rarely used and safe to switch off. Category, tag and author feeds add many extra addresses for crawlers with little use. Switching off all feeds stops feed readers, aggregators and automatic posting to social media and newsletters, so check your tools first."
+msgstr "Abgeschaltete Feeds leiten auf die Seite weiter, zu der sie gehören. Kommentar-Feeds werden selten genutzt und lassen sich gefahrlos abschalten. Kategorie-, Schlagwort- und Autoren-Feeds fügen Crawlern viele zusätzliche Adressen mit wenig Nutzen hinzu. Das Abschalten aller Feeds stoppt Feedreader, Aggregatoren und automatisches Posten in soziale Medien und Newsletter, prüfe also zuerst deine Tools."
+
+msgid "All feeds"
+msgstr "Alle Feeds"
+
+msgid "Without comment feeds"
+msgstr "Ohne Kommentar-Feeds"
+
+msgid "Main feed only"
+msgstr "Nur Haupt-Feed"
+
+msgid "No feeds"
+msgstr "Keine Feeds"
+
+msgid "Add the featured image"
+msgstr "Beitragsbild hinzufügen"
+
+msgid "Adds the image as media:content and at the top of each item. Feedly, Flipboard, MSN and RSS newsletters use it to show a picture next to the title."
+msgstr "Fügt das Bild als media:content und oben in jedem Eintrag ein. Feedly, Flipboard, MSN und RSS-Newsletter zeigen damit ein Bild neben dem Titel."
+
+msgid "Add a source line"
+msgstr "Quellenzeile hinzufügen"
+
+msgid "Adds \"Title appeared first on Site\" with links to every item. When someone republishes your feed automatically, the links back to the original stay in place."
+msgstr "Fügt jedem Eintrag „Titel erschien zuerst auf Website“ mit Links hinzu. Wenn jemand deinen Feed automatisch weiterveröffentlicht, bleiben die Links zum Original erhalten."
+
+msgid "Delay new posts in the feed"
+msgstr "Neue Beiträge im Feed verzögern"
+
+msgid "New posts appear in the feed only after this time, so search engines can see the original on your site before copies made from the feed appear elsewhere. 0 publishes right away."
+msgstr "Neue Beiträge erscheinen erst nach dieser Zeit im Feed, damit Suchmaschinen das Original auf deiner Website sehen, bevor anderswo Kopien aus dem Feed auftauchen. 0 veröffentlicht sofort."
+
+msgid "minutes"
+msgstr "Minuten"
+
+msgid "Leave out noindex entries"
+msgstr "Noindex-Einträge auslassen"
+
+msgid "Entries hidden from search engines are not sent to feeds either."
+msgstr "Vor Suchmaschinen verborgene Einträge werden auch nicht an Feeds gesendet."
+
+msgid "Leave out categories"
+msgstr "Kategorien auslassen"
+
+msgid "Posts in these categories do not appear in the main feed. Translations of the chosen categories are left out too."
+msgstr "Beiträge in diesen Kategorien erscheinen nicht im Haupt-Feed. Übersetzungen der gewählten Kategorien werden ebenfalls ausgelassen."
+
+msgid "Full text or excerpt"
+msgstr "Volltext oder Textauszug"
+
+msgid "A WordPress setting. Full text is convenient for readers but easy to copy; an excerpt brings readers to your site. Changed in Settings, Reading."
+msgstr "Eine WordPress-Einstellung. Volltext ist bequem für Leser, aber leicht zu kopieren; ein Textauszug bringt Leser auf deine Website. Änderbar unter Einstellungen, Lesen."
+
+msgid "Excerpt"
+msgstr "Textauszug"
+
+msgid "Full text"
+msgstr "Volltext"
+
+msgid "Change"
+msgstr "Ändern"
+
+msgid "Tags"
+msgstr "Schlagwörter"
+
+msgid "Tag archives often repeat what categories already show and add thin pages for search engines. Nothing is deleted: switch back and everything returns."
+msgstr "Schlagwort-Archive wiederholen oft, was Kategorien schon zeigen, und erzeugen dünne Seiten für Suchmaschinen. Nichts wird gelöscht: Schaltest du zurück, ist alles wieder da."
+
+msgid "Hidden from visitors: tag archives answer 410 Gone, so search engines drop them quickly, tag lists disappear from the theme, and tags leave the sitemap and feeds. Editors can still use tags, for example for internal sorting. Switched off: in addition the tag box and the Tags menu disappear for posts."
+msgstr "Vor Besuchern verborgen: Schlagwort-Archive antworten mit 410 Gone, damit Suchmaschinen sie schnell entfernen, Schlagwortlisten verschwinden aus dem Theme, und Schlagwörter verlassen Sitemap und Feeds. Die Redaktion kann Schlagwörter weiter nutzen, etwa zum internen Sortieren. Abgeschaltet: Zusätzlich verschwinden das Schlagwort-Feld und das Menü Schlagwörter bei Beiträgen."
+
+msgid "In use"
+msgstr "In Verwendung"
+
+msgid "Hidden from visitors"
+msgstr "Vor Besuchern verborgen"
+
+msgid "Switched off"
+msgstr "Abgeschaltet"
+
+msgid "Comments"
+msgstr "Kommentare"
+
+msgid "Comments bring spam links, pingbacks, extra feeds and duplicate addresses when they are split into pages. Nothing is deleted."
+msgstr "Kommentare bringen Spam-Links, Pingbacks, zusätzliche Feeds und doppelte Adressen, wenn sie auf Seiten aufgeteilt werden. Nichts wird gelöscht."
+
+msgid "Pingbacks and trackbacks are automatic notices between sites and today are almost only spam; switching them off is safe for everyone. Closing comments keeps the existing ones visible. Switching off hides comments, forms, the Comments menu and comment feeds everywhere."
+msgstr "Pingbacks und Trackbacks sind automatische Hinweise zwischen Websites und heute fast nur noch Spam; sie abzuschalten ist für alle sicher. Geschlossene Kommentare lassen die vorhandenen sichtbar. Abschalten verbirgt Kommentare, Formulare, das Menü Kommentare und Kommentar-Feeds überall."
+
+msgid "On"
+msgstr "An"
+
+msgid "Without pingbacks"
+msgstr "Ohne Pingbacks"
+
+msgid "Closed for new"
+msgstr "Für neue geschlossen"
+
+msgid "Archives"
+msgstr "Archive"
+
+msgid "Lists of posts by author or by date rarely help readers or search engines."
+msgstr "Beitragslisten nach Autor oder Datum helfen Lesern und Suchmaschinen selten."
+
+msgid "Indexed"
+msgstr "Indexiert"
+
+msgid "Not indexed"
+msgstr "Nicht indexiert"
+
+msgid "Author archives"
+msgstr "Autorenarchive"
+
+msgid "On a site with one author the author archive repeats the home page. Switched off, it redirects to the home page, which also stops login names from being found through ?author=1."
+msgstr "Auf einer Website mit nur einem Autor wiederholt das Autorenarchiv die Startseite. Abgeschaltet leitet es auf die Startseite weiter, was außerdem verhindert, dass Login-Namen über ?author=1 gefunden werden."
+
+msgid "Date archives"
+msgstr "Datumsarchive"
+
+msgid "Lists by year, month and day. Not indexed keeps them for visitors; switched off redirects them to the home page."
+msgstr "Listen nach Jahr, Monat und Tag. Nicht indexiert behält sie für Besucher; abgeschaltet leitet sie auf die Startseite weiter."
+
+msgid "Publisher"
+msgstr "Herausgeber"
+
+msgid "Shown as the publisher of every article in structured data."
+msgstr "Wird in den strukturierten Daten als Herausgeber jedes Artikels angezeigt."
+
+msgid "Publisher name"
+msgstr "Name des Herausgebers"
+
+msgid "Leave empty to use the site title."
+msgstr "Leer lassen, um den Website-Titel zu nutzen."
+
+msgid "Logo"
+msgstr "Logo"
+
+msgid "Square or wide, at least 112 pixels. Leave empty to use the theme logo or the site icon."
+msgstr "Quadratisch oder breit, mindestens 112 Pixel. Leer lassen, um das Theme-Logo oder das Website-Icon zu nutzen."
+
+msgid "Home page description"
+msgstr "Beschreibung der Startseite"
+
+msgid "Used as the meta description of the home page. Leave empty to use the tagline."
+msgstr "Wird als Meta-Beschreibung der Startseite verwendet. Leer lassen, um den Untertitel zu nutzen."
+
+msgid "Sharing"
+msgstr "Teilen"
+
+msgid "How links to the site look on social networks and in messengers."
+msgstr "Wie Links zur Website in sozialen Netzwerken und Messengern aussehen."
+
+msgid "Default social image"
+msgstr "Standardbild für Freigaben"
+
+msgid "Used when an entry has no featured image. Recommended size 1200x630 pixels."
+msgstr "Wird verwendet, wenn ein Eintrag kein Beitragsbild hat. Empfohlene Größe 1200x630 Pixel."
+
+msgid "X account"
+msgstr "X-Konto"
+
+msgid "Without the @ sign."
+msgstr "Ohne das @-Zeichen."
+
+msgid "Publishing"
+msgstr "Veröffentlichung"
+
+msgid "Settings for sites that publish news."
+msgstr "Einstellungen für Websites, die News veröffentlichen."
+
+msgid "News publisher mode"
+msgstr "News-Herausgeber-Modus"
+
+msgid "Posts are marked as NewsArticle instead of Article. Use it only if you report on current events."
+msgstr "Beiträge werden als NewsArticle statt Article markiert. Nutze es nur, wenn du über aktuelle Ereignisse berichtest."
+
+msgid "Modified date threshold"
+msgstr "Schwelle für das Änderungsdatum"
+
+msgid "Edits made within this time after publishing keep the original date, so fixing a typo does not look like an update."
+msgstr "Änderungen innerhalb dieser Zeit nach der Veröffentlichung behalten das ursprüngliche Datum, damit ein korrigierter Tippfehler nicht wie eine Aktualisierung aussieht."
+
+msgid "The meta tags module is off, so the options below have no effect. Switch it on in the Overview."
+msgstr "Das Meta-Tag-Modul ist aus, daher haben die folgenden Optionen keine Wirkung. Schalte es in der Übersicht ein."
+
+msgid "Turn off any tag your theme already prints, so nothing appears twice."
+msgstr "Schalte jedes Tag ab, das dein Theme bereits ausgibt, damit nichts doppelt erscheint."
+
+msgid "Custom titles"
+msgstr "Eigene Titel"
+
+msgid "Use the SEO title from the editor in the browser title."
+msgstr "Den SEO-Titel aus dem Editor im Browsertitel verwenden."
+
+msgid "Canonical link"
+msgstr "Canonical-Link"
+
+msgid "Replaces the canonical tag WordPress prints, and adds it to archives and paginated pages."
+msgstr "Ersetzt das Canonical-Tag von WordPress und fügt es auch Archiven und paginierten Seiten hinzu."
+
+msgid "Open Graph"
+msgstr "Open Graph"
+
+msgid "Title, description and image for Facebook, LinkedIn and messengers."
+msgstr "Titel, Beschreibung und Bild für Facebook, LinkedIn und Messenger."
+
+msgid "Other language versions"
+msgstr "Andere Sprachversionen"
+
+msgid "Adds og:locale:alternate for each translation. Hreflang links come from your multilingual plugin."
+msgstr "Fügt og:locale:alternate für jede Übersetzung hinzu. Hreflang-Links kommen von deinem Mehrsprachigkeits-Plugin."
+
+msgid "X Card"
+msgstr "X Card"
+
+msgid "Printed as one connected graph. Turn off a node your theme already outputs."
+msgstr "Als ein verbundener Graph ausgegeben. Schalte einen Knoten ab, den dein Theme bereits ausgibt."
+
+msgid "Organization"
+msgstr "Organization"
+
+msgid "The publisher with name and logo."
+msgstr "Der Herausgeber mit Name und Logo."
+
+msgid "WebSite"
+msgstr "WebSite"
+
+msgid "Site name and search action, on the home page."
+msgstr "Website-Name und Suchaktion, auf der Startseite."
+
+msgid "Article"
+msgstr "Article"
+
+msgid "Article or NewsArticle for posts, WebPage for other content."
+msgstr "Article oder NewsArticle für Beiträge, WebPage für andere Inhalte."
+
+msgid "BreadcrumbList"
+msgstr "BreadcrumbList"
+
+msgid "CollectionPage"
+msgstr "CollectionPage"
+
+msgid "List of entries on category and tag archives."
+msgstr "Liste der Einträge auf Kategorie- und Schlagwort-Archiven."
+
+msgid "Loading"
+msgstr "Laden"
+
+msgid "Small changes that help pages look ready sooner."
+msgstr "Kleine Änderungen, damit Seiten schneller fertig aussehen."
+
+msgid "Removes lazy loading from the featured image of posts and pages and marks it as high priority. Turn it on if the audit reports a lazy loaded first image and your theme shows the featured image at the top."
+msgstr "Entfernt das Lazy Loading des Beitragsbilds bei Beiträgen und Seiten und gibt ihm hohe Priorität. Schalte es ein, wenn das Audit ein per Lazy Loading geladenes erstes Bild meldet und dein Theme das Beitragsbild oben zeigt."
+
+msgid "Replaces the sitemap built into WordPress. The old address and the one used by Yoast and Rank Math redirect here."
+msgstr "Ersetzt die in WordPress eingebaute Sitemap. Die alte Adresse und die von Yoast und Rank Math genutzte leiten hierher weiter."
+
+msgid "The XML sitemap module is off, so WordPress serves its own sitemap. Noindex content is still left out of it."
+msgstr "Das Modul XML-Sitemap ist aus, daher liefert WordPress seine eigene Sitemap. Noindex-Inhalte bleiben trotzdem außen vor."
+
+msgid "Paused while %s is active."
+msgstr "Pausiert, solange %s aktiv ist."
+
+#. translators: %s: theme name.
+msgid "Handled by the %s theme."
+msgstr "Wird vom Theme %s übernommen."
+
+#. translators: %s: theme name.
+msgid "Handled by the %s theme, so these options have no effect."
+msgstr "Wird vom Theme %s übernommen, daher haben diese Optionen keine Wirkung."
+
+msgid "The SEO box in the editor stays on, and the theme reads its fields."
+msgstr "Die SEO-Box im Editor bleibt aktiv, und das Theme liest ihre Felder."
+
+msgid "The SEO fields on category and tag screens stay on, and the theme reads them."
+msgstr "Die SEO-Felder auf den Kategorie- und Schlagwort-Seiten bleiben aktiv, und das Theme liest sie."
+
+msgid "Overrides the archive title in the browser and when shared. Leave empty to use the title shown in grey."
+msgstr "Ersetzt den Archivtitel im Browser und beim Teilen. Leer lassen, um den grau angezeigten Titel zu nutzen."
+
+msgid "The site asks search engines not to index it, so no sitemap is served."
+msgstr "Die Website bittet Suchmaschinen, sie nicht zu indexieren, daher wird keine Sitemap ausgeliefert."
+
+msgid "Your sitemap: %s"
+msgstr "Deine Sitemap: %s"
+
+msgid "Languages are read from %s, with separate files per language."
+msgstr "Sprachen werden aus %s gelesen, mit getrennten Dateien pro Sprache."
+
+msgid "Content types"
+msgstr "Inhaltstypen"
+
+msgid "Empty archives and archives marked noindex are left out automatically."
+msgstr "Leere Archive und als Noindex markierte Archive werden automatisch ausgelassen."
+
+msgid "Home page entry"
+msgstr "Startseiten-Eintrag"
+
+msgid "A small file with the home page of every language."
+msgstr "Eine kleine Datei mit der Startseite jeder Sprache."
+
+msgid "Addresses per file"
+msgstr "Adressen pro Datei"
+
+msgid "Smaller files are generated faster on large sites."
+msgstr "Kleinere Dateien werden auf großen Websites schneller erzeugt."
+
+msgid "Lists articles from the last two days, at most 1000. On multilingual sites each language gets its own file under one index."
+msgstr "Listet Artikel der letzten zwei Tage, höchstens 1000. Auf mehrsprachigen Websites bekommt jede Sprache eine eigene Datei unter einem Index."
+
+msgid "The Google News sitemap is off. Switch it on in the Overview if you publish news."
+msgstr "Die Google-News-Sitemap ist aus. Schalte sie in der Übersicht ein, wenn du News veröffentlichst."
+
+msgid "Your news sitemap: %s. Submit it in Google Search Console."
+msgstr "Deine News-Sitemap: %s. Reiche sie in der Google Search Console ein."
+
+msgid "Posts in these categories never go to Google News, for example sponsored content or announcements."
+msgstr "Beiträge in diesen Kategorien gehen nie an Google News, zum Beispiel gesponserte Inhalte oder Ankündigungen."
+
+msgid "Only categories of the default language are listed; their translations are left out automatically."
+msgstr "Es werden nur Kategorien der Standardsprache aufgelistet; ihre Übersetzungen werden automatisch ausgelassen."
+
+msgid "Publication name"
+msgstr "Name der Publikation"
+
+msgid "Must match the name in Google Publisher Center. Leave empty to use the publisher name."
+msgstr "Muss dem Namen im Google Publisher Center entsprechen. Leer lassen, um den Herausgebernamen zu nutzen."
+
+msgid "All content"
+msgstr "Alle Inhalte"
+
+msgid "The robots.txt module is off. WordPress serves its default rules; the sitemap lines are still added."
+msgstr "Das robots.txt-Modul ist aus. WordPress liefert seine Standardregeln; die Sitemap-Zeilen werden trotzdem hinzugefügt."
+
+msgid "WordPress runs in a subdirectory. Crawlers only read robots.txt at the root of the domain, so these rules are not seen."
+msgstr "WordPress läuft in einem Unterverzeichnis. Crawler lesen die robots.txt nur im Stammverzeichnis der Domain, daher werden diese Regeln nicht gesehen."
+
+msgid "A robots.txt file exists on the server, and crawlers receive it instead of the rules below. Delete the file to use these settings."
+msgstr "Auf dem Server existiert eine robots.txt-Datei, und Crawler erhalten diese statt der Regeln unten. Lösche die Datei, um diese Einstellungen zu nutzen."
+
+msgid "The site asks search engines not to index it, so robots.txt blocks everything regardless of the rules below."
+msgstr "Die Website bittet Suchmaschinen, sie nicht zu indexieren, daher sperrt robots.txt alles unabhängig von den Regeln unten."
+
+msgid "AI crawlers"
+msgstr "KI-Crawler"
+
+msgid "Set in the AI visibility screen, where each choice is explained."
+msgstr "Wird auf der Seite KI-Sichtbarkeit festgelegt, wo jede Option erklärt ist."
+
+msgid "Current policy"
+msgstr "Aktuelle Richtlinie"
+
+msgid "Your rules"
+msgstr "Deine Regeln"
+
+msgid "Added below the automatic rules. A rule that would block the whole site for everyone or for Google is removed on save."
+msgstr "Unter den automatischen Regeln hinzugefügt. Eine Regel, die die ganze Website für alle oder für Google sperren würde, wird beim Speichern entfernt."
+
+msgid "Extra rules"
+msgstr "Zusätzliche Regeln"
+
+msgid "One directive per line, for example \"Disallow: /cart/\"."
+msgstr "Eine Anweisung pro Zeile, zum Beispiel „Disallow: /warenkorb/“."
+
+msgid "Preview"
+msgstr "Vorschau"
+
+msgid "Saved settings, exactly as WordPress serves them."
+msgstr "Gespeicherte Einstellungen, genau so, wie WordPress sie ausliefert."
+
+msgid "Open robots.txt"
+msgstr "robots.txt öffnen"
+
+msgid "Instant notifications for search engines. When you publish or update an entry, its address goes straight to engines that support IndexNow: Bing (which also feeds Copilot and DuckDuckGo), Yandex, Seznam, Naver and Yep. One submission reaches all of them. Only the address is sent, nothing else. Noindex entries and drafts are skipped. Google does not use IndexNow; it finds changes through your sitemaps."
+msgstr "Sofortige Benachrichtigungen für Suchmaschinen. Wenn du einen Eintrag veröffentlichst oder aktualisierst, geht seine Adresse direkt an Suchmaschinen, die IndexNow unterstützen: Bing (das auch Copilot und DuckDuckGo versorgt), Yandex, Seznam, Naver und Yep. Eine Übermittlung erreicht alle. Es wird nur die Adresse gesendet, sonst nichts. Noindex-Einträge und Entwürfe werden übersprungen. Google nutzt IndexNow nicht; es findet Änderungen über deine Sitemaps."
+
+msgid "Send changes with IndexNow"
+msgstr "Änderungen mit IndexNow senden"
+
+msgid "Switching this on is your consent for the site to contact api.indexnow.org."
+msgstr "Mit dem Einschalten stimmst du zu, dass die Website api.indexnow.org kontaktiert."
+
+msgid "Key file"
+msgstr "Schlüsseldatei"
+
+msgid "Proves to search engines that the submissions come from this site."
+msgstr "Beweist Suchmaschinen, dass die Übermittlungen von dieser Website stammen."
+
+msgid "Generate a new key on save"
+msgstr "Beim Speichern einen neuen Schlüssel erzeugen"
+
+msgid "Recent submissions"
+msgstr "Letzte Übermittlungen"
+
+msgid "When"
+msgstr "Wann"
+
+msgid "Result"
+msgstr "Ergebnis"
+
+msgid "%s ago"
+msgstr "vor %s"
+
+msgid "Paste the code or the whole meta tag from each tool. The tag is printed on the home page only."
+msgstr "Füge den Code oder das ganze Meta-Tag aus jedem Tool ein. Das Tag wird nur auf der Startseite ausgegeben."
+
+msgid "The verification module is off. Switch it on in the Overview."
+msgstr "Das Verifizierungsmodul ist aus. Schalte es in der Übersicht ein."
+
+msgid "Google Search Console"
+msgstr "Google Search Console"
+
+msgid "Needed only for a URL prefix property. Domain properties are verified through DNS."
+msgstr "Nur für eine Property vom Typ URL-Präfix nötig. Domain-Properties werden über DNS bestätigt."
+
+msgid "Bing Webmaster Tools"
+msgstr "Bing Webmaster Tools"
+
+msgid "Bing can also import a site verified in Search Console."
+msgstr "Bing kann auch eine in der Search Console bestätigte Website importieren."
+
+msgid "Other tools"
+msgstr "Andere Tools"
+
+msgid "Seznam"
+msgstr "Seznam"
+
+msgid "The main search engine in the Czech Republic."
+msgstr "Die wichtigste Suchmaschine in Tschechien."
+
+msgid "Yandex"
+msgstr "Yandex"
+
+msgid "For Russian speaking markets."
+msgstr "Für russischsprachige Märkte."
+
+msgid "Naver"
+msgstr "Naver"
+
+msgid "The main search engine in South Korea."
+msgstr "Die wichtigste Suchmaschine in Südkorea."
+
+msgid "Baidu"
+msgstr "Baidu"
+
+msgid "The main search engine in China."
+msgstr "Die wichtigste Suchmaschine in China."
+
+msgid "Pinterest"
+msgstr "Pinterest"
+
+msgid "Claims the domain for Rich Pins and statistics. Useful for recipes, DIY and shops."
+msgstr "Bestätigt die Domain für Rich Pins und Statistiken. Nützlich für Rezepte, DIY und Shops."
+
+msgid "WordPress accepted the test message. Check the inbox and the spam folder; acceptance does not guarantee delivery."
+msgstr "WordPress hat die Testnachricht angenommen. Prüfe den Posteingang und den Spam-Ordner; die Annahme garantiert keine Zustellung."
+
+msgid "WordPress could not send the test message. Your host probably blocks outgoing mail; an SMTP plugin usually solves it."
+msgstr "WordPress konnte die Testnachricht nicht senden. Dein Hoster blockiert wahrscheinlich ausgehende E-Mails; ein SMTP-Plugin löst das meist."
+
+msgid "In the dashboard"
+msgstr "Im Dashboard"
+
+msgid "Problems are checked once a day, and right away when a setting that affects indexing changes."
+msgstr "Probleme werden einmal täglich geprüft und sofort, wenn sich eine Einstellung ändert, die die Indexierung betrifft."
+
+msgid "Dashboard widget"
+msgstr "Dashboard-Widget"
+
+msgid "Score, status and the three most important problems on the Dashboard."
+msgstr "Score, Status und die drei wichtigsten Probleme im Dashboard."
+
+msgid "Notices for critical problems"
+msgstr "Hinweise bei kritischen Problemen"
+
+msgid "A notice on every admin screen until the problem is fixed or you hide it. Only critical problems, only for administrators."
+msgstr "Ein Hinweis auf jeder Admin-Seite, bis das Problem behoben ist oder du ihn ausblendest. Nur kritische Probleme, nur für Administratoren."
+
+msgid "By e-mail"
+msgstr "Per E-Mail"
+
+msgid "One message when a new critical problem appears, never a digest of small things."
+msgstr "Eine Nachricht, wenn ein neues kritisches Problem auftritt, nie eine Sammlung von Kleinigkeiten."
+
+msgid "E-mail uses the mail function of your server. Many hosts limit or block it, and messages may land in spam. Send a test e-mail before relying on it; an SMTP plugin makes delivery reliable. The plugin cannot guarantee delivery, so critical problems are always shown in the dashboard too."
+msgstr "E-Mails nutzen die Mail-Funktion deines Servers. Viele Hoster begrenzen oder blockieren sie, und Nachrichten können im Spam landen. Sende eine Test-E-Mail, bevor du dich darauf verlässt; ein SMTP-Plugin macht die Zustellung zuverlässig. Das Plugin kann die Zustellung nicht garantieren, daher werden kritische Probleme immer auch im Dashboard angezeigt."
+
+msgid "E-mail critical problems"
+msgstr "Kritische Probleme per E-Mail senden"
+
+msgid "Recipient"
+msgstr "Empfänger"
+
+msgid "Leave empty to use the administration e-mail address."
+msgstr "Leer lassen, um die E-Mail-Adresse der Administration zu nutzen."
+
+msgid "Send a test e-mail"
+msgstr "Test-E-Mail senden"
+
+msgid "%1$s appeared first on %2$s."
+msgstr "%1$s erschien zuerst auf %2$s."
+
+msgid "Powered by %s"
+msgstr "Powered by %s"
+
+msgid "The list of sitemap files of this site. Search engines open each file to find your content."
+msgstr "Die Liste der Sitemap-Dateien dieser Website. Suchmaschinen öffnen jede Datei, um deine Inhalte zu finden."
+
+msgid "Addresses search engines are invited to crawl, with the date of the last change."
+msgstr "Adressen, die Suchmaschinen crawlen sollen, mit dem Datum der letzten Änderung."
+
+msgid "One file per language. Each file lists the articles published in the last two days."
+msgstr "Eine Datei pro Sprache. Jede Datei listet die Artikel der letzten zwei Tage."
+
+msgid "Articles published in the last two days, newest first, in the format Google News expects."
+msgstr "Artikel der letzten zwei Tage, die neuesten zuerst, im Format, das Google News erwartet."
+
+msgid "Generated by Bearius SEO Light. A list with clickable links is available in the plugin settings."
+msgstr "Erzeugt von Bearius SEO Light. Eine Liste mit anklickbaren Links gibt es in den Plugin-Einstellungen."
+
+msgid "Overrides the archive title in the browser and when shared. Leave empty to use the name."
+msgstr "Ersetzt den Archivtitel im Browser und beim Teilen. Leer lassen, um den Namen zu nutzen."
+
+msgid "Leave empty to use the description above."
+msgstr "Leer lassen, um die Beschreibung oben zu nutzen."
+
+msgid "Ask search engines not to index this archive"
+msgstr "Suchmaschinen bitten, dieses Archiv nicht zu indexieren"
+
+msgid "Indexing"
+msgstr "Indexierung"
+
+msgid "The archive also disappears from the XML sitemap."
+msgstr "Das Archiv verschwindet auch aus der XML-Sitemap."
+
+msgid "Meta and schema"
+msgstr "Meta und Schema"
+
+msgid "Sitemaps"
+msgstr "Sitemaps"
+
+msgid "Feeds and comments"
+msgstr "Feeds und Kommentare"
+
+msgid "Import"
+msgstr "Import"
+
+msgid "Notifications"
+msgstr "Benachrichtigungen"
+
+msgid "Bearius score %d out of 100"
+msgstr "Bearius-Score %d von 100"
+
+msgid "Settings sections"
+msgstr "Einstellungsbereiche"
+
+msgid "Unsaved changes"
+msgstr "Ungespeicherte Änderungen"
+
+msgid "All changes saved"
+msgstr "Alle Änderungen gespeichert"
+
+msgid "Save changes"
+msgstr "Änderungen speichern"
+
+msgid "Fix"
+msgstr "Beheben"
+
+msgid "%1$s, %2$d language"
+msgid_plural "%1$s, %2$d languages"
+msgstr[0] "%1$s, %2$d Sprache"
+msgstr[1] "%1$s, %2$d Sprachen"
+
+msgid "Home"
+msgstr "Startseite"
+
+msgid "Search results for \"%s\""
+msgstr "Suchergebnisse für „%s“"
+
+msgid "Only addresses on this site can be fetched."
+msgstr "Nur Adressen auf dieser Website können abgerufen werden."
+
+msgid "Critical"
+msgstr "Kritisch"
+
+msgid "Warning"
+msgstr "Warnung"
+
+msgid "Suggestion"
+msgstr "Vorschlag"
+
+msgid "Information"
+msgstr "Information"
+
+msgid "Shows the path to the current page. Uses the same trail as the structured data."
+msgstr "Zeigt den Pfad zur aktuellen Seite. Nutzt denselben Pfad wie die strukturierten Daten."
+
+msgid "Category"
+msgstr "Kategorie"
+
+msgid "Current page"
+msgstr "Aktuelle Seite"
+
+msgid "%d critical problem"
+msgid_plural "%d critical problems"
+msgstr[0] "%d kritisches Problem"
+msgstr[1] "%d kritische Probleme"
+
+msgid "%d warning"
+msgid_plural "%d warnings"
+msgstr[0] "%d Warnung"
+msgstr[1] "%d Warnungen"
+
+msgid "%d critical"
+msgid_plural "%d critical"
+msgstr[0] "%d kritisch"
+msgstr[1] "%d kritisch"
+
+msgid "One problem can keep you out of search results"
+msgid_plural "Some problems can keep you out of search results"
+msgstr[0] "Ein Problem kann dich aus den Suchergebnissen fernhalten"
+msgstr[1] "Einige Probleme können dich aus den Suchergebnissen fernhalten"
