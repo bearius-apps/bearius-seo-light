@@ -1,6 +1,7 @@
 <?php
 /**
- * Importer for data saved by Yoast SEO, Rank Math and All in One SEO.
+ * Importer for data saved by Yoast SEO, Rank Math, All in One SEO and by
+ * themes or plugins that register their own source.
  *
  * Source data is only read, never deleted, so the import can be repeated
  * and the previous plugin keeps working until it is deactivated.
@@ -38,7 +39,7 @@ class Bearius_SEO_Importer {
 	 * @return array
 	 */
 	private static function keys() {
-		return array(
+		$keys = array(
 			'yoast'    => array(
 				'title'   => '_yoast_wpseo_title',
 				'desc'    => '_yoast_wpseo_metadesc',
@@ -61,6 +62,93 @@ class Bearius_SEO_Importer {
 				'image'   => '',
 			),
 		);
+
+		foreach ( self::custom_sources() as $source => $info ) {
+			$keys[ $source ] = $info['post'];
+		}
+
+		return $keys;
+	}
+
+	/**
+	 * Returns the sources registered by themes and plugins.
+	 *
+	 * A theme or plugin that kept SEO data in its own custom fields adds
+	 * itself to the importer through the bearius_seo_import_sources filter:
+	 *
+	 *     add_filter( 'bearius_seo_import_sources', function ( $sources ) {
+	 *         $sources['my-theme'] = array(
+	 *             'label' => 'My Theme',
+	 *             'post'  => array( 'title' => 'seo_title', 'desc' => 'seo_desc', 'social' => 'og_title', 'image' => 'og_image' ),
+	 *             'term'  => array( 'title' => 'my_term_title' ),
+	 *         );
+	 *         return $sources;
+	 *     } );
+	 *
+	 * Keys are post meta and term meta keys. Missing keys are skipped. An
+	 * image may be stored as a URL or as an attachment ID. Values are taken
+	 * as plain text, without template variables.
+	 *
+	 * @return array Source key => array( label, post, term ).
+	 */
+	private static function custom_sources() {
+		static $sources = null;
+
+		if ( null !== $sources ) {
+			return $sources;
+		}
+
+		$sources  = array();
+		$fields   = array( 'title', 'desc', 'noindex', 'social', 'image' );
+		$builtin  = array( 'yoast', 'rankmath', 'aioseo' );
+
+		/**
+		 * Filters the extra sources offered by the importer.
+		 *
+		 * @param array $sources Source key => array( 'label' => string, 'post' => array, 'term' => array ).
+		 */
+		$registered = (array) apply_filters( 'bearius_seo_import_sources', array() );
+
+		foreach ( $registered as $key => $info ) {
+			$key = sanitize_key( (string) $key );
+
+			if ( '' === $key || in_array( $key, $builtin, true ) || ! is_array( $info ) ) {
+				continue;
+			}
+
+			$post = array();
+			$term = array();
+
+			foreach ( $fields as $field ) {
+				$post[ $field ] = isset( $info['post'][ $field ] ) && is_string( $info['post'][ $field ] ) ? trim( $info['post'][ $field ] ) : '';
+			}
+
+			foreach ( array( 'title', 'desc', 'noindex' ) as $field ) {
+				$term[ $field ] = isset( $info['term'][ $field ] ) && is_string( $info['term'][ $field ] ) ? trim( $info['term'][ $field ] ) : '';
+			}
+
+			if ( ! array_filter( $post ) && ! array_filter( $term ) ) {
+				continue;
+			}
+
+			$sources[ $key ] = array(
+				'label' => isset( $info['label'] ) && '' !== trim( (string) $info['label'] ) ? trim( (string) $info['label'] ) : $key,
+				'post'  => $post,
+				'term'  => $term,
+			);
+		}
+
+		return $sources;
+	}
+
+	/**
+	 * Tells whether a source was registered by a theme or plugin.
+	 *
+	 * @param string $source Source key.
+	 * @return bool
+	 */
+	private static function is_custom( $source ) {
+		return isset( self::custom_sources()[ $source ] );
 	}
 
 	/**
@@ -91,11 +179,27 @@ class Bearius_SEO_Importer {
 		);
 		$out    = array();
 
-		foreach ( self::keys() as $source => $keys ) {
-			$keys = array_values( array_filter( $keys ) );
-			$in   = implode( ',', array_fill( 0, count( $keys ), '%s' ) );
+		foreach ( self::custom_sources() as $source => $info ) {
+			$labels[ $source ] = $info['label'];
+		}
 
-			$count = (int) $wpdb->get_var( $wpdb->prepare( "SELECT COUNT( DISTINCT post_id ) FROM {$wpdb->postmeta} WHERE meta_key IN ($in) AND meta_value <> ''", $keys ) ); // phpcs:ignore WordPress.DB.DirectDatabaseQuery, WordPress.DB.PreparedSQL.InterpolatedNotPrepared
+		foreach ( self::keys() as $source => $keys ) {
+			$keys  = array_values( array_filter( $keys ) );
+			$count = 0;
+
+			if ( $keys ) {
+				$in    = implode( ',', array_fill( 0, count( $keys ), '%s' ) );
+				$count = (int) $wpdb->get_var( $wpdb->prepare( "SELECT COUNT( DISTINCT pm.post_id ) FROM {$wpdb->postmeta} pm INNER JOIN {$wpdb->posts} p ON p.ID = pm.post_id WHERE pm.meta_key IN ($in) AND pm.meta_value <> '' AND p.post_type <> 'revision'", $keys ) ); // phpcs:ignore WordPress.DB.DirectDatabaseQuery, WordPress.DB.PreparedSQL.InterpolatedNotPrepared
+			}
+
+			if ( self::is_custom( $source ) ) {
+				$term_keys = array_values( array_filter( self::custom_sources()[ $source ]['term'] ) );
+
+				if ( $term_keys ) {
+					$in     = implode( ',', array_fill( 0, count( $term_keys ), '%s' ) );
+					$count += (int) $wpdb->get_var( $wpdb->prepare( "SELECT COUNT( DISTINCT term_id ) FROM {$wpdb->termmeta} WHERE meta_key IN ($in) AND meta_value <> ''", $term_keys ) ); // phpcs:ignore WordPress.DB.DirectDatabaseQuery, WordPress.DB.PreparedSQL.InterpolatedNotPrepared
+				}
+			}
 
 			if ( 'aioseo' === $source && self::aioseo_table() ) {
 				$table  = self::aioseo_table();
@@ -150,17 +254,6 @@ class Bearius_SEO_Importer {
 		global $wpdb;
 
 		$keys = array_values( array_filter( self::keys()[ $source ] ) );
-		$in   = implode( ',', array_fill( 0, count( $keys ), '%s' ) );
-		$args = array_merge( $keys, array( $last_id, self::BATCH ) );
-
-		$sql = "SELECT DISTINCT post_id FROM {$wpdb->postmeta} WHERE meta_key IN ($in) AND post_id > %d";
-
-		if ( 'aioseo' === $source && self::aioseo_table() ) {
-			$table = self::aioseo_table();
-			$sql   = "SELECT post_id FROM ( SELECT post_id FROM {$wpdb->postmeta} WHERE meta_key IN ($in) UNION SELECT post_id FROM {$table} ) ids WHERE post_id > %d";
-		}
-
-		$ids = array_map( 'intval', $wpdb->get_col( $wpdb->prepare( $sql . ' ORDER BY post_id ASC LIMIT %d', $args ) ) ); // phpcs:ignore WordPress.DB.DirectDatabaseQuery, WordPress.DB.PreparedSQL.NotPrepared
 
 		$counts = array(
 			'title'   => 0,
@@ -169,6 +262,33 @@ class Bearius_SEO_Importer {
 			'social'  => 0,
 			'image'   => 0,
 		);
+
+		// A source with term fields only has no posts to go through.
+		if ( ! $keys ) {
+			return array(
+				'done'      => true,
+				'last_id'   => $last_id,
+				'processed' => 0,
+				'counts'    => $counts,
+			);
+		}
+
+		$in   = implode( ',', array_fill( 0, count( $keys ), '%s' ) );
+		$args = array_merge( $keys, array( $last_id, self::BATCH ) );
+
+		// Empty values are left out, so posts that only have empty custom
+		// fields, as some field plugins save for every post, are not walked.
+		// Revisions are skipped too: field plugins copy their values to every
+		// revision, which would multiply the work without changing anything.
+		$sql = "SELECT DISTINCT pm.post_id FROM {$wpdb->postmeta} pm INNER JOIN {$wpdb->posts} p ON p.ID = pm.post_id WHERE pm.meta_key IN ($in) AND pm.meta_value <> '' AND p.post_type <> 'revision' AND pm.post_id > %d";
+
+		if ( 'aioseo' === $source && self::aioseo_table() ) {
+			$table = self::aioseo_table();
+			$sql   = "SELECT post_id FROM ( SELECT post_id FROM {$wpdb->postmeta} WHERE meta_key IN ($in) AND meta_value <> '' UNION SELECT post_id FROM {$table} ) ids WHERE post_id > %d";
+		}
+
+		$order = 'aioseo' === $source && self::aioseo_table() ? 'post_id' : 'pm.post_id';
+		$ids   = array_map( 'intval', $wpdb->get_col( $wpdb->prepare( $sql . " ORDER BY {$order} ASC LIMIT %d", $args ) ) ); // phpcs:ignore WordPress.DB.DirectDatabaseQuery, WordPress.DB.PreparedSQL.NotPrepared, WordPress.DB.PreparedSQL.InterpolatedNotPrepared
 
 		foreach ( $ids as $post_id ) {
 			$post = get_post( $post_id );
@@ -222,6 +342,10 @@ class Bearius_SEO_Importer {
 		$keys = self::keys()[ $source ];
 		$raw  = array();
 
+		if ( self::is_custom( $source ) ) {
+			return $this->read_custom_post( $keys, $post );
+		}
+
 		foreach ( $keys as $field => $key ) {
 			$value         = $key ? get_post_meta( $post->ID, $key, true ) : '';
 			$raw[ $field ] = is_scalar( $value ) ? (string) $value : '';
@@ -259,6 +383,82 @@ class Bearius_SEO_Importer {
 			'social'  => $this->clean_title( $this->replace_vars( $raw['social'], $post, $source ), $post->post_title ),
 			'image'   => $raw['image'],
 		);
+	}
+
+	/**
+	 * Reads the values of one post from a source registered by a theme or plugin.
+	 *
+	 * Values are plain text. Titles equal to the post title are skipped,
+	 * since they change nothing. An image stored as an attachment ID is
+	 * turned into its URL, the form the plugin keeps.
+	 *
+	 * @param array   $keys Field => meta key.
+	 * @param WP_Post $post Post.
+	 * @return array
+	 */
+	private function read_custom_post( $keys, $post ) {
+		$read = function ( $field ) use ( $keys, $post ) {
+			if ( empty( $keys[ $field ] ) ) {
+				return '';
+			}
+
+			$value = get_post_meta( $post->ID, $keys[ $field ], true );
+
+			return is_scalar( $value ) ? trim( (string) $value ) : $value;
+		};
+
+		$title  = $read( 'title' );
+		$social = $read( 'social' );
+		$desc   = $read( 'desc' );
+		$flag   = $read( 'noindex' );
+
+		return array(
+			'title'   => is_string( $title ) ? $this->same_as_title( $title, $post->post_title ) : '',
+			'desc'    => is_string( $desc ) ? $desc : '',
+			'noindex' => is_string( $flag ) && in_array( strtolower( $flag ), array( '1', 'on', 'yes', 'true', 'noindex' ), true ),
+			'social'  => is_string( $social ) ? $this->same_as_title( $social, $post->post_title ) : '',
+			'image'   => $this->image_url( $read( 'image' ) ),
+		);
+	}
+
+	/**
+	 * Returns an empty string when a title only repeats the original.
+	 *
+	 * @param string $title    Title from the source.
+	 * @param string $original Post or term title.
+	 * @return string
+	 */
+	private function same_as_title( $title, $original ) {
+		$title = trim( preg_replace( '/\s+/u', ' ', (string) $title ) );
+
+		return 0 === strcasecmp( $title, trim( wp_strip_all_tags( (string) $original ) ) ) ? '' : $title;
+	}
+
+	/**
+	 * Turns a stored image into a URL.
+	 *
+	 * Accepts a URL, an attachment ID or an array with a url or ID key, the
+	 * forms custom field plugins use.
+	 *
+	 * @param mixed $value Stored value.
+	 * @return string
+	 */
+	private function image_url( $value ) {
+		if ( is_array( $value ) ) {
+			if ( ! empty( $value['url'] ) && is_string( $value['url'] ) ) {
+				return $value['url'];
+			}
+
+			$value = isset( $value['ID'] ) ? $value['ID'] : ( isset( $value['id'] ) ? $value['id'] : '' );
+		}
+
+		if ( is_numeric( $value ) ) {
+			$url = wp_get_attachment_url( (int) $value );
+
+			return $url ? (string) $url : '';
+		}
+
+		return is_string( $value ) && preg_match( '#^(https?:)?//#i', trim( $value ) ) ? trim( $value ) : '';
 	}
 
 	/**
@@ -403,6 +603,27 @@ class Bearius_SEO_Importer {
 					);
 				}
 			}
+		} elseif ( self::is_custom( $source ) ) {
+			global $wpdb;
+			$term_keys = self::custom_sources()[ $source ]['term'];
+			$list      = array_values( array_filter( $term_keys ) );
+
+			if ( $list ) {
+				$in  = implode( ',', array_fill( 0, count( $list ), '%s' ) );
+				$ids = $wpdb->get_col( $wpdb->prepare( "SELECT DISTINCT term_id FROM {$wpdb->termmeta} WHERE meta_key IN ($in) AND meta_value <> ''", $list ) ); // phpcs:ignore WordPress.DB.DirectDatabaseQuery, WordPress.DB.PreparedSQL.InterpolatedNotPrepared
+
+				foreach ( $ids as $term_id ) {
+					$row = array();
+
+					foreach ( array( 'title', 'desc', 'noindex' ) as $field ) {
+						$value         = '' !== $term_keys[ $field ] ? get_term_meta( (int) $term_id, $term_keys[ $field ], true ) : '';
+						$row[ $field ] = is_scalar( $value ) ? trim( (string) $value ) : '';
+					}
+
+					$row['noindex']         = in_array( strtolower( $row['noindex'] ), array( '1', 'on', 'yes', 'true', 'noindex' ), true );
+					$rows[ (int) $term_id ] = $row;
+				}
+			}
 		} elseif ( 'rankmath' === $source ) {
 			global $wpdb;
 			$ids = $wpdb->get_col( $wpdb->prepare( "SELECT DISTINCT term_id FROM {$wpdb->termmeta} WHERE meta_key IN ( %s, %s, %s )", 'rank_math_title', 'rank_math_description', 'rank_math_robots' ) ); // phpcs:ignore WordPress.DB.DirectDatabaseQuery
@@ -423,11 +644,19 @@ class Bearius_SEO_Importer {
 				continue;
 			}
 
-			$values = array(
-				'_bearius_seo_title'   => $this->clean_title( $this->replace_vars( $data['title'], null, $source, $term ), $term->name ),
-				'_bearius_seo_desc'    => preg_match( '/^\s*(%%term_description%%|%term_description%)\s*$/i', (string) $data['desc'] ) ? '' : $this->replace_vars( $data['desc'], null, $source, $term ),
-				'_bearius_seo_noindex' => $data['noindex'] ? 1 : '',
-			);
+			if ( self::is_custom( $source ) ) {
+				$values = array(
+					'_bearius_seo_title'   => $this->same_as_title( $data['title'], $term->name ),
+					'_bearius_seo_desc'    => (string) $data['desc'],
+					'_bearius_seo_noindex' => $data['noindex'] ? 1 : '',
+				);
+			} else {
+				$values = array(
+					'_bearius_seo_title'   => $this->clean_title( $this->replace_vars( $data['title'], null, $source, $term ), $term->name ),
+					'_bearius_seo_desc'    => preg_match( '/^\s*(%%term_description%%|%term_description%)\s*$/i', (string) $data['desc'] ) ? '' : $this->replace_vars( $data['desc'], null, $source, $term ),
+					'_bearius_seo_noindex' => $data['noindex'] ? 1 : '',
+				);
+			}
 
 			foreach ( $values as $key => $value ) {
 				if ( '' === $value || ( ! $overwrite && '' !== (string) get_term_meta( $term_id, $key, true ) ) ) {

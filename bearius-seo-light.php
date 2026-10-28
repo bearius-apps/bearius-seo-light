@@ -2,7 +2,7 @@
 /**
  * Plugin Name:       Bearius SEO Light
  * Description:       SEO for publishers and multilingual sites: meta tags, Schema.org graph, multilingual XML and Google News sitemaps, AI crawler control, IndexNow and a fact based audit with one click fixes.
- * Version:           1.1.0
+ * Version:           1.2.0
  * Requires at least: 6.0
  * Requires PHP:      7.4
  * Author:            Bearius
@@ -20,7 +20,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'BEARIUS_SEO_VERSION', '1.1.0' );
+define( 'BEARIUS_SEO_VERSION', '1.2.0' );
 define( 'BEARIUS_SEO_FILE', __FILE__ );
 define( 'BEARIUS_SEO_PATH', plugin_dir_path( __FILE__ ) );
 define( 'BEARIUS_SEO_URL', plugin_dir_url( __FILE__ ) );
@@ -49,27 +49,36 @@ require_once BEARIUS_SEO_PATH . 'includes/class-bearius-seo-settings.php';
 require_once BEARIUS_SEO_PATH . 'includes/class-bearius-seo-admin-tools.php';
 
 /**
- * Boots the plugin once WordPress and all other plugins are loaded.
+ * Boots the plugin once WordPress, all other plugins and the theme are loaded.
  *
  * The compatibility check has to run after every plugin is available,
- * otherwise a conflicting SEO plugin loaded later would go unnoticed.
- * Only the modules that would duplicate another plugin are switched off.
+ * otherwise a conflicting SEO plugin loaded later would go unnoticed. It
+ * also has to see the theme, which can declare the parts it handles itself
+ * with add_theme_support( 'bearius-seo', ... ). Late priority, so a
+ * declaration made in after_setup_theme is already in place. Only the
+ * modules that would duplicate the theme or another plugin are switched off.
  *
  * @return void
  */
 function bearius_seo_bootstrap() {
-	Bearius_SEO_Compat::instance()->register();
+	$compat = Bearius_SEO_Compat::instance();
+	$compat->register();
 
 	if ( bearius_seo_module_active( 'meta' ) ) {
 		( new Bearius_SEO_Metabox() )->register();
 		( new Bearius_SEO_Frontend() )->register();
+	} elseif ( $compat->theme_reads_fields( 'meta' ) ) {
+		// The theme prints the tags but reads the plugin fields, so only
+		// the editor box is loaded. Nothing is printed on the front end.
+		( new Bearius_SEO_Metabox() )->register();
 	}
 
 	if ( bearius_seo_module_active( 'schema' ) ) {
 		( new Bearius_SEO_Schema() )->register();
 	}
 
-	if ( bearius_seo_module_active( 'terms' ) ) {
+	if ( bearius_seo_fields_active( 'terms' ) ) {
+		// Term fields print nothing themselves, the front end reads them.
 		( new Bearius_SEO_Terms() )->register();
 	}
 
@@ -103,7 +112,7 @@ function bearius_seo_bootstrap() {
 		( new Bearius_SEO_Fixes() )->register();
 	}
 }
-add_action( 'plugins_loaded', 'bearius_seo_bootstrap' );
+add_action( 'after_setup_theme', 'bearius_seo_bootstrap', 100 );
 
 /**
  * Loads the bundled translations in the language of the dashboard user.

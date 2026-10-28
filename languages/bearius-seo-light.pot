@@ -435,7 +435,7 @@ msgstr ""
 msgid "Text without JavaScript"
 msgstr ""
 
-msgid "Import from another plugin"
+msgid "Import from another plugin or theme"
 msgstr ""
 
 msgid "Copies SEO titles, descriptions, noindex flags and social titles and images. Template variables are turned into plain text, and titles that only repeat the default are skipped. Nothing is deleted from the other plugin."
@@ -1706,6 +1706,23 @@ msgstr ""
 msgid "Paused while %s is active."
 msgstr ""
 
+#. translators: %s: theme name.
+msgid "Handled by the %s theme."
+msgstr ""
+
+#. translators: %s: theme name.
+msgid "Handled by the %s theme, so these options have no effect."
+msgstr ""
+
+msgid "The SEO box in the editor stays on, and the theme reads its fields."
+msgstr ""
+
+msgid "The SEO fields on category and tag screens stay on, and the theme reads them."
+msgstr ""
+
+msgid "Overrides the archive title in the browser and when shared. Leave empty to use the title shown in grey."
+msgstr ""
+
 msgid "The site asks search engines not to index it, so no sitemap is served."
 msgstr ""
 
@@ -2029,3 +2046,22 @@ msgstr ""
 msgid "Current page"
 msgstr ""
 
+msgid "%d critical problem"
+msgid_plural "%d critical problems"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "%d warning"
+msgid_plural "%d warnings"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "%d critical"
+msgid_plural "%d critical"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "One problem can keep you out of search results"
+msgid_plural "Some problems can keep you out of search results"
+msgstr[0] ""
+msgstr[1] ""

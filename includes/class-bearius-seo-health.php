@@ -389,7 +389,7 @@ class Bearius_SEO_Health {
 				'post_type'              => $types,
 				'post_status'            => 'publish',
 				'has_password'           => false,
-				'posts_per_page'         => 1,
+				'posts_per_page'         => 10,
 				'orderby'                => 'date',
 				'order'                  => 'DESC',
 				'post__not_in'           => bearius_seo_noindex_post_ids(), // phpcs:ignore WordPressVIPMinimum.Performance.WPQueryParams.PostNotIn_post__not_in
@@ -400,14 +400,20 @@ class Bearius_SEO_Health {
 			)
 		);
 
-		if ( empty( $query->posts ) ) {
-			return null;
+		// Entries that link to another site redirect away, so the scan
+		// would read a page that is not part of this site.
+		foreach ( $query->posts as $post ) {
+			$url = get_permalink( $post );
+
+			if ( $url && bearius_seo_is_own_url( $url ) ) {
+				return array(
+					'url' => $url,
+					'id'  => $post->ID,
+				);
+			}
 		}
 
-		return array(
-			'url' => get_permalink( $query->posts[0] ),
-			'id'  => $query->posts[0]->ID,
-		);
+		return null;
 	}
 
 	/**

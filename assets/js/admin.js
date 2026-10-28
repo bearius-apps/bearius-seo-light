@@ -41,6 +41,207 @@
 		frame.open();
 	}
 
+	/**
+	 * Returns the CSS filter that cancels the filters of the element's ancestors.
+	 *
+	 * Dark modes of the dashboard often invert the whole screen with a CSS
+	 * filter and turn images back with a second filter. That second filter
+	 * is rarely exact (an invert of 0.88 undone with an invert of 1 leaves
+	 * pale, washed out colours), so the previews compute the exact inverse
+	 * of everything above them instead. Filters that cannot be undone, such
+	 * as blur or sepia, are left alone.
+	 *
+	 * @param {HTMLElement} node Element.
+	 * @return {string} Filter value, empty when nothing above is filtered.
+	 */
+	function cancelFilter( node ) {
+		var layers = [];
+		var parts = [];
+
+		for ( var el = node.parentElement; el; el = el.parentElement ) {
+			var value = window.getComputedStyle( el ).filter;
+
+			if ( value && 'none' !== value ) {
+				layers.unshift( value );
+			}
+		}
+
+		var amount = function ( arg, fallback ) {
+			var n = parseFloat( arg );
+
+			if ( isNaN( n ) ) {
+				return fallback;
+			}
+
+			return /%$/.test( arg ) ? n / 100 : n;
+		};
+
+		var degrees = function ( arg ) {
+			var n = parseFloat( arg ) || 0;
+
+			if ( /grad$/.test( arg ) ) {
+				return n * 0.9;
+			}
+			if ( /turn$/.test( arg ) ) {
+				return n * 360;
+			}
+			if ( /rad$/.test( arg ) ) {
+				return n * 180 / Math.PI;
+			}
+
+			return n;
+		};
+
+		var inverse = function ( name, arg ) {
+			var a;
+
+			switch ( name ) {
+				case 'invert':
+					a = Math.min( 1, Math.max( 0, amount( arg, 1 ) ) );
+					if ( Math.abs( a - 0.5 ) < 0.02 ) {
+						return [];
+					}
+					// invert(a) maps x to a + (1 - 2a) x; the inverse is an invert plus a contrast.
+					return a < 0.5 ? [ 'contrast(' + ( 1 / ( 1 - 2 * a ) ).toFixed( 4 ) + ')' ] : [ 'invert(1)', 'contrast(' + ( 1 / ( 2 * a - 1 ) ).toFixed( 4 ) + ')' ];
+				case 'hue-rotate':
+					return [ 'hue-rotate(' + ( -degrees( arg ) ).toFixed( 3 ) + 'deg)' ];
+				case 'brightness':
+				case 'contrast':
+				case 'saturate':
+					a = amount( arg, 1 );
+					return a > 0.01 ? [ name + '(' + ( 1 / a ).toFixed( 4 ) + ')' ] : [];
+				case 'grayscale':
+					a = Math.min( 1, Math.max( 0, amount( arg, 1 ) ) );
+					return a < 0.99 ? [ 'saturate(' + ( 1 / ( 1 - a ) ).toFixed( 4 ) + ')' ] : [];
+			}
+
+			return [];
+		};
+
+		// The outermost filter is applied last, so it is undone first.
+		layers.forEach( function ( value ) {
+			var found = [];
+			var re = /([a-z-]+)\(([^)]*)\)/g;
+			var match;
+
+			while ( ( match = re.exec( value ) ) ) {
+				found.push( inverse( match[ 1 ], match[ 2 ].trim() ) );
+			}
+
+			found.reverse().forEach( function ( list ) {
+				parts = parts.concat( list );
+			} );
+		} );
+
+		return parts.join( ' ' );
+	}
+
+	/**
+	 * Keeps the preview images in their true colours under a dark mode.
+	 *
+	 * @return {void}
+	 */
+	function trueColor() {
+		document.querySelectorAll( 'img[data-bs-true-color]' ).forEach( function ( img ) {
+			var value = cancelFilter( img );
+
+			if ( img.bsFilter !== value ) {
+				img.bsFilter = value;
+				img.style.filter = value;
+			}
+		} );
+	}
+
+	/**
+	 * Shows an image address in a preview image, or hides the image when empty.
+	 *
+	 * Previews are real images rather than CSS backgrounds, so dark modes of
+	 * the dashboard that invert the screen and turn images back leave them
+	 * in their true colours.
+	 *
+	 * @param {HTMLElement} holder Element holding the image.
+	 * @param {string}      url    Image address.
+	 * @return {boolean} Whether an image is shown.
+	 */
+	function showImage( holder, url ) {
+		var img = holder.querySelector( 'img' );
+
+		if ( ! img ) {
+			img = document.createElement( 'img' );
+			img.alt = '';
+			img.setAttribute( 'data-bs-true-color', '' );
+			holder.insertBefore( img, holder.firstChild );
+			trueColor();
+		}
+
+		if ( ! img.bsWatched ) {
+			img.bsWatched = true;
+			// An address that does not load shows the empty state instead of a broken image.
+			img.addEventListener( 'error', function () {
+				if ( img.getAttribute( 'src' ) ) {
+					img.hidden = true;
+					holder.classList.add( 'is-empty' );
+				}
+			} );
+			img.addEventListener( 'load', function () {
+				if ( img.getAttribute( 'src' ) ) {
+					img.hidden = false;
+					holder.classList.remove( 'is-empty' );
+				}
+			} );
+		}
+
+		url = url ? String( url ) : '';
+
+		if ( ! url ) {
+			img.removeAttribute( 'src' );
+			img.hidden = true;
+			holder.classList.add( 'is-empty' );
+			return false;
+		}
+
+		if ( img.getAttribute( 'src' ) !== url ) {
+			img.setAttribute( 'src', url );
+		} else if ( img.complete && 0 === img.naturalWidth ) {
+			// Failed before this script was running.
+			img.hidden = true;
+			holder.classList.add( 'is-empty' );
+			return false;
+		}
+
+		img.hidden = false;
+		holder.classList.remove( 'is-empty' );
+
+		return true;
+	}
+
+	// Dark modes switch by a class or attribute on the root or the body, or
+	// follow the system setting; recheck whenever one of those changes.
+	if ( document.querySelector( 'img[data-bs-true-color]' ) ) {
+		trueColor();
+
+		if ( window.MutationObserver ) {
+			var watcher = new window.MutationObserver( trueColor );
+
+			watcher.observe( document.documentElement, { attributes: true } );
+
+			if ( document.body ) {
+				watcher.observe( document.body, { attributes: true } );
+			}
+		}
+
+		if ( window.matchMedia ) {
+			var scheme = window.matchMedia( '(prefers-color-scheme: dark)' );
+
+			if ( scheme.addEventListener ) {
+				scheme.addEventListener( 'change', trueColor );
+			}
+		}
+
+		// Styles of a dark mode can arrive after this script.
+		window.addEventListener( 'load', trueColor );
+	}
+
 	document.addEventListener( 'click', function ( event ) {
 		var pick = event.target.closest( '.bearius-seo-image-pick' );
 		var clear = event.target.closest( '.bearius-seo-image-clear' );
@@ -81,7 +282,7 @@
 		var thumb = row ? row.querySelector( '.bearius-seo-thumb' ) : null;
 
 		if ( thumb ) {
-			thumb.style.backgroundImage = event.target.value ? 'url("' + event.target.value + '")' : '';
+			showImage( thumb, event.target.value.trim() );
 		}
 	} );
 
@@ -296,15 +497,7 @@
 		}
 
 		if ( out.socialImage ) {
-			if ( image ) {
-				out.socialImage.style.backgroundImage = 'url("' + image + '")';
-				out.socialImage.classList.remove( 'is-empty' );
-				out.socialImage.textContent = '';
-			} else {
-				out.socialImage.style.backgroundImage = '';
-				out.socialImage.classList.add( 'is-empty' );
-				out.socialImage.textContent = data.noImage || '';
-			}
+			showImage( out.socialImage, image.trim() );
 		}
 
 		updateCounter(

@@ -40,26 +40,45 @@
 	color: #0f5f6b;
 }
 
+/* The layout follows the width of the box, not of the screen: the same
+   box sits in a wide editor, a narrow side column, a tablet or a zoomed
+   in screen. Sizes are capped, so the previews keep the proportions of
+   the real thing instead of growing with the box. */
 .bearius-seo-panel {
+	container: bearius-seo / inline-size;
 	font-size: 13px;
 	line-height: 1.5;
 	color: #1d2327;
+}
+
+.bearius-seo-panel [hidden] {
+	display: none !important;
 }
 
 /* Previews
    ------------------------------------------------------------------ */
 
 .bearius-seo-previews {
-	display: flex;
-	flex-wrap: wrap;
-	gap: 20px;
-	padding: 20px;
+	display: grid;
+	grid-template-columns: minmax( 0, 1fr );
+	gap: 16px;
+	padding: 14px;
 	background: linear-gradient( 180deg, #f6f7f7 0%, #f0f0f1 100% );
 	border-bottom: 1px solid #dcdcde;
 }
 
 .bearius-seo-preview {
-	flex: 1 1 340px;
+	min-width: 0;
+}
+
+.bearius-seo-preview--looks {
+	display: grid;
+	grid-template-columns: minmax( 0, 1fr );
+	align-content: start;
+	gap: 16px;
+}
+
+.bearius-seo-look {
 	min-width: 0;
 }
 
@@ -67,7 +86,8 @@
 	display: flex;
 	align-items: center;
 	gap: 6px;
-	margin: 0 0 10px;
+	min-height: 22px;
+	margin: 0 0 8px;
 	font-size: 11px;
 	font-weight: 600;
 	text-transform: uppercase;
@@ -85,10 +105,11 @@
 }
 
 .bearius-seo-preview__card {
+	max-width: 600px;
 	background: #fff;
 	border: 1px solid #e0e0e2;
 	border-radius: 8px;
-	padding: 16px 18px;
+	padding: 14px 16px;
 	overflow: hidden;
 	box-shadow: 0 1px 2px rgba( 0, 0, 0, 0.04 ), 0 4px 12px rgba( 0, 0, 0, 0.04 );
 	transition: box-shadow 0.15s ease;
@@ -100,16 +121,16 @@
 
 .bearius-seo-serp__url {
 	display: block;
-	margin: 0 0 5px;
+	margin: 0 0 4px;
 	font-size: 12px;
 	color: #4d5156;
-	word-break: break-all;
+	overflow-wrap: anywhere;
 }
 
 .bearius-seo-serp__title {
 	display: block;
-	margin: 0 0 5px;
-	font-size: 19px;
+	margin: 0 0 4px;
+	font-size: 18px;
 	line-height: 1.3;
 	color: #1a0dab;
 	font-weight: 400;
@@ -118,43 +139,59 @@
 .bearius-seo-serp__desc {
 	display: block;
 	font-size: 13px;
-	line-height: 1.6;
+	line-height: 1.55;
 	color: #4d5156;
 }
 
+/* About the width of a link preview in a social feed. */
 .bearius-seo-social__card {
+	max-width: 460px;
 	padding: 0;
 }
 
 .bearius-seo-social__image {
+	position: relative;
 	display: block;
 	width: 100%;
 	aspect-ratio: 1200 / 630;
+	overflow: hidden;
 	background-color: #f0f0f1;
-	background-position: center center;
-	background-size: cover;
-	background-repeat: no-repeat;
 	border-bottom: 1px solid #e0e0e2;
 }
 
-.bearius-seo-social__image.is-empty {
-	display: flex;
+.bearius-seo-social__img {
+	position: absolute;
+	inset: 0;
+	display: block;
+	width: 100%;
+	height: 100%;
+	max-width: none;
+	object-fit: cover;
+}
+
+.bearius-seo-social__none {
+	position: absolute;
+	inset: 0;
+	display: none;
 	align-items: center;
 	justify-content: center;
 	font-size: 12px;
 	color: #a7aaad;
-	background-image: none;
+}
+
+.bearius-seo-social__image.is-empty .bearius-seo-social__none {
+	display: flex;
 }
 
 .bearius-seo-social__body {
 	display: block;
-	padding: 12px 16px 14px;
+	padding: 10px 14px 12px;
 	background: #f9f9f9;
 }
 
 .bearius-seo-social__domain {
 	display: block;
-	margin: 0 0 4px;
+	margin: 0 0 3px;
 	font-size: 11px;
 	text-transform: uppercase;
 	letter-spacing: 0.04em;
@@ -163,8 +200,8 @@
 
 .bearius-seo-social__title {
 	display: block;
-	margin: 0 0 4px;
-	font-size: 15px;
+	margin: 0 0 3px;
+	font-size: 14px;
 	font-weight: 600;
 	line-height: 1.35;
 	color: #1d2327;
@@ -183,13 +220,26 @@
 .bearius-seo-fields {
 	display: flex;
 	flex-direction: column;
-	gap: 14px;
-	padding: 20px;
+	gap: 12px;
+	padding: 14px;
 	background: #fbfbfc;
 }
 
+.bearius-seo-fields__grid {
+	display: grid;
+	grid-template-columns: minmax( 0, 1fr );
+	gap: 12px;
+}
+
+.bearius-seo-fields__col {
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+	min-width: 0;
+}
+
 .bearius-seo-field {
-	padding: 16px 18px;
+	padding: 14px;
 	background: #fff;
 	border: 1px solid #e6e7e8;
 	border-radius: 8px;
@@ -243,7 +293,7 @@
 	max-width: none;
 	border: 1px solid #dcdcde;
 	border-radius: 5px;
-	padding: 8px 11px;
+	padding: 7px 10px;
 	font-size: 13px;
 	line-height: 1.5;
 	box-shadow: none;
@@ -298,7 +348,7 @@
 
 .bearius-seo-help {
 	display: block;
-	margin: 8px 0 0;
+	margin: 7px 0 0;
 	font-size: 12px;
 	line-height: 1.5;
 	color: #787c82;
@@ -310,20 +360,31 @@
 .bearius-seo-image-row {
 	display: flex;
 	align-items: flex-start;
-	gap: 16px;
+	gap: 12px;
 }
 
+/* The thumbnail keeps one small size: it only confirms the choice. */
 .bearius-seo-thumb {
 	flex: none;
 	display: block;
-	width: 132px;
-	height: 69px;
+	width: 112px;
+	aspect-ratio: 1200 / 630;
+	overflow: hidden;
 	border: 1px solid #dcdcde;
 	border-radius: 6px;
 	background-color: #f0f0f1;
-	background-position: center center;
-	background-size: cover;
-	background-repeat: no-repeat;
+}
+
+.bearius-seo-thumb img {
+	display: block;
+	width: 100%;
+	height: 100%;
+	max-width: none;
+	object-fit: cover;
+}
+
+.bearius-seo-thumb img[hidden] {
+	display: none;
 }
 
 .bearius-seo-image-controls {
@@ -334,22 +395,30 @@
 
 .bearius-seo-image-buttons {
 	display: flex;
+	flex-wrap: wrap;
 	align-items: center;
-	gap: 12px;
-	margin-top: 9px;
+	gap: 6px 12px;
+	margin-top: 8px;
 }
 
-/* Toggle
+/* Toggles
    ------------------------------------------------------------------ */
+
+.bearius-seo-toggles {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px 12px;
+}
 
 .bearius-seo-toggle {
 	display: flex;
+	flex: 1 1 260px;
 	align-items: flex-start;
 	gap: 9px;
-	padding: 12px 14px;
+	padding: 11px 13px;
 	border: 1px solid #e0e0e2;
-	border-radius: 6px;
-	background: #fbfbfc;
+	border-radius: 8px;
+	background: #fff;
 	cursor: pointer;
 	transition: border-color 0.15s ease, background-color 0.15s ease;
 }
@@ -383,39 +452,17 @@
 	margin-top: 9px;
 }
 
-@media screen and (max-width: 782px) {
-	.bearius-seo-previews {
-		gap: 22px;
-		padding: 16px;
-	}
-
-	.bearius-seo-fields {
-		padding: 16px;
-		gap: 12px;
-	}
-
-	.bearius-seo-field {
-		padding: 14px;
-	}
-
-	.bearius-seo-image-row {
-		flex-direction: column;
-	}
-
-	.bearius-seo-thumb {
-		width: 100%;
-		height: auto;
-		aspect-ratio: 1200 / 630;
-	}
-}
-
-
 /* Checks panel ----------------------------------------------------------- */
+
+.bearius-seo-preview--checks {
+	display: flex;
+	flex-direction: column;
+}
 
 .bearius-seo-checks {
 	flex: 1;
 	margin-top: 0;
-	padding: 14px 16px;
+	padding: 12px 14px;
 	border: 1px solid #e3e6eb;
 	border-radius: 10px;
 	background: #fff;
@@ -428,7 +475,7 @@
 	justify-content: space-between;
 	gap: 10px;
 	min-height: 22px;
-	margin-bottom: 10px;
+	margin-bottom: 8px;
 }
 
 .bearius-seo-checks__head .bearius-seo-preview__label {
@@ -461,10 +508,11 @@
 	align-items: flex-start;
 	gap: 9px;
 	margin: 0;
-	padding: 5px 0;
+	padding: 4px 0;
 	color: #2b3441;
 	font-size: 12.5px;
 	line-height: 1.45;
+	break-inside: avoid;
 }
 
 .bearius-seo-checks__dot {
@@ -492,30 +540,75 @@
 }
 
 .bearius-seo-checks__note {
-	margin: 8px 0 0;
+	margin: 6px 0 0;
 	color: #8a93a2;
 	font-size: 11.5px;
 }
 
-/* Checks on the left, how the post looks on the right. */
-.bearius-seo-preview--checks {
-	display: flex;
-	flex: 1 1 300px;
-	flex-direction: column;
+/* Wider boxes
+   ------------------------------------------------------------------ */
+
+/* Very narrow, for example the side column: the thumbnail goes above the field. */
+@container bearius-seo (max-width: 359px) {
+	.bearius-seo-image-row {
+		flex-direction: column;
+	}
+
+	.bearius-seo-thumb {
+		width: 150px;
+	}
 }
 
-.bearius-seo-preview--looks {
-	flex: 1.15 1 340px;
+/* Checks in two columns, so the list takes half the height. */
+@container bearius-seo (min-width: 560px) {
+	.bearius-seo-previews,
+	.bearius-seo-fields {
+		padding: 18px;
+	}
+
+	.bearius-seo-checks__list {
+		columns: 2;
+		column-gap: 22px;
+	}
+
+	.bearius-seo-thumb {
+		width: 128px;
+	}
 }
 
-.bearius-seo-preview--looks .bearius-seo-social__image {
-	max-height: 230px;
+/* Search result and shared post side by side. */
+@container bearius-seo (min-width: 700px) {
+	.bearius-seo-preview--looks {
+		grid-template-columns: minmax( 0, 1.15fr ) minmax( 0, 1fr );
+		gap: 18px;
+	}
 }
 
-.bearius-seo-preview__label--next {
-	margin-top: 20px;
+/* Search fields on the left, sharing fields on the right. */
+@container bearius-seo (min-width: 760px) {
+	.bearius-seo-fields__grid {
+		grid-template-columns: repeat( 2, minmax( 0, 1fr ) );
+		gap: 14px;
+	}
+
+	.bearius-seo-field {
+		padding: 14px 16px;
+	}
 }
 
-.bearius-seo-preview--looks .bearius-seo-preview__label:first-child {
-	min-height: 22px;
+/* Wide: checks, search result and shared post in one row. */
+@container bearius-seo (min-width: 1100px) {
+	.bearius-seo-previews {
+		grid-template-columns: minmax( 0, 0.9fr ) minmax( 0, 2.1fr );
+		gap: 20px;
+		padding: 20px;
+	}
+
+	.bearius-seo-checks__list {
+		columns: 1;
+	}
+
+	.bearius-seo-fields {
+		padding: 20px;
+	}
 }

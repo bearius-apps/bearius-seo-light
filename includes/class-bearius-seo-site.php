@@ -20,14 +20,38 @@ if ( ! defined( 'ABSPATH' ) ) {
 class Bearius_SEO_Site {
 
 	/**
+	 * Feed level in use: none, comments, extra or all.
+	 *
+	 * @var string
+	 */
+	private $feeds = 'none';
+
+	/**
+	 * Comment mode in use: on, pings, closed or off.
+	 *
+	 * @var string
+	 */
+	private $comments = 'on';
+
+	/**
 	 * Hooks the features that are switched on.
+	 *
+	 * Groups the theme declared as its own keep the WordPress defaults
+	 * here, so the theme and the plugin never redirect or hide the same
+	 * thing twice.
 	 *
 	 * @return void
 	 */
 	public function register() {
-		$feeds    = (string) bearius_seo_get_setting( 'rss_disable', 'none' );
-		$comments = (string) bearius_seo_get_setting( 'comments_mode', 'on' );
-		$tags     = (string) bearius_seo_get_setting( 'tags_mode', 'on' );
+		$compat      = Bearius_SEO_Compat::instance();
+		$theme_feeds = $compat->theme_handles( 'feeds' );
+
+		$this->feeds    = $theme_feeds ? 'none' : (string) bearius_seo_get_setting( 'rss_disable', 'none' );
+		$this->comments = $compat->theme_handles( 'comments' ) ? 'on' : (string) bearius_seo_get_setting( 'comments_mode', 'on' );
+
+		$feeds    = $this->feeds;
+		$comments = $this->comments;
+		$tags     = $compat->theme_handles( 'tags' ) ? 'on' : (string) bearius_seo_get_setting( 'tags_mode', 'on' );
 
 		// Feeds.
 		if ( 'none' !== $feeds || 'off' === $comments || 'on' !== $tags ) {
@@ -46,22 +70,24 @@ class Bearius_SEO_Site {
 			remove_action( 'wp_head', 'feed_links', 2 );
 		}
 
-		if ( bearius_seo_get_setting( 'rss_image' ) ) {
-			add_action( 'rss2_ns', array( $this, 'media_namespace' ) );
-			add_action( 'rss2_item', array( $this, 'media_item' ) );
-		}
+		if ( ! $theme_feeds ) {
+			if ( bearius_seo_get_setting( 'rss_image' ) ) {
+				add_action( 'rss2_ns', array( $this, 'media_namespace' ) );
+				add_action( 'rss2_item', array( $this, 'media_item' ) );
+			}
 
-		if ( bearius_seo_get_setting( 'rss_image' ) || bearius_seo_get_setting( 'rss_footer' ) ) {
-			add_filter( 'the_content_feed', array( $this, 'feed_content' ), 20 );
-			add_filter( 'the_excerpt_rss', array( $this, 'feed_content' ), 20 );
-		}
+			if ( bearius_seo_get_setting( 'rss_image' ) || bearius_seo_get_setting( 'rss_footer' ) ) {
+				add_filter( 'the_content_feed', array( $this, 'feed_content' ), 20 );
+				add_filter( 'the_excerpt_rss', array( $this, 'feed_content' ), 20 );
+			}
 
-		if ( (int) bearius_seo_get_setting( 'rss_delay' ) > 0 ) {
-			add_filter( 'posts_where', array( $this, 'feed_delay' ), 10, 2 );
-		}
+			if ( (int) bearius_seo_get_setting( 'rss_delay' ) > 0 ) {
+				add_filter( 'posts_where', array( $this, 'feed_delay' ), 10, 2 );
+			}
 
-		if ( bearius_seo_get_setting( 'rss_skip_noindex' ) || bearius_seo_get_setting( 'rss_exclude_cats' ) ) {
-			add_action( 'pre_get_posts', array( $this, 'feed_exclusions' ) );
+			if ( bearius_seo_get_setting( 'rss_skip_noindex' ) || bearius_seo_get_setting( 'rss_exclude_cats' ) ) {
+				add_action( 'pre_get_posts', array( $this, 'feed_exclusions' ) );
+			}
 		}
 
 		// Tags.
@@ -91,7 +117,7 @@ class Bearius_SEO_Site {
 		}
 
 		// Archives.
-		if ( 'index' !== bearius_seo_get_setting( 'archive_author', 'index' ) || 'index' !== bearius_seo_get_setting( 'archive_date', 'index' ) ) {
+		if ( ! $compat->theme_handles( 'archives' ) && ( 'index' !== bearius_seo_get_setting( 'archive_author', 'index' ) || 'index' !== bearius_seo_get_setting( 'archive_date', 'index' ) ) ) {
 			add_filter( 'wp_robots', array( $this, 'archive_robots' ) );
 			add_action( 'template_redirect', array( $this, 'redirect_archives' ), 1 );
 		}
@@ -112,8 +138,8 @@ class Bearius_SEO_Site {
 			return;
 		}
 
-		$level    = (string) bearius_seo_get_setting( 'rss_disable', 'none' );
-		$comments = 'off' === bearius_seo_get_setting( 'comments_mode', 'on' );
+		$level    = $this->feeds;
+		$comments = 'off' === $this->comments;
 		$extra    = is_category() || is_tag() || is_tax() || is_author() || is_search() || is_post_type_archive() || is_date();
 		$target   = '';
 

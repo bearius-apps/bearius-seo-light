@@ -269,12 +269,35 @@ class Bearius_SEO_Metabox {
 	public function render( $post ) {
 		wp_nonce_field( 'bearius_seo_save', 'bearius_seo_nonce' );
 
-		$title   = get_post_meta( $post->ID, '_bearius_seo_title', true );
-		$desc    = get_post_meta( $post->ID, '_bearius_seo_desc', true );
-		$social  = get_post_meta( $post->ID, '_bearius_seo_social', true );
-		$image   = get_post_meta( $post->ID, '_bearius_seo_image', true );
-		$noindex = get_post_meta( $post->ID, '_bearius_seo_noindex', true );
-		$no_news = get_post_meta( $post->ID, '_bearius_seo_news_exclude', true );
+		$values = array(
+			'title'        => (string) get_post_meta( $post->ID, '_bearius_seo_title', true ),
+			'desc'         => (string) get_post_meta( $post->ID, '_bearius_seo_desc', true ),
+			'social'       => (string) get_post_meta( $post->ID, '_bearius_seo_social', true ),
+			'image'        => (string) get_post_meta( $post->ID, '_bearius_seo_image', true ),
+			'noindex'      => (int) get_post_meta( $post->ID, '_bearius_seo_noindex', true ),
+			'news_exclude' => (int) get_post_meta( $post->ID, '_bearius_seo_news_exclude', true ),
+		);
+
+		/**
+		 * Filters the values shown in the SEO box.
+		 *
+		 * Lets a theme or plugin show values it stored itself, for example
+		 * in custom fields from before the switch, so the box shows what the
+		 * site really uses. Whatever the box shows is saved into the plugin
+		 * fields on the next save. Only the display is filtered, the values
+		 * stored by the plugin are never changed here.
+		 *
+		 * @param array   $values Keys title, desc, social, image (URL), noindex and news_exclude.
+		 * @param WP_Post $post   Post being edited.
+		 */
+		$values = array_merge( $values, (array) apply_filters( 'bearius_seo_field_values', $values, $post ) );
+
+		$title   = (string) $values['title'];
+		$desc    = (string) $values['desc'];
+		$social  = (string) $values['social'];
+		$image   = (string) $values['image'];
+		$noindex = (int) $values['noindex'];
+		$no_news = (int) $values['news_exclude'];
 		$in_news = bearius_seo_module_active( 'news' ) && in_array( $post->post_type, (array) bearius_seo_get_setting( 'news_post_types', array() ), true );
 
 		$permalink    = get_permalink( $post );
@@ -305,27 +328,35 @@ class Bearius_SEO_Metabox {
 				</div>
 
 				<div class="bearius-seo-preview bearius-seo-preview--looks">
-					<span class="bearius-seo-preview__label"><?php esc_html_e( 'Search result', 'bearius-seo-light' ); ?></span>
-					<div class="bearius-seo-preview__card">
-						<span class="bearius-seo-serp__url"><?php echo esc_html( urldecode( (string) $permalink ) ); ?></span>
-						<span class="bearius-seo-serp__title"></span>
-						<span class="bearius-seo-serp__desc"></span>
+					<div class="bearius-seo-look bearius-seo-look--serp">
+						<span class="bearius-seo-preview__label"><?php esc_html_e( 'Search result', 'bearius-seo-light' ); ?></span>
+						<div class="bearius-seo-preview__card">
+							<span class="bearius-seo-serp__url"><?php echo esc_html( urldecode( (string) $permalink ) ); ?></span>
+							<span class="bearius-seo-serp__title"></span>
+							<span class="bearius-seo-serp__desc"></span>
+						</div>
 					</div>
 
-					<span class="bearius-seo-preview__label bearius-seo-preview__label--next"><?php esc_html_e( 'When shared', 'bearius-seo-light' ); ?></span>
-					<div class="bearius-seo-preview__card bearius-seo-social__card">
-						<span class="bearius-seo-social__image<?php echo esc_attr( $thumb ? '' : ' is-empty' ); ?>"
-							<?php if ( $thumb ) : ?>
-								style="background-image:url('<?php echo esc_url( $thumb ); ?>')"
-							<?php endif; ?>></span>
-						<span class="bearius-seo-social__body">
-							<span class="bearius-seo-social__domain"><?php echo esc_html( (string) $domain ); ?></span>
-							<span class="bearius-seo-social__title"></span>
-							<span class="bearius-seo-social__desc"></span>
-						</span>
+					<div class="bearius-seo-look bearius-seo-look--social">
+						<span class="bearius-seo-preview__label"><?php esc_html_e( 'When shared', 'bearius-seo-light' ); ?></span>
+						<div class="bearius-seo-preview__card bearius-seo-social__card">
+							<?php
+							// A real image, not a CSS background: dark modes of the
+							// dashboard that invert the screen turn images back to
+							// normal colours, but not backgrounds. admin.js then
+							// cancels such a filter exactly, see trueColor().
+							?>
+							<span class="bearius-seo-social__image<?php echo esc_attr( $thumb ? '' : ' is-empty' ); ?>">
+								<img class="bearius-seo-social__img" alt="" decoding="async" data-bs-true-color<?php echo $thumb ? ' src="' . esc_url( $thumb ) . '"' : ' hidden'; ?> />
+								<span class="bearius-seo-social__none"><?php esc_html_e( 'No image', 'bearius-seo-light' ); ?></span>
+							</span>
+							<span class="bearius-seo-social__body">
+								<span class="bearius-seo-social__domain"><?php echo esc_html( (string) $domain ); ?></span>
+								<span class="bearius-seo-social__title"></span>
+								<span class="bearius-seo-social__desc"></span>
+							</span>
+						</div>
 					</div>
-				</div>
-			</div>
 				</div>
 			</div>
 
@@ -339,6 +370,8 @@ class Bearius_SEO_Metabox {
 				do_action( 'bearius_seo_metabox_tools', $post );
 				?>
 
+				<div class="bearius-seo-fields__grid">
+				<div class="bearius-seo-fields__col">
 				<div class="bearius-seo-field">
 					<div class="bearius-seo-field__head">
 						<label class="bearius-seo-field__label" for="bearius-seo-title"><?php esc_html_e( 'SEO title', 'bearius-seo-light' ); ?></label>
@@ -361,7 +394,9 @@ class Bearius_SEO_Metabox {
 					<span class="bearius-seo-meter"><span class="bearius-seo-meter__bar" data-meter="desc"></span></span>
 					<span class="bearius-seo-help"><?php esc_html_e( 'Leave empty and the excerpt is used, then the opening of the content. The grey text shows what will be sent.', 'bearius-seo-light' ); ?></span>
 				</div>
+				</div>
 
+				<div class="bearius-seo-fields__col">
 				<div class="bearius-seo-field">
 					<div class="bearius-seo-field__head">
 						<label class="bearius-seo-field__label" for="bearius-seo-social"><?php esc_html_e( 'Social title', 'bearius-seo-light' ); ?></label>
@@ -377,10 +412,7 @@ class Bearius_SEO_Metabox {
 						<label class="bearius-seo-field__label" for="bearius-seo-image"><?php esc_html_e( 'Social image', 'bearius-seo-light' ); ?></label>
 					</div>
 					<div class="bearius-seo-image-row">
-						<span class="bearius-seo-thumb"
-							<?php if ( $image ) : ?>
-								style="background-image:url('<?php echo esc_url( $image ); ?>')"
-							<?php endif; ?>></span>
+						<span class="bearius-seo-thumb"><img alt="" decoding="async" data-bs-true-color<?php echo $image ? ' src="' . esc_url( $image ) . '"' : ' hidden'; ?> /></span>
 						<span class="bearius-seo-image-controls">
 							<input type="url" class="bearius-seo-image-field" id="bearius-seo-image"
 								name="bearius_seo_image" value="<?php echo esc_url( $image ); ?>" />
@@ -392,22 +424,22 @@ class Bearius_SEO_Metabox {
 						</span>
 					</div>
 				</div>
+				</div>
+				</div>
 
-				<div class="bearius-seo-field">
+				<div class="bearius-seo-toggles">
 					<label class="bearius-seo-toggle">
 						<input type="checkbox" name="bearius_seo_noindex" value="1" <?php checked( $noindex, 1 ); ?> />
 						<span><?php esc_html_e( 'Ask search engines not to index this content', 'bearius-seo-light' ); ?></span>
 					</label>
-				</div>
 
-				<?php if ( $in_news ) : ?>
-				<div class="bearius-seo-field">
+					<?php if ( $in_news ) : ?>
 					<label class="bearius-seo-toggle">
 						<input type="checkbox" name="bearius_seo_news_exclude" value="1" <?php checked( $no_news, 1 ); ?> />
 						<span><?php esc_html_e( 'Leave this entry out of the Google News sitemap', 'bearius-seo-light' ); ?></span>
 					</label>
+					<?php endif; ?>
 				</div>
-				<?php endif; ?>
 
 			</div>
 		</div>

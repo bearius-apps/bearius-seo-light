@@ -439,8 +439,8 @@ msgstr "aucun"
 msgid "Text without JavaScript"
 msgstr "Texte sans JavaScript"
 
-msgid "Import from another plugin"
-msgstr "Importer depuis une autre extension"
+msgid "Import from another plugin or theme"
+msgstr "Importer depuis une autre extension ou un thème"
 
 msgid "Copies SEO titles, descriptions, noindex flags and social titles and images. Template variables are turned into plain text, and titles that only repeat the default are skipped. Nothing is deleted from the other plugin."
 msgstr "Copie les titres SEO, les descriptions, les marqueurs noindex ainsi que les titres et images de partage. Les variables de modèle deviennent du texte simple, et les titres qui ne font que répéter celui par défaut sont ignorés. Rien n’est supprimé de l’autre extension."
@@ -1710,6 +1710,23 @@ msgstr "Le module de sitemap XML est désactivé, donc WordPress sert son propre
 msgid "Paused while %s is active."
 msgstr "En pause tant que %s est actif."
 
+#. translators: %s: theme name.
+msgid "Handled by the %s theme."
+msgstr "Géré par le thème %s."
+
+#. translators: %s: theme name.
+msgid "Handled by the %s theme, so these options have no effect."
+msgstr "Géré par le thème %s, ces options sont donc sans effet."
+
+msgid "The SEO box in the editor stays on, and the theme reads its fields."
+msgstr "La boîte SEO de l’éditeur reste active et le thème lit ses champs."
+
+msgid "The SEO fields on category and tag screens stay on, and the theme reads them."
+msgstr "Les champs SEO des écrans de catégories et d’étiquettes restent actifs et le thème les lit."
+
+msgid "Overrides the archive title in the browser and when shared. Leave empty to use the title shown in grey."
+msgstr "Remplace le titre de l’archive dans le navigateur et au partage. Laissez vide pour utiliser le titre affiché en gris."
+
 msgid "The site asks search engines not to index it, so no sitemap is served."
 msgstr "Le site demande aux moteurs de recherche de ne pas l’indexer, donc aucun sitemap n’est servi."
 
@@ -2033,3 +2050,22 @@ msgstr "Catégorie"
 msgid "Current page"
 msgstr "Page actuelle"
 
+msgid "%d critical problem"
+msgid_plural "%d critical problems"
+msgstr[0] "%d problème critique"
+msgstr[1] "%d problèmes critiques"
+
+msgid "%d warning"
+msgid_plural "%d warnings"
+msgstr[0] "%d avertissement"
+msgstr[1] "%d avertissements"
+
+msgid "%d critical"
+msgid_plural "%d critical"
+msgstr[0] "%d critique"
+msgstr[1] "%d critiques"
+
+msgid "One problem can keep you out of search results"
+msgid_plural "Some problems can keep you out of search results"
+msgstr[0] "Un problème peut vous exclure des résultats de recherche"
+msgstr[1] "Certains problèmes peuvent vous exclure des résultats de recherche"

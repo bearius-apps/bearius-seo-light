@@ -858,7 +858,7 @@ class Bearius_SEO_Admin_Tools {
 	public static function render_import() {
 		$sources = Bearius_SEO_Importer::sources();
 
-		Bearius_SEO_UI::section( __( 'Import from another plugin', 'bearius-seo-light' ), __( 'Copies SEO titles, descriptions, noindex flags and social titles and images. Template variables are turned into plain text, and titles that only repeat the default are skipped. Nothing is deleted from the other plugin.', 'bearius-seo-light' ), true );
+		Bearius_SEO_UI::section( __( 'Import from another plugin or theme', 'bearius-seo-light' ), __( 'Copies SEO titles, descriptions, noindex flags and social titles and images. Template variables are turned into plain text, and titles that only repeat the default are skipped. Nothing is deleted from the other plugin.', 'bearius-seo-light' ), true );
 
 		if ( ! $sources ) {
 			echo '<div class="bs-empty">' . Bearius_SEO_UI::icon( 'import' ) . '<p>' . esc_html__( 'No data from Yoast SEO, Rank Math or All in One SEO was found on this site.', 'bearius-seo-light' ) . '</p></div>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Static SVG.

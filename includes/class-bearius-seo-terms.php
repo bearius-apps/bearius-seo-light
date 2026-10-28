@@ -89,16 +89,53 @@ class Bearius_SEO_Terms {
 	 * @return void
 	 */
 	public function render_edit( $term ) {
-		$title   = get_term_meta( $term->term_id, '_bearius_seo_title', true );
-		$desc    = get_term_meta( $term->term_id, '_bearius_seo_desc', true );
-		$noindex = get_term_meta( $term->term_id, '_bearius_seo_noindex', true );
+		$values = array(
+			'title'   => (string) get_term_meta( $term->term_id, '_bearius_seo_title', true ),
+			'desc'    => (string) get_term_meta( $term->term_id, '_bearius_seo_desc', true ),
+			'noindex' => (int) get_term_meta( $term->term_id, '_bearius_seo_noindex', true ),
+		);
+
+		/**
+		 * Filters the values shown in the term SEO fields.
+		 *
+		 * Same idea as bearius_seo_field_values for posts: a theme can show
+		 * the values it stored itself, and they are saved into the plugin
+		 * fields on the next save.
+		 *
+		 * @param array   $values Keys title, desc and noindex.
+		 * @param WP_Term $term   Term being edited.
+		 */
+		$values = array_merge( $values, (array) apply_filters( 'bearius_seo_term_field_values', $values, $term ) );
+
+		/**
+		 * Filters the grey placeholder of the term SEO title.
+		 *
+		 * A theme that builds archive titles from a template can show the
+		 * result here, so an empty field tells what is really used.
+		 *
+		 * @param string  $placeholder Term name by default.
+		 * @param WP_Term $term        Term being edited.
+		 */
+		$placeholder = (string) apply_filters( 'bearius_seo_term_title_placeholder', $term->name, $term );
+
+		$title   = (string) $values['title'];
+		$desc    = (string) $values['desc'];
+		$noindex = (int) $values['noindex'];
 		?>
 		<tr class="form-field">
 			<th scope="row"><label for="bearius-seo-term-title"><?php esc_html_e( 'SEO title', 'bearius-seo-light' ); ?></label></th>
 			<td>
 				<?php wp_nonce_field( 'bearius_seo_term', 'bearius_seo_term_nonce' ); ?>
-				<input type="text" id="bearius-seo-term-title" name="bearius_seo_term_title" value="<?php echo esc_attr( $title ); ?>" placeholder="<?php echo esc_attr( $term->name ); ?>" />
-				<p class="description"><?php esc_html_e( 'Overrides the archive title in the browser and when shared. Leave empty to use the name.', 'bearius-seo-light' ); ?></p>
+				<input type="text" id="bearius-seo-term-title" name="bearius_seo_term_title" value="<?php echo esc_attr( $title ); ?>" placeholder="<?php echo esc_attr( $placeholder ); ?>" />
+				<p class="description">
+					<?php
+					if ( $placeholder !== $term->name ) {
+						esc_html_e( 'Overrides the archive title in the browser and when shared. Leave empty to use the title shown in grey.', 'bearius-seo-light' );
+					} else {
+						esc_html_e( 'Overrides the archive title in the browser and when shared. Leave empty to use the name.', 'bearius-seo-light' );
+					}
+					?>
+				</p>
 			</td>
 		</tr>
 		<tr class="form-field">

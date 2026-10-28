@@ -256,17 +256,17 @@ class Bearius_SEO_UI {
 	 * @param string $label   Label.
 	 * @param string $help    Help text.
 	 * @param string $blocked Name of a plugin that blocks this option.
+	 * @param string $note    Note to show instead of the default one for $blocked.
 	 * @return void
 	 */
-	public static function switch_row( $key, $label, $help = '', $blocked = '' ) {
+	public static function switch_row( $key, $label, $help = '', $blocked = '', $note = '' ) {
 		$id = 'bs-' . $key;
 		echo '<div class="bs-field bs-field--switch"><div class="bs-field__label"><label for="' . esc_attr( $id ) . '">' . esc_html( $label ) . '</label>';
 		if ( $help ) {
 			echo '<p class="bs-field__help">' . wp_kses_post( $help ) . '</p>';
 		}
 		if ( $blocked ) {
-			/* translators: %s: plugin name. */
-			echo '<p class="bs-field__note">' . esc_html( sprintf( __( 'Paused while %s is active.', 'bearius-seo-light' ), $blocked ) ) . '</p>';
+			echo '<p class="bs-field__note">' . esc_html( '' !== $note ? $note : Bearius_SEO_Compat::instance()->note_for( $blocked ) ) . '</p>';
 		}
 		echo '</div><div class="bs-field__control">';
 		echo '<input type="hidden" name="' . esc_attr( self::name( $key ) ) . '" value="0" />';
@@ -351,7 +351,7 @@ class Bearius_SEO_UI {
 		if ( $help ) {
 			echo '<p class="bs-field__help">' . wp_kses_post( $help ) . '</p>';
 		}
-		echo '</div><div class="bs-field__control"><div class="bearius-seo-image-row"><span class="bearius-seo-thumb"' . ( $value ? ' style="background-image:url(\'' . esc_url( $value ) . '\')"' : '' ) . '></span><span class="bearius-seo-image-controls">';
+		echo '</div><div class="bs-field__control"><div class="bearius-seo-image-row"><span class="bearius-seo-thumb"><img alt="" decoding="async" data-bs-true-color' . ( $value ? ' src="' . esc_url( $value ) . '"' : ' hidden' ) . ' /></span><span class="bearius-seo-image-controls">';
 		echo '<input type="url" class="bs-input bearius-seo-image-field" id="' . esc_attr( $id ) . '" name="' . esc_attr( self::name( $key ) ) . '" value="' . esc_url( $value ) . '" />';
 		echo '<span class="bearius-seo-image-buttons"><button type="button" class="button bearius-seo-image-pick">' . esc_html__( 'Select image', 'bearius-seo-light' ) . '</button> <button type="button" class="button-link bearius-seo-image-clear">' . esc_html__( 'Clear', 'bearius-seo-light' ) . '</button></span></span></div></div></div>';
 	}

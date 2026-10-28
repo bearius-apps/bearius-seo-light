@@ -33,7 +33,7 @@ class Bearius_SEO_Sitemaps {
 	public function register() {
 		if ( self::sitemap_active() ) {
 			add_filter( 'wp_sitemaps_enabled', '__return_false' );
-		} elseif ( bearius_seo_module_active( 'meta' ) ) {
+		} elseif ( bearius_seo_fields_active( 'meta' ) ) {
 			// The WordPress sitemap stays in use, but noindex content is kept out of it.
 			add_filter( 'wp_sitemaps_posts_query_args', array( $this, 'filter_core_posts' ) );
 			add_filter( 'wp_sitemaps_taxonomies_query_args', array( $this, 'filter_core_terms' ) );
@@ -47,6 +47,7 @@ class Bearius_SEO_Sitemaps {
 			add_action( 'created_term', array( $this, 'bump' ) );
 			add_action( 'edited_term', array( $this, 'bump' ) );
 			add_action( 'delete_term', array( $this, 'bump' ) );
+			add_action( 'bearius_seo_flush_sitemaps', array( $this, 'bump' ) );
 			add_filter( 'posts_where', array( $this, 'filter_id_range' ), 10, 2 );
 		}
 	}
@@ -426,7 +427,19 @@ class Bearius_SEO_Sitemaps {
 			$args = array_merge( $args, $languages->post_query_args( $key, $post_type ) );
 		}
 
-		return $args;
+		/**
+		 * Filters the query of entries listed in the XML sitemap.
+		 *
+		 * Used both to split the sitemap into files and to list each file,
+		 * so an exclusion added here keeps the file sizes right. After a
+		 * change that affects the result, fire the bearius_seo_flush_sitemaps
+		 * action so the cached file map is rebuilt.
+		 *
+		 * @param array  $args      WP_Query arguments.
+		 * @param string $post_type Post type.
+		 * @param string $key       Language key, empty on single language sites.
+		 */
+		return (array) apply_filters( 'bearius_seo_sitemap_post_args', $args, $post_type, $key );
 	}
 
 	/**
@@ -546,7 +559,14 @@ class Bearius_SEO_Sitemaps {
 			$args = array_merge( $args, $extra );
 		}
 
-		return $args;
+		/**
+		 * Filters the query of terms listed in the XML sitemap.
+		 *
+		 * @param array  $args     get_terms() arguments.
+		 * @param string $taxonomy Taxonomy.
+		 * @param string $key      Language key, empty on single language sites.
+		 */
+		return (array) apply_filters( 'bearius_seo_sitemap_term_args', $args, $taxonomy, $key );
 	}
 
 	/**
@@ -720,8 +740,17 @@ class Bearius_SEO_Sitemaps {
 
 					foreach ( $query->posts as $post ) {
 						$url = get_permalink( $post );
-						if ( $url ) {
-							$out[] = array( $languages->url_for( $url, $key ), $this->w3c( $post->post_modified_gmt ) );
+						if ( ! $url ) {
+							continue;
+						}
+
+						$url = $languages->url_for( $url, $key );
+
+						// An entry turned into a link to another site keeps
+						// that address as its permalink. Search engines reject
+						// sitemaps that list another host, so it is left out.
+						if ( bearius_seo_is_own_url( $url ) ) {
+							$out[] = array( $url, $this->w3c( $post->post_modified_gmt ) );
 						}
 					}
 
@@ -758,8 +787,13 @@ class Bearius_SEO_Sitemaps {
 
 				foreach ( $terms as $term ) {
 					$url = get_term_link( $term );
-					if ( ! is_wp_error( $url ) ) {
-						$out[] = array( $languages->url_for( $url, $key ), '' );
+					if ( is_wp_error( $url ) ) {
+						continue;
+					}
+
+					$url = $languages->url_for( $url, $key );
+					if ( bearius_seo_is_own_url( $url ) ) {
+						$out[] = array( $url, '' );
 					}
 				}
 
@@ -932,6 +966,14 @@ class Bearius_SEO_Sitemaps {
 				}
 			}
 
+			/**
+			 * Filters the query of articles listed in the Google News sitemap.
+			 *
+			 * @param array  $args WP_Query arguments.
+			 * @param string $key  Language key, empty on single language sites.
+			 */
+			$args = (array) apply_filters( 'bearius_seo_news_query_args', $args, $key );
+
 			$items = $languages->with_language(
 				$key,
 				function () use ( $args, $languages, $key ) {
@@ -944,10 +986,17 @@ class Bearius_SEO_Sitemaps {
 							continue;
 						}
 
+						$url = $languages->url_for( $url, $key );
+
+						// Google News accepts only addresses of the publication itself.
+						if ( ! bearius_seo_is_own_url( $url ) ) {
+							continue;
+						}
+
 						$title = html_entity_decode( wp_strip_all_tags( get_the_title( $post ) ), ENT_QUOTES, 'UTF-8' );
 
 						$out[] = array(
-							'url'   => $languages->url_for( $url, $key ),
+							'url'   => $url,
 							'date'  => (string) get_post_time( 'c', false, $post ),
 							'title' => $languages->translate_text( $title, $key ),
 						);

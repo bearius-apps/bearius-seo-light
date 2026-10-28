@@ -4,7 +4,7 @@ Tags: seo, google news, sitemap, schema, multilingual
 Requires at least: 6.0
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 1.1.0
+Stable tag: 1.2.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -117,6 +117,26 @@ The audit sends requests only to your own site, to read your pages, sitemaps, ro
 
 Run the checks on the Audit screen: it fetches your pages and shows exactly which tags appear twice. Where the duplicate comes from this plugin, a one click fix switches ours off. The plugin cannot see SEO code added by the theme or a snippet manager, so in that case remove the other code or switch off the matching option under Meta and schema.
 
+= My theme already prints SEO tags. How do I avoid duplicates? =
+
+A theme can tell the plugin which parts it handles itself. Add this to the theme's after_setup_theme callback and list only what the theme really does:
+
+`add_theme_support( 'bearius-seo', array( 'meta', 'schema' ) );`
+
+Available parts: meta, schema, terms, breadcrumbs, verification, sitemap, news, robots, feeds, tags, comments and archives. Those parts stay off whatever the settings say, and the settings show that the theme handles them.
+
+= Can the theme print the tags and still use the SEO box in the editor? =
+
+Yes. Add a second declaration:
+
+`add_theme_support( 'bearius-seo-fields' );`
+
+The SEO box in the post editor and the SEO fields on category and tag screens then stay on, even though the theme handles meta and terms. The plugin saves the fields and prints nothing; the theme reads them from post and term meta (`_bearius_seo_title`, `_bearius_seo_desc`, `_bearius_seo_social`, `_bearius_seo_image` and `_bearius_seo_noindex`). Pass array( 'meta' ) or array( 'terms' ) to keep only one of the two.
+
+= How do I bring over SEO data my theme kept in custom fields? =
+
+The theme or a small plugin registers its fields with the bearius_seo_import_sources filter, and the source appears on the Import screen next to Yoast SEO, Rank Math and All in One SEO. Images stored as attachment IDs are turned into addresses. Nothing is deleted from the original fields.
+
 = Does it replace the WordPress sitemap? =
 
 Yes, while the XML sitemap module is on. The new sitemap lives at /sitemap.xml and the old /wp-sitemap.xml address redirects to it. Switch the module off to go back to the WordPress sitemap.
@@ -184,10 +204,36 @@ Yes. The graph passes through the bearius_seo_schema_graph filter before it is p
 
 == Upgrade Notice ==
 
+= 1.2.0 =
+Works together with themes that handle part of the SEO themselves, keeps addresses of other sites out of the sitemaps, protects password protected content and makes the SEO box lighter, also under a dark mode of the dashboard.
+
+= 1.1.1 =
+Fixes a broken layout of the post editor screen caused by the SEO box.
+
 = 1.1.0 =
 A large update: its own admin menu, multilingual XML and Google News sitemaps, an audit with one click fixes, AI crawler control, feed and comment settings and translations into four languages. Your settings and SEO fields from 1.0 are kept.
 
 == Changelog ==
+
+= 1.2.0 =
+* New: the SEO box follows its own width instead of the width of the screen. On tablets, zoomed in screens and in narrow columns the share preview keeps the size and proportions of a real link preview and the checks use two columns; on wide screens the search result and the share preview sit side by side and the fields use two columns, so the box takes much less space.
+* New: with add_theme_support( 'bearius-seo-fields' ) a theme that prints the tags itself keeps the SEO box in the editor and the term SEO fields. The plugin saves them and the theme reads them, so add-ons working with the SEO box also work on such themes.
+* New: the bearius_seo_import_sources filter lets a theme or plugin offer its own custom fields on the Import screen. Images stored as attachment IDs are imported as addresses.
+* New: filters bearius_seo_field_values and bearius_seo_term_field_values show values the theme kept itself in the SEO fields, bearius_seo_term_title_placeholder shows the theme's default archive title, and bearius_seo_description_fallback lets the preview and the audit use the description the theme builds.
+* New: themes can declare the parts they handle themselves with add_theme_support( 'bearius-seo', array( ... ) ). Those parts stay off whatever the settings say and are marked in the settings.
+* New: filters bearius_seo_sitemap_post_args, bearius_seo_sitemap_term_args and bearius_seo_news_query_args, and the bearius_seo_flush_sitemaps action, for plugins that need to leave entries out of the sitemaps.
+* New: the bearius_seo_og_image filter now works, so other plugins (such as Bearius Calendar) can give their own content a fallback social image.
+* Security: password protected content gets no generated description, so the opening of the protected text no longer appears in the meta description, Open Graph, X Card and Schema.org data. A description typed into the SEO box is still used.
+* Fix: under a dark mode of the dashboard that inverts the screen with a CSS filter, the image in the share preview and the image thumbnails had wrong, inverted colours. They are real images now and the filter above them is undone, so they keep their true colours.
+* Fix: the thumbnail next to the social image field no longer grows to the full width of the box on small screens.
+* Fix: the counts in the dashboard widget, the badge of critical problems and the audit headline were left in English; they are translated into Polish, German, Spanish and French now.
+* Fix: addresses on another host, for example entries that link to another site, are left out of the XML and Google News sitemaps and of the audit.
+* Fix: the canonical link follows the WordPress canonical filter, so plugins that point an entry at its original source are respected.
+* Changed: the importer skips empty custom fields and revisions, so sites where a field plugin saved values for every post and every revision import faster, and the count on the Import screen shows real entries.
+* Changed: the plugin starts after the theme is loaded, so it can see the theme's declaration.
+
+= 1.1.1 =
+* Fix: the SEO box closed two HTML containers too many, which broke the layout of the classic editor screen (sidebar and meta boxes out of place).
 
 = 1.1.0 =
 * New: Bearius SEO has its own admin menu with quick links. Old bookmarks of the Settings page redirect.
