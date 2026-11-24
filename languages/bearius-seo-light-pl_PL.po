@@ -4,8 +4,6 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Last-Translator: Bearius\n"
-"Language-Team: Bearius\n"
 "Language: pl_PL\n"
 "Plural-Forms: nplurals=3; plural=(n == 1 ? 0 : (n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % 100 > 14)) ? 1 : 2);\n"
 "X-Domain: bearius-seo-light\n"
@@ -439,8 +437,8 @@ msgstr "brak"
 msgid "Text without JavaScript"
 msgstr "Tekst bez JavaScriptu"
 
-msgid "Import from another plugin or theme"
-msgstr "Import z innej wtyczki lub motywu"
+msgid "Import from another plugin"
+msgstr "Import z innej wtyczki"
 
 msgid "Copies SEO titles, descriptions, noindex flags and social titles and images. Template variables are turned into plain text, and titles that only repeat the default are skipped. Nothing is deleted from the other plugin."
 msgstr "Kopiuje tytuły SEO, opisy, flagi noindex oraz tytuły i obrazki do udostępnień. Zmienne szablonów zamieniane są na zwykły tekst, a tytuły powtarzające domyślny są pomijane. Nic nie jest usuwane z innej wtyczki."
@@ -958,14 +956,14 @@ msgstr "Na mapie witryny Google News przez dwa dni od publikacji"
 msgid "Structured data: %s"
 msgstr "Dane strukturalne: %s"
 
+msgid "Search result"
+msgstr "Wynik wyszukiwania"
+
 msgid "Checks"
 msgstr "Kontrola"
 
 msgid "Image, length and links are checked for the saved version."
 msgstr "Obrazek, długość i linki są sprawdzane dla zapisanej wersji."
-
-msgid "Search result"
-msgstr "Wynik wyszukiwania"
 
 msgid "When shared"
 msgstr "Po udostępnieniu"
@@ -1714,23 +1712,6 @@ msgstr "Moduł mapy witryny XML jest wyłączony, więc WordPress udostępnia w�
 msgid "Paused while %s is active."
 msgstr "Wstrzymane, dopóki aktywna jest wtyczka %s."
 
-#. translators: %s: theme name.
-msgid "Handled by the %s theme."
-msgstr "Obsługuje to motyw %s."
-
-#. translators: %s: theme name.
-msgid "Handled by the %s theme, so these options have no effect."
-msgstr "Obsługuje to motyw %s, więc te opcje nie działają."
-
-msgid "The SEO box in the editor stays on, and the theme reads its fields."
-msgstr "Pole SEO w edytorze zostaje włączone, a motyw korzysta z jego wartości."
-
-msgid "The SEO fields on category and tag screens stay on, and the theme reads them."
-msgstr "Pola SEO na ekranach kategorii i tagów zostają włączone, a motyw z nich korzysta."
-
-msgid "Overrides the archive title in the browser and when shared. Leave empty to use the title shown in grey."
-msgstr "Zastępuje tytuł archiwum w przeglądarce i przy udostępnianiu. Zostaw puste, aby użyć tytułu widocznego na szaro."
-
 msgid "The site asks search engines not to index it, so no sitemap is served."
 msgstr "Witryna prosi wyszukiwarki o nieindeksowanie, więc mapa witryny nie jest udostępniana."
 
@@ -2055,26 +2036,3 @@ msgstr "Kategoria"
 msgid "Current page"
 msgstr "Bieżąca strona"
 
-msgid "%d critical problem"
-msgid_plural "%d critical problems"
-msgstr[0] "%d problem krytyczny"
-msgstr[1] "%d problemy krytyczne"
-msgstr[2] "%d problemów krytycznych"
-
-msgid "%d warning"
-msgid_plural "%d warnings"
-msgstr[0] "%d ostrzeżenie"
-msgstr[1] "%d ostrzeżenia"
-msgstr[2] "%d ostrzeżeń"
-
-msgid "%d critical"
-msgid_plural "%d critical"
-msgstr[0] "%d krytyczny"
-msgstr[1] "%d krytyczne"
-msgstr[2] "%d krytycznych"
-
-msgid "One problem can keep you out of search results"
-msgid_plural "Some problems can keep you out of search results"
-msgstr[0] "Ten problem może wykluczyć stronę z wyników wyszukiwania"
-msgstr[1] "Te problemy mogą wykluczyć stronę z wyników wyszukiwania"
-msgstr[2] "Te problemy mogą wykluczyć stronę z wyników wyszukiwania"

@@ -1,10 +1,3 @@
-/**
- * Bearius SEO Light - readable view of the XML sitemaps.
- *
- * @package BeariusSEOLight
- * @author  Bearius
- */
-
 @namespace url(http://www.sitemaps.org/schemas/sitemap/0.9);
 @namespace news url(http://www.google.com/schemas/sitemap-news/0.9);
 

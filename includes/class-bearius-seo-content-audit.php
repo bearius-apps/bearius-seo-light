@@ -7,7 +7,6 @@
  * works on sites with hundreds of thousands of entries.
  *
  * @package BeariusSEOLight
- * @author  Bearius
  */
 
 if ( ! defined( 'ABSPATH' ) ) {

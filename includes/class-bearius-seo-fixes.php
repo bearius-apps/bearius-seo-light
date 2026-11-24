@@ -8,7 +8,6 @@
  * never touched.
  *
  * @package BeariusSEOLight
- * @author  Bearius
  */
 
 if ( ! defined( 'ABSPATH' ) ) {

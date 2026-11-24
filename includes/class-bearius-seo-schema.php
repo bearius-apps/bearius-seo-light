@@ -7,7 +7,6 @@
  * engines expect and keeps the markup free of repeated publisher data.
  *
  * @package BeariusSEOLight
- * @author  Bearius
  */
 
 if ( ! defined( 'ABSPATH' ) ) {

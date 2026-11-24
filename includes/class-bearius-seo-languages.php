@@ -8,7 +8,6 @@
  * sitemaps, IndexNow and the Open Graph tags.
  *
  * @package BeariusSEOLight
- * @author  Bearius
  */
 
 if ( ! defined( 'ABSPATH' ) ) {

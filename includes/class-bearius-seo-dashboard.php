@@ -3,7 +3,6 @@
  * Dashboard widget with the audit status at a glance.
  *
  * @package BeariusSEOLight
- * @author  Bearius
  */
 
 if ( ! defined( 'ABSPATH' ) ) {

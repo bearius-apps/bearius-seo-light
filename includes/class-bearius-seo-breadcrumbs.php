@@ -3,7 +3,6 @@
  * Visible breadcrumbs: shortcode, block and template function.
  *
  * @package BeariusSEOLight
- * @author  Bearius
  */
 
 if ( ! defined( 'ABSPATH' ) ) {

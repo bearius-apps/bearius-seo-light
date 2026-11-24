@@ -8,7 +8,6 @@
  * only after the site owner opts in.
  *
  * @package BeariusSEOLight
- * @author  Bearius
  */
 
 if ( ! defined( 'ABSPATH' ) ) {

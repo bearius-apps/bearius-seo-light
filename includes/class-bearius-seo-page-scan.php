@@ -8,7 +8,6 @@
  * performance hints and the text an AI crawler gets without JavaScript.
  *
  * @package BeariusSEOLight
- * @author  Bearius
  */
 
 if ( ! defined( 'ABSPATH' ) ) {

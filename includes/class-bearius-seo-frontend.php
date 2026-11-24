@@ -3,7 +3,6 @@
  * Front end meta tags.
  *
  * @package BeariusSEOLight
- * @author  Bearius
  */
 
 if ( ! defined( 'ABSPATH' ) ) {

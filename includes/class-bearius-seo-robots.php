@@ -8,7 +8,6 @@
  * entirely, which makes it hard to block the whole site by accident.
  *
  * @package BeariusSEOLight
- * @author  Bearius
  */
 
 if ( ! defined( 'ABSPATH' ) ) {

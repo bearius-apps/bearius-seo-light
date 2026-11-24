@@ -4,7 +4,6 @@
  * Shows a static placeholder; the real trail is rendered on the front end.
  *
  * @package BeariusSEOLight
- * @author  Bearius
  */
 
 ( function ( wp ) {

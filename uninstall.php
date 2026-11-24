@@ -3,7 +3,6 @@
  * Removes plugin data when the plugin is deleted.
  *
  * @package BeariusSEOLight
- * @author  Bearius
  */
 
 if ( ! defined( 'WP_UNINSTALL_PLUGIN' ) ) {

@@ -3,7 +3,6 @@
  * the score ring entrance and the batched importer.
  *
  * @package BeariusSEOLight
- * @author  Bearius
  */
 
 ( function () {

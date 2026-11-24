@@ -1,8 +1,8 @@
 <?php
 /**
  * Plugin Name:       Bearius SEO Light
- * Description:       SEO for publishers and multilingual sites: meta tags, Schema.org graph, multilingual XML and Google News sitemaps, AI crawler control, IndexNow and a fact based audit with one click fixes.
- * Version:           1.2.0
+ * Description:       Lightweight SEO for publishers: meta tags, Schema.org graph, multilingual XML and Google News sitemaps, robots.txt, IndexNow and a fact based site audit.
+ * Version:           1.3.0
  * Requires at least: 6.0
  * Requires PHP:      7.4
  * Author:            Bearius
@@ -13,14 +13,13 @@
  * Domain Path:       /languages
  *
  * @package BeariusSEOLight
- * @author  Bearius
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'BEARIUS_SEO_VERSION', '1.2.0' );
+define( 'BEARIUS_SEO_VERSION', '1.3.0' );
 define( 'BEARIUS_SEO_FILE', __FILE__ );
 define( 'BEARIUS_SEO_PATH', plugin_dir_path( __FILE__ ) );
 define( 'BEARIUS_SEO_URL', plugin_dir_url( __FILE__ ) );
@@ -49,36 +48,27 @@ require_once BEARIUS_SEO_PATH . 'includes/class-bearius-seo-settings.php';
 require_once BEARIUS_SEO_PATH . 'includes/class-bearius-seo-admin-tools.php';
 
 /**
- * Boots the plugin once WordPress, all other plugins and the theme are loaded.
+ * Boots the plugin once WordPress and all other plugins are loaded.
  *
  * The compatibility check has to run after every plugin is available,
- * otherwise a conflicting SEO plugin loaded later would go unnoticed. It
- * also has to see the theme, which can declare the parts it handles itself
- * with add_theme_support( 'bearius-seo', ... ). Late priority, so a
- * declaration made in after_setup_theme is already in place. Only the
- * modules that would duplicate the theme or another plugin are switched off.
+ * otherwise a conflicting SEO plugin loaded later would go unnoticed.
+ * Only the modules that would duplicate another plugin are switched off.
  *
  * @return void
  */
 function bearius_seo_bootstrap() {
-	$compat = Bearius_SEO_Compat::instance();
-	$compat->register();
+	Bearius_SEO_Compat::instance()->register();
 
 	if ( bearius_seo_module_active( 'meta' ) ) {
 		( new Bearius_SEO_Metabox() )->register();
 		( new Bearius_SEO_Frontend() )->register();
-	} elseif ( $compat->theme_reads_fields( 'meta' ) ) {
-		// The theme prints the tags but reads the plugin fields, so only
-		// the editor box is loaded. Nothing is printed on the front end.
-		( new Bearius_SEO_Metabox() )->register();
 	}
 
 	if ( bearius_seo_module_active( 'schema' ) ) {
 		( new Bearius_SEO_Schema() )->register();
 	}
 
-	if ( bearius_seo_fields_active( 'terms' ) ) {
-		// Term fields print nothing themselves, the front end reads them.
+	if ( bearius_seo_module_active( 'terms' ) ) {
 		( new Bearius_SEO_Terms() )->register();
 	}
 
@@ -112,7 +102,7 @@ function bearius_seo_bootstrap() {
 		( new Bearius_SEO_Fixes() )->register();
 	}
 }
-add_action( 'after_setup_theme', 'bearius_seo_bootstrap', 100 );
+add_action( 'plugins_loaded', 'bearius_seo_bootstrap' );
 
 /**
  * Loads the bundled translations in the language of the dashboard user.
@@ -167,6 +157,18 @@ function bearius_seo_maybe_upgrade() {
 	// A network activation runs the activation hook on the main site only.
 	if ( false === get_option( BEARIUS_SEO_OPTION ) ) {
 		add_option( BEARIUS_SEO_OPTION, bearius_seo_default_settings() );
+	}
+
+	// Before 1.1.2 tags were in the sitemap by default and that default was
+	// saved with the first settings save. An unchanged old default follows
+	// the new one, which leaves tags out.
+	if ( $stored && version_compare( $stored, '1.2.3', '<' ) ) {
+		$settings = get_option( BEARIUS_SEO_OPTION );
+		if ( is_array( $settings ) && isset( $settings['sitemap_taxonomies'] ) && array( 'category', 'post_tag' ) === array_values( (array) $settings['sitemap_taxonomies'] ) ) {
+			$settings['sitemap_taxonomies'] = array( 'category' );
+			update_option( BEARIUS_SEO_OPTION, $settings );
+			update_option( 'bearius_seo_sm_ver', (int) get_option( 'bearius_seo_sm_ver', 0 ) + 1 );
+		}
 	}
 
 	if ( ! wp_next_scheduled( 'bearius_seo_daily_check' ) ) {

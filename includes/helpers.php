@@ -3,7 +3,6 @@
  * Shared helper functions.
  *
  * @package BeariusSEOLight
- * @author  Bearius
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -284,11 +283,6 @@ function bearius_seo_count_words( $text ) {
  *
  * Order: custom field, manual excerpt, generated excerpt.
  *
- * Password protected content gets no generated description: the opening
- * of the text would otherwise show up in the meta tags, social previews
- * and structured data of a page that asks for the password. A description
- * typed into the SEO box is still used, it was written to be public.
- *
  * @param int $post_id Post ID.
  * @return string
  */
@@ -299,25 +293,8 @@ function bearius_seo_post_description( $post_id ) {
 	}
 
 	$post = get_post( $post_id );
-	if ( ! $post || '' !== (string) $post->post_password ) {
+	if ( ! $post ) {
 		return '';
-	}
-
-	/**
-	 * Filters the description used when the entry has none of its own.
-	 *
-	 * A theme that prints the meta tags itself can return the text it
-	 * builds, so the editor preview and the audit show what visitors and
-	 * search engines really get. An empty string keeps the default: the
-	 * excerpt, then the opening of the content.
-	 *
-	 * @param string  $description Description, empty by default.
-	 * @param WP_Post $post        Post.
-	 */
-	$fallback = trim( (string) apply_filters( 'bearius_seo_description_fallback', '', $post ) );
-	if ( '' !== $fallback ) {
-		// Not shortened: the preview has to show the text as it is printed.
-		return wp_strip_all_tags( $fallback );
 	}
 
 	if ( has_excerpt( $post ) ) {
@@ -366,21 +343,6 @@ function bearius_seo_post_image( $post_id ) {
 				'alt'    => (string) get_post_meta( $thumb_id, '_wp_attachment_image_alt', true ),
 			);
 		}
-	}
-
-	/**
-	 * Filters the social image of an entry without its own image.
-	 *
-	 * Runs before the site wide default image, so plugins can supply a
-	 * better fallback for their own content, such as a default image for
-	 * events. URL in, URL out; an empty string keeps the default.
-	 *
-	 * @param string $url     Image URL, empty by default.
-	 * @param int    $post_id Post ID.
-	 */
-	$fallback = (string) apply_filters( 'bearius_seo_og_image', '', (int) $post_id );
-	if ( '' !== $fallback ) {
-		return bearius_seo_image_by_url( $fallback );
 	}
 
 	$default = bearius_seo_get_setting( 'default_image' );
@@ -591,19 +553,6 @@ function bearius_seo_module_active( $module ) {
 }
 
 /**
- * Tells whether the SEO fields of a part are in use.
- *
- * Either the plugin prints the tags itself, or the theme prints them and
- * reads the plugin fields (add_theme_support( 'bearius-seo-fields' )).
- *
- * @param string $part 'meta' for the post editor box, 'terms' for archive screens.
- * @return bool
- */
-function bearius_seo_fields_active( $part ) {
-	return bearius_seo_module_active( $part ) || Bearius_SEO_Compat::instance()->theme_reads_fields( $part );
-}
-
-/**
  * Returns the post types included in the XML sitemap.
  *
  * @return string[]
@@ -760,13 +709,6 @@ function bearius_seo_current_canonical() {
 
 		if ( ! $post instanceof WP_Post ) {
 			return '';
-		}
-
-		// The WordPress canonical runs the get_canonical_url filter, which
-		// other plugins use to point an entry at its original source.
-		$canonical = wp_get_canonical_url( $post );
-		if ( $canonical ) {
-			return (string) $canonical;
 		}
 
 		$url  = get_permalink( $post );
@@ -1059,67 +1001,6 @@ function bearius_seo_site_is_public() {
 }
 
 /**
- * Returns the host names that belong to this site.
- *
- * The site host plus the home page host of every language, because some
- * multilingual setups serve each language on its own domain.
- *
- * @return string[] Lower case host names.
- */
-function bearius_seo_own_hosts() {
-	static $hosts = null;
-
-	if ( null !== $hosts ) {
-		return $hosts;
-	}
-
-	$urls      = array( home_url( '/' ) );
-	$languages = Bearius_SEO_Languages::instance();
-
-	if ( $languages->is_multilingual() ) {
-		foreach ( array_keys( $languages->languages() ) as $key ) {
-			$urls[] = $languages->home_url( $key );
-		}
-	}
-
-	$list = array();
-
-	foreach ( $urls as $url ) {
-		$host = strtolower( (string) wp_parse_url( (string) $url, PHP_URL_HOST ) );
-		if ( '' !== $host ) {
-			$list[] = $host;
-		}
-	}
-
-	/**
-	 * Filters the host names treated as this site in sitemaps and checks.
-	 *
-	 * @param string[] $list Lower case host names.
-	 */
-	$list = (array) apply_filters( 'bearius_seo_own_hosts', array_values( array_unique( $list ) ) );
-
-	$hosts = array_values( array_unique( array_map( 'strtolower', array_filter( array_map( 'strval', $list ) ) ) ) );
-
-	return $hosts;
-}
-
-/**
- * Tells whether a URL points at this site.
- *
- * Plugins that turn an entry into a link to another site do it by changing
- * its permalink. Such addresses must not end up in this site's sitemaps,
- * because search engines reject files that list another host.
- *
- * @param string $url URL.
- * @return bool
- */
-function bearius_seo_is_own_url( $url ) {
-	$host = strtolower( (string) wp_parse_url( (string) $url, PHP_URL_HOST ) );
-
-	return '' !== $host && in_array( $host, bearius_seo_own_hosts(), true );
-}
-
-/**
  * Saves a few settings at once, keeping all the others.
  *
  * @param array $changes Setting key => value.
@@ -1262,11 +1143,6 @@ function bearius_seo_load_translation( $domain, $dir ) {
 
 	if ( is_readable( $file ) ) {
 		unload_textdomain( $domain );
-
-		// Since WordPress 6.5 translations are stored per locale and looked
-		// up for the locale of the request. A personal choice that differs
-		// from the profile language is therefore stored under the request
-		// locale, otherwise WordPress would never read it.
-		load_textdomain( $domain, $file, function_exists( 'determine_locale' ) ? determine_locale() : get_locale() );
+		load_textdomain( $domain, $file, $locale );
 	}
 }

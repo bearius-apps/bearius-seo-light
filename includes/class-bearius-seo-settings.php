@@ -6,7 +6,6 @@
  * over the stored values, so saving one tab never resets another.
  *
  * @package BeariusSEOLight
- * @author  Bearius
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -546,7 +545,7 @@ class Bearius_SEO_Settings {
 			if ( $info[2] && bearius_seo_module_enabled( $module ) ) {
 				$help .= ' <a href="' . esc_url( bearius_seo_admin_url( $info[2] ) ) . '">' . esc_html__( 'Settings', 'bearius-seo-light' ) . '</a>';
 			}
-			Bearius_SEO_UI::switch_row( bearius_seo_module_key( $module ), $info[0], $help, $compat->blocked_by( $module ), $compat->module_note( $module ) );
+			Bearius_SEO_UI::switch_row( bearius_seo_module_key( $module ), $info[0], $help, $compat->blocked_by( $module ) );
 		}
 
 		echo '<input type="hidden" name="' . esc_attr( Bearius_SEO_UI::name( 'mod_widget' ) ) . '" value="' . esc_attr( (string) (int) bearius_seo_get_setting( 'mod_widget' ) ) . '" />';
@@ -614,24 +613,7 @@ class Bearius_SEO_Settings {
 	}
 
 	/**
-	 * Prints a note when the theme handles a group of options itself.
-	 *
-	 * @param string $part Part name, see Bearius_SEO_Compat::theme_areas().
-	 * @return void
-	 */
-	private function theme_note( $part ) {
-		$compat = Bearius_SEO_Compat::instance();
-
-		if ( ! $compat->theme_handles( $part ) ) {
-			return;
-		}
-
-		/* translators: %s: theme name. */
-		Bearius_SEO_UI::callout( esc_html( sprintf( __( 'Handled by the %s theme, so these options have no effect.', 'bearius-seo-light' ), $compat->theme_name() ) ), 'info' );
-	}
-
-	/**
-	 * Feeds, tags, comments and archives settings.
+	 * Feeds, tags, comments and archives.
 	 *
 	 * @return void
 	 */
@@ -641,7 +623,6 @@ class Bearius_SEO_Settings {
 		Bearius_SEO_UI::form_open( 'site' );
 
 		Bearius_SEO_UI::section( __( 'RSS feeds', 'bearius-seo-light' ), __( 'Feeds are read by feed readers such as Feedly, by aggregators and news apps, by tools that post to social media and by RSS newsletters. Search engines can use them to find new posts.', 'bearius-seo-light' ) );
-		$this->theme_note( 'feeds' );
 		Bearius_SEO_UI::segmented_row(
 			'rss_disable',
 			__( 'Available feeds', 'bearius-seo-light' ),
@@ -673,7 +654,6 @@ class Bearius_SEO_Settings {
 		Bearius_SEO_UI::section_end();
 
 		Bearius_SEO_UI::section( __( 'Tags', 'bearius-seo-light' ), __( 'Tag archives often repeat what categories already show and add thin pages for search engines. Nothing is deleted: switch back and everything returns.', 'bearius-seo-light' ) );
-		$this->theme_note( 'tags' );
 		Bearius_SEO_UI::segmented_row(
 			'tags_mode',
 			__( 'Tags', 'bearius-seo-light' ),
@@ -687,7 +667,6 @@ class Bearius_SEO_Settings {
 		Bearius_SEO_UI::section_end();
 
 		Bearius_SEO_UI::section( __( 'Comments', 'bearius-seo-light' ), __( 'Comments bring spam links, pingbacks, extra feeds and duplicate addresses when they are split into pages. Nothing is deleted.', 'bearius-seo-light' ) );
-		$this->theme_note( 'comments' );
 		Bearius_SEO_UI::segmented_row(
 			'comments_mode',
 			__( 'Comments', 'bearius-seo-light' ),
@@ -702,7 +681,6 @@ class Bearius_SEO_Settings {
 		Bearius_SEO_UI::section_end();
 
 		Bearius_SEO_UI::section( __( 'Archives', 'bearius-seo-light' ), __( 'Lists of posts by author or by date rarely help readers or search engines.', 'bearius-seo-light' ) );
-		$this->theme_note( 'archives' );
 		$archive = array(
 			'index'   => __( 'Indexed', 'bearius-seo-light' ),
 			'noindex' => __( 'Not indexed', 'bearius-seo-light' ),
@@ -798,7 +776,8 @@ class Bearius_SEO_Settings {
 		if ( ! bearius_seo_module_enabled( 'sitemap' ) ) {
 			Bearius_SEO_UI::callout( __( 'The XML sitemap module is off, so WordPress serves its own sitemap. Noindex content is still left out of it.', 'bearius-seo-light' ), 'info' );
 		} elseif ( $compat->blocked_by( 'sitemap' ) ) {
-			Bearius_SEO_UI::callout( $compat->note_for( $compat->blocked_by( 'sitemap' ) ), 'warning' );
+			/* translators: %s: plugin name. */
+			Bearius_SEO_UI::callout( sprintf( __( 'Paused while %s is active.', 'bearius-seo-light' ), $compat->blocked_by( 'sitemap' ) ), 'warning' );
 		} elseif ( ! bearius_seo_site_is_public() ) {
 			Bearius_SEO_UI::callout( __( 'The site asks search engines not to index it, so no sitemap is served.', 'bearius-seo-light' ), 'warning' );
 		} else {
@@ -836,7 +815,8 @@ class Bearius_SEO_Settings {
 		if ( ! bearius_seo_module_enabled( 'news' ) ) {
 			Bearius_SEO_UI::callout( __( 'The Google News sitemap is off. Switch it on in the Overview if you publish news.', 'bearius-seo-light' ), 'info' );
 		} elseif ( $compat->blocked_by( 'news' ) ) {
-			Bearius_SEO_UI::callout( $compat->note_for( $compat->blocked_by( 'news' ) ), 'warning' );
+			/* translators: %s: plugin name. */
+			Bearius_SEO_UI::callout( sprintf( __( 'Paused while %s is active.', 'bearius-seo-light' ), $compat->blocked_by( 'news' ) ), 'warning' );
 		} else {
 			Bearius_SEO_UI::callout(
 				sprintf(
@@ -891,7 +871,8 @@ class Bearius_SEO_Settings {
 		if ( ! bearius_seo_module_enabled( 'robots' ) ) {
 			Bearius_SEO_UI::callout( __( 'The robots.txt module is off. WordPress serves its default rules; the sitemap lines are still added.', 'bearius-seo-light' ), 'info' );
 		} elseif ( Bearius_SEO_Compat::instance()->blocked_by( 'robots' ) ) {
-			Bearius_SEO_UI::callout( Bearius_SEO_Compat::instance()->note_for( Bearius_SEO_Compat::instance()->blocked_by( 'robots' ) ), 'warning' );
+			/* translators: %s: plugin name. */
+			Bearius_SEO_UI::callout( sprintf( __( 'Paused while %s is active.', 'bearius-seo-light' ), Bearius_SEO_Compat::instance()->blocked_by( 'robots' ) ), 'warning' );
 		}
 
 		if ( Bearius_SEO_Robots::in_subdirectory() ) {
@@ -963,7 +944,8 @@ class Bearius_SEO_Settings {
 		Bearius_SEO_UI::section( __( 'Site verification', 'bearius-seo-light' ), __( 'Paste the code or the whole meta tag from each tool. The tag is printed on the home page only.', 'bearius-seo-light' ) );
 
 		if ( $blocked ) {
-			Bearius_SEO_UI::callout( Bearius_SEO_Compat::instance()->note_for( $blocked ), 'warning' );
+			/* translators: %s: plugin name. */
+			Bearius_SEO_UI::callout( sprintf( __( 'Paused while %s is active.', 'bearius-seo-light' ), $blocked ), 'warning' );
 		} elseif ( ! bearius_seo_module_enabled( 'verification' ) ) {
 			Bearius_SEO_UI::callout( __( 'The verification module is off. Switch it on in the Overview.', 'bearius-seo-light' ), 'info' );
 		}
